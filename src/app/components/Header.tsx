@@ -1,199 +1,152 @@
 import { Link, useLocation } from "react-router";
-import { Menu, X, Phone, Mail, Heart, Sparkles, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { Menu, X, Phone, Mail, Heart } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  const primaryNav = [
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  const navLinks = [
     { name: "Home", href: "/" },
-    { name: "About Founder", href: "/about" },
     { name: "Schools", href: "/schools" },
-    { name: "Sports Academy", href: "/sports-academy" },
-    { name: "Education Fund", href: "/education-fund" },
-    { name: "Transporters", href: "/transporters" },
-    { name: "Photo Gallery", href: "/gallery" },
-    { name: "Contact Us", href: "/contact" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "News", href: "/news" },
+    { name: "Contact", href: "/contact" },
   ];
 
-  const secondaryNav = [
-    { name: "News & Updates", href: "/news" },
-    { name: "Donor Recognition", href: "/donors" },
-    { name: "Volunteer", href: "/volunteer" },
-    { name: "Downloads", href: "/downloads" },
-  ];
-
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) =>
+    path === "/" ? location.pathname === "/" : location.pathname.startsWith(path);
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50 transition-all">
-      {/* Top Announcement Bar */}
-      <div className="bg-gradient-to-r from-rose-950 via-rose-900 to-amber-950 text-white text-xs sm:text-sm">
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/95 backdrop-blur-md shadow-[0_1px_20px_rgba(0,0,0,0.08)]"
+          : "bg-white shadow-sm"
+      }`}
+    >
+      {/* Top Info Bar */}
+      <div className="bg-blue-900 text-white text-xs hidden sm:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-between items-center py-2.5 gap-2">
-            <div className="flex flex-wrap items-center gap-4">
-              <a href="tel:+256772543737" className="flex items-center gap-1.5 hover:text-rose-200 transition-colors">
-                <Phone className="w-3.5 h-3.5 text-rose-300" />
-                <span>+256 772 543 737 / +44 74040</span>
-              </a>
-              <a href="mailto:sttfoundation2@gmail.com" className="hidden md:flex items-center gap-1.5 hover:text-rose-200 transition-colors">
-                <Mail className="w-3.5 h-3.5 text-rose-300" />
-                <span>sttfoundation2@gmail.com</span>
-              </a>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <span className="hidden sm:inline-flex items-center gap-1.5 bg-rose-800/60 text-amber-200 px-3 py-0.5 rounded-full text-xs font-medium border border-rose-700/50">
-                <Sparkles className="w-3 h-3 text-amber-300 animate-pulse" />
-                Silver Jubilee Priesthood Celebration (05 July 2025)
-              </span>
-              <Link
-                to="/education-fund"
-                className="inline-flex items-center gap-1.5 bg-amber-500 hover:bg-amber-400 text-rose-950 font-semibold px-3 py-1 rounded-full text-xs transition-all shadow-sm hover:scale-105"
+          <div className="flex justify-between items-center py-2 gap-2">
+            <div className="flex items-center gap-5">
+              <a
+                href="tel:+256772543737"
+                className="flex items-center gap-1.5 text-blue-200 hover:text-white transition-colors"
               >
-                <Heart className="w-3.5 h-3.5 fill-rose-950" />
-                Donate / Sponsor
-              </Link>
+                <Phone className="w-3 h-3" />
+                +256 772 543 737
+              </a>
+              <a
+                href="mailto:sttfoundation2@gmail.com"
+                className="flex items-center gap-1.5 text-blue-200 hover:text-white transition-colors"
+              >
+                <Mail className="w-3 h-3" />
+                sttfoundation2@gmail.com
+              </a>
             </div>
+            <span className="text-blue-300 font-medium">
+              Silver Jubilee Priesthood — 05 July 2025
+            </span>
           </div>
         </div>
       </div>
 
-      {/* Main Navigation Bar */}
+      {/* Main Navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-3.5">
-          {/* Brand Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-700 via-rose-800 to-amber-900 flex items-center justify-center text-2xl shadow-md group-hover:shadow-rose-900/20 transition-all transform group-hover:scale-105">
+        <div className="flex justify-between items-center h-16 lg:h-18">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-blue-700 flex items-center justify-center text-xl shadow-sm group-hover:bg-blue-800 transition-colors">
               🌹
             </div>
-            <div>
-              <div className="flex items-center gap-1.5">
-                <span className="font-extrabold text-xl tracking-tight text-rose-950 font-serif">
-                  ST. THERESA
-                </span>
-                <span className="bg-amber-100 text-amber-900 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider border border-amber-300/50">
-                  FOUNDATION
-                </span>
+            <div className="leading-tight">
+              <div className="font-extrabold text-base text-slate-900 tracking-tight">
+                ST. THERESA
               </div>
-              <p className="text-xs text-rose-900 font-medium">
-                The Little Flower • 25 Years Thanksgiving Initiative
-              </p>
+              <div className="text-[11px] text-blue-600 font-semibold tracking-wide uppercase">
+                Foundation
+              </div>
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center gap-1">
-            {primaryNav.map((item) => (
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-1">
+            {navLinks.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`px-3 py-2 rounded-lg text-sm font-semibold transition-all ${
+                className={`relative px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
                   isActive(item.href)
-                    ? "bg-rose-900 text-white shadow-sm"
-                    : "text-gray-700 hover:text-rose-900 hover:bg-rose-50"
+                    ? "text-blue-700 bg-blue-50"
+                    : "text-slate-600 hover:text-blue-700 hover:bg-blue-50"
                 }`}
               >
                 {item.name}
+                {isActive(item.href) && (
+                  <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full bg-blue-600" />
+                )}
               </Link>
             ))}
-
-            {/* Dropdown for More Links */}
-            <div className="relative">
-              <button
-                onClick={() => setDropdownOpen(!dropdownOpen)}
-                onBlur={() => setTimeout(() => setDropdownOpen(false), 200)}
-                className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-semibold text-gray-700 hover:text-rose-900 hover:bg-rose-50 transition-all"
-              >
-                More
-                <ChevronDown className="w-4 h-4 text-gray-500" />
-              </button>
-
-              {dropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-rose-100 py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                  {secondaryNav.map((item) => (
-                    <Link
-                      key={item.name}
-                      to={item.href}
-                      className={`block px-4 py-2.5 text-sm font-medium transition-colors ${
-                        isActive(item.href)
-                          ? "bg-rose-50 text-rose-900 font-bold"
-                          : "text-gray-700 hover:bg-rose-50 hover:text-rose-900"
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
           </nav>
 
-          {/* Mobile menu button */}
-          <div className="flex items-center gap-2 xl:hidden">
+          {/* CTA + Mobile Toggle */}
+          <div className="flex items-center gap-3">
+            <Link
+              to="/education-fund"
+              className="hidden sm:inline-flex items-center gap-1.5 bg-blue-700 hover:bg-blue-800 text-white font-semibold px-4 py-2 rounded-lg text-sm transition-all shadow-sm hover:shadow-md"
+            >
+              <Heart className="w-3.5 h-3.5 fill-white" />
+              Donate
+            </Link>
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2.5 rounded-xl bg-rose-50 text-rose-900 hover:bg-rose-100 transition-colors"
+              className="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Navigation Drawer */}
+      {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="xl:hidden border-t border-rose-100 bg-rose-50/50 backdrop-blur-md">
-          <nav className="max-w-7xl mx-auto px-4 py-4 space-y-1.5">
-            <div className="text-xs font-bold text-rose-900 uppercase tracking-wider px-3 mb-2">
-              Main Navigation
-            </div>
-            {primaryNav.map((item) => (
+        <div className="lg:hidden bg-white border-t border-slate-100">
+          <nav className="max-w-7xl mx-auto px-4 py-4 space-y-1">
+            {navLinks.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block px-4 py-2.5 rounded-xl text-base font-semibold transition-all ${
+                className={`flex items-center px-4 py-3 rounded-xl text-sm font-semibold transition-all ${
                   isActive(item.href)
-                    ? "bg-rose-900 text-white shadow-md"
-                    : "text-gray-800 hover:bg-white hover:text-rose-900"
+                    ? "bg-blue-700 text-white"
+                    : "text-slate-700 hover:bg-blue-50 hover:text-blue-700"
                 }`}
               >
                 {item.name}
               </Link>
             ))}
-
-            <div className="pt-3 border-t border-rose-200/60 my-2">
-              <div className="text-xs font-bold text-rose-900 uppercase tracking-wider px-3 mb-2">
-                Additional Pages
-              </div>
-              {secondaryNav.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`block px-4 py-2 rounded-xl text-sm font-medium transition-all ${
-                    isActive(item.href)
-                      ? "bg-rose-900 text-white font-bold"
-                      : "text-gray-700 hover:bg-white hover:text-rose-900"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-
-            <div className="pt-4">
+            <div className="pt-3">
               <Link
                 to="/education-fund"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 bg-gradient-to-r from-rose-800 to-amber-700 text-white py-3 px-4 rounded-xl font-bold text-center shadow-lg"
+                className="flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 text-white py-3 px-4 rounded-xl font-bold text-sm transition-all shadow-md"
               >
-                <Heart className="w-5 h-5 fill-white" />
-                Support The Education Fund
+                <Heart className="w-4 h-4 fill-white" />
+                Donate to Education Fund
               </Link>
             </div>
           </nav>
