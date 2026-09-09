@@ -79,23 +79,35 @@ export default function Header() {
 
       {/* Main Navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 lg:h-18">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
-            <div className="w-10 h-10 rounded-xl bg-blue-700 flex items-center justify-center text-xl shadow-sm group-hover:bg-blue-800 transition-colors">
-              🌹
-            </div>
-            <div className="leading-tight">
-              <div className="font-extrabold text-base text-slate-900 tracking-tight">
-                ST. THERESA
-              </div>
-              <div className="text-[11px] text-blue-600 font-semibold tracking-wide uppercase">
-                Foundation
-              </div>
-            </div>
-          </Link>
+        <div className="flex items-center justify-between h-16 lg:h-18">
 
-          {/* Desktop Nav */}
+          {/* Left side: Logo + hamburger (mobile) grouped together */}
+          <div className="flex items-center gap-2">
+            {/* Hamburger — only on mobile/tablet, sits right next to logo */}
+            <button
+              onClick={() => setMobileMenuOpen(true)}
+              className="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
+              aria-label="Open menu"
+            >
+              <Menu className="w-6 h-6" />
+            </button>
+
+            {/* Logo */}
+            <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
+              {/* No blue fill — plain emoji */}
+              <span className="text-2xl leading-none">🌹</span>
+              <div className="leading-tight">
+                <div className="font-extrabold text-base text-slate-900 tracking-tight">
+                  ST. THERESA
+                </div>
+                <div className="text-[11px] text-blue-600 font-semibold tracking-wide uppercase">
+                  Foundation
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          {/* Desktop Nav (centered/right) */}
           <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((item) => (
               <Link
@@ -114,17 +126,6 @@ export default function Header() {
               </Link>
             ))}
           </nav>
-
-          {/* Mobile Toggle */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => setMobileMenuOpen(true)}
-              className="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
-              aria-label="Open menu"
-            >
-              <Menu className="w-6 h-6" />
-            </button>
-          </div>
         </div>
       </div>
 
@@ -136,7 +137,7 @@ export default function Header() {
         onClick={() => setMobileMenuOpen(false)}
       />
 
-      {/* Mobile Side Drawer Panel (Slides from left, white background style) */}
+      {/* Mobile Side Drawer Panel */}
       <aside
         className={`fixed top-0 left-0 bottom-0 w-72 sm:w-80 max-w-[85vw] bg-white z-50 shadow-2xl flex flex-col transform transition-transform duration-300 ease-in-out lg:hidden ${
           mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
@@ -150,9 +151,8 @@ export default function Header() {
             onClick={() => setMobileMenuOpen(false)}
             className="flex items-center gap-2.5"
           >
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center text-xl">
-              🌹
-            </div>
+            {/* No fill — plain emoji */}
+            <span className="text-2xl leading-none">🌹</span>
             <div className="leading-tight">
               <div className="font-extrabold text-sm text-slate-900 tracking-tight">
                 ST. THERESA
@@ -163,7 +163,7 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Close button X */}
+          {/* Close button X — no fill */}
           <button
             onClick={() => setMobileMenuOpen(false)}
             className="w-9 h-9 flex items-center justify-center text-slate-500 hover:text-slate-800 transition-colors"
@@ -173,7 +173,7 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Drawer Menu List - White background */}
+        {/* Drawer Menu List */}
         <div className="flex-1 overflow-y-auto py-3 bg-white">
           <nav className="px-3 space-y-1">
             {mobileNavLinks.map((item) => (
@@ -193,8 +193,6 @@ export default function Header() {
             ))}
           </nav>
         </div>
-
-
       </aside>
     </header>
   );
