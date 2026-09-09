@@ -150,7 +150,7 @@ export default function Header() {
             onClick={() => setMobileMenuOpen(false)}
             className="flex items-center gap-2.5"
           >
-            <div className="w-10 h-10 rounded-xl bg-blue-700 flex items-center justify-center text-xl shadow-sm text-white">
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center text-xl">
               🌹
             </div>
             <div className="leading-tight">
@@ -166,7 +166,7 @@ export default function Header() {
           {/* Close button X */}
           <button
             onClick={() => setMobileMenuOpen(false)}
-            className="w-9 h-9 rounded-lg bg-blue-700 hover:bg-blue-800 text-white flex items-center justify-center transition-colors shadow-sm"
+            className="w-9 h-9 flex items-center justify-center text-slate-500 hover:text-slate-800 transition-colors"
             aria-label="Close menu"
           >
             <X className="w-5 h-5" />
@@ -181,11 +181,12 @@ export default function Header() {
                 key={item.name}
                 to={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold transition-all ${
+                className={`flex items-center justify-between px-4 py-3 text-sm font-semibold transition-all ${
                   isActive(item.href)
-                    ? "bg-blue-50 text-blue-700 font-bold"
-                    : "text-slate-800 hover:bg-slate-50 hover:text-blue-700"
+                    ? "text-slate-900 font-bold border-b-2"
+                    : "text-slate-700 hover:text-slate-900"
                 }`}
+                style={isActive(item.href) ? { borderBottomColor: "#5D8AA8" } : {}}
               >
                 <span>{item.name}</span>
               </Link>

@@ -59,7 +59,11 @@ export default function HomePage() {
       alt: "Murubya Pupils with Director Rev. Fr. Paul Bigirwa",
     },
     {
-      src: "/images/House 2.jpg",
+      src: "/images/Annex 2.jpg",
+      alt: "St. Theresa Campus",
+    },
+    {
+      src: "/images/Murubya 2.jpg",
       alt: "St. Theresa Campus",
     },
   ];
@@ -403,18 +407,9 @@ export default function HomePage() {
       <section className="py-14 sm:py-20 bg-slate-50 border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <RevealSection>
-            <div className="relative bg-white rounded-2xl shadow-md overflow-hidden p-8 sm:p-12">
-              {/* Small image in top-right corner */}
-              <div className="absolute top-0 right-0 w-36 sm:w-48 h-28 sm:h-36 overflow-hidden rounded-bl-2xl">
-                <img
-                  src="/images/Annex collection.jpg"
-                  alt="St. Theresa Annex Pupils"
-                  className="w-full h-full object-cover object-center opacity-90"
-                />
-              </div>
-
-              {/* Content */}
-              <div className="max-w-2xl">
+            <div className="relative bg-white shadow-md overflow-hidden p-8 sm:p-12 flex gap-8 items-center">
+              {/* Left: Content */}
+              <div className="flex-1 min-w-0">
                 <div className="text-4xl sm:text-5xl font-serif text-slate-400 leading-none">
                   "
                 </div>
@@ -436,6 +431,17 @@ export default function HomePage() {
                     <span>Support the Education Fund</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
+                </div>
+              </div>
+
+              {/* Right: Circular image centred in white space */}
+              <div className="hidden sm:flex flex-shrink-0 w-48 lg:w-56 items-center justify-center">
+                <div className="w-40 h-40 lg:w-48 lg:h-48 rounded-full overflow-hidden shadow-md ring-4 ring-slate-100">
+                  <img
+                    src="/images/Annex collection.jpg"
+                    alt="St. Theresa Annex Pupils"
+                    className="w-full h-full object-cover object-center"
+                  />
                 </div>
               </div>
             </div>
