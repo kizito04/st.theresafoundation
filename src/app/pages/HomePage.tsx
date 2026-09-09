@@ -52,50 +52,50 @@ function RevealSection({
 export default function HomePage() {
   const quickLinks = [
     {
-      title: "About the Founder",
-      desc: "Rev. Fr. Paul Bigirwa's 25-year priesthood journey & the Silver Jubilee thanksgiving initiative.",
+      title: "Rev. Fr. Paul Bigirwa",
+      desc: "25 years in holy priesthood, dedicated to pastoral care, uplifting rural families, and child education in Kakumiro.",
       icon: Award,
       href: "/about",
       iconBg: "bg-blue-100 text-blue-700",
     },
     {
       title: "St. Theresa Schools",
-      desc: "Main Campus, Annex Campus, and Murubya Outreach — three campuses, one mission.",
+      desc: "Main Campus, Annex Campus, and Murubya Outreach — welcoming classrooms, dedicated teachers, and joyful learning.",
       icon: BookOpen,
       href: "/schools",
       iconBg: "bg-indigo-100 text-indigo-700",
     },
     {
       title: "Sports Academy",
-      desc: "Nurturing youth through Football, Athletics, Netball, and Chess.",
+      desc: "Nurturing young champions in football, athletics, netball, and chess with discipline, teamwork, and character.",
       icon: Trophy,
       href: "/sports-academy",
       iconBg: "bg-emerald-100 text-emerald-700",
     },
     {
       title: "Education Fund",
-      desc: "Targeting £40,000 annually to sponsor 200 vulnerable learners across three districts.",
+      desc: "Directly sponsoring over 200 vulnerable learners annually across Kakumiro, Kibaale, and Kagadi districts.",
       icon: Heart,
       href: "/education-fund",
       iconBg: "bg-amber-100 text-amber-700",
     },
     {
-      title: "Transporters",
-      desc: "Safe and reliable transport across Kakumiro, Kibaale, Kagadi & Hoima districts.",
+      title: "School Transporters",
+      desc: "Dependable vans and buses ensuring pupils from distant rural villages travel safely to and from school each day.",
       icon: Bus,
       href: "/transporters",
       iconBg: "bg-violet-100 text-violet-700",
     },
     {
       title: "Photo Gallery",
-      desc: "Moments of growth, Silver Jubilee 2025 celebrations, and community joy.",
+      desc: "A celebration of school life, sports competitions, campus milestones, and community thanksgiving moments.",
       icon: ImageIcon,
       href: "/gallery",
       iconBg: "bg-pink-100 text-pink-700",
     },
     {
-      title: "Contact Us",
-      desc: "Get in touch via WhatsApp, phone, or visit our head office in Igayaza.",
+      title: "Contact Foundation",
+      desc: "Visit our head office in Igayaza or connect directly with our school administration and community leaders.",
       icon: Phone,
       href: "/contact",
       iconBg: "bg-slate-100 text-slate-700",
@@ -105,53 +105,61 @@ export default function HomePage() {
   return (
     <div className="bg-white">
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-950 via-blue-900 to-slate-900 text-white">
-        {/* Subtle dot grid */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-950 via-blue-900 to-slate-900 text-white min-h-[580px] flex items-center">
+        {/* Faint atmospheric background photo of House 2 */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <img
+            src="/images/House 2.jpg"
+            alt=""
+            aria-hidden="true"
+            className="w-full h-full object-cover object-center opacity-20 mix-blend-luminosity scale-105"
+          />
+          {/* Subtle gradient overlay to keep text crystal clear and create depth */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-950/95 via-blue-950/85 to-blue-900/80" />
+          <div className="absolute inset-0 bg-radial-at-c from-transparent via-blue-950/30 to-blue-950/80" />
+        </div>
+
+        {/* Subtle dot grid pattern */}
         <div
           className="absolute inset-0 opacity-10 pointer-events-none"
           style={{
             backgroundImage:
-              "radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px)",
+              "radial-gradient(circle, rgba(255,255,255,0.7) 1px, transparent 1px)",
             backgroundSize: "28px 28px",
           }}
         />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left */}
-            <div className="lg:col-span-7 space-y-7">
-              <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-blue-200 px-4 py-1.5 rounded-full text-xs font-semibold backdrop-blur-sm">
-                🌹 Silver Jubilee Thanksgiving Initiative (2025)
-              </div>
-
+            <div className="lg:col-span-7 space-y-6">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
                 Welcome to{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-white to-blue-200">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-amber-100 to-white">
                   St. Theresa Foundation
                 </span>
               </h1>
 
               <p className="text-lg text-blue-100/90 leading-relaxed max-w-xl">
-                A Silver Jubilee thanksgiving initiative dedicated to empowering children,
-                uplifting families, and spreading hope. Founded by{" "}
-                <strong className="text-white font-semibold">Rev. Fr. Paul Bigirwa</strong>{" "}
-                in celebration of 25 years of priesthood —{" "}
-                <strong className="text-blue-300">05 July 2025</strong>.
+                Founded by <strong className="text-white font-semibold">Rev. Fr. Paul Bigirwa</strong> in
+                humble thanksgiving for 25 years of priestly service, we walk beside rural families
+                across Kakumiro and greater Bunyoro—giving every boy and girl a quality Catholic education,
+                dignity, and a real chance to thrive.
               </p>
 
               <div className="flex flex-wrap gap-3 pt-2">
                 <Link
                   to="/education-fund"
-                  className="inline-flex items-center gap-2 bg-white text-blue-900 font-bold px-6 py-3 rounded-xl shadow-lg hover:bg-blue-50 transition-all hover:-translate-y-0.5 text-sm"
+                  className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-6 py-3.5 rounded-xl shadow-lg hover:shadow-amber-400/20 transition-all hover:-translate-y-0.5 text-sm"
                 >
-                  <Heart className="w-4 h-4 fill-blue-700 text-blue-700" />
-                  Support Our Mission
+                  <Heart className="w-4 h-4 fill-slate-950 text-slate-950" />
+                  Sponsor a Child in Kakumiro
                 </Link>
                 <Link
                   to="/about"
-                  className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-xl border border-white/20 backdrop-blur-sm transition-all text-sm"
+                  className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3.5 rounded-xl border border-white/25 backdrop-blur-sm transition-all hover:-translate-y-0.5 text-sm"
                 >
-                  About Fr. Paul Bigirwa
+                  Fr. Paul's Calling &amp; Story
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -159,39 +167,53 @@ export default function HomePage() {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-6 pt-4 border-t border-white/15">
                 {[
-                  { value: "25 Yrs", label: "Silver Jubilee Priesthood" },
-                  { value: "200+", label: "Children Sponsored / Yr" },
-                  { value: "3", label: "School Campuses" },
+                  { value: "25 Yrs", label: "Priesthood of Fr. Bigirwa" },
+                  { value: "200+", label: "Vulnerable Pupils Sponsored" },
+                  { value: "3 Campuses", label: "Main, Annex & Murubya" },
                 ].map((stat) => (
                   <div key={stat.label}>
                     <span className="block text-2xl sm:text-3xl font-extrabold text-white">
                       {stat.value}
                     </span>
-                    <span className="text-xs text-blue-300 mt-0.5 block">{stat.label}</span>
+                    <span className="text-xs text-blue-200 mt-0.5 block">{stat.label}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Right — hero image */}
-            <div className="lg:col-span-5">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
-                <img
-                  src="/images/hero.png"
-                  alt="St. Theresa Foundation Children"
-                  className="w-full h-[380px] lg:h-[440px] object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="text-xs text-blue-300 uppercase tracking-wider font-bold mb-1">
-                    🌹 The Little Flower Spirit
-                  </p>
-                  <h3 className="text-lg font-bold text-white leading-snug">
-                    Nurturing Talent with Dignity &amp; Hope
-                  </h3>
-                  <p className="text-xs text-blue-200/80 mt-1">
-                    Discovering hidden potential across rural communities in Uganda.
-                  </p>
+            {/* Right — Annex 4 photo inside a stylized circular frame */}
+            <div className="lg:col-span-5 flex justify-center items-center">
+              <div className="relative group">
+                {/* Glowing decorative rings */}
+                <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-amber-400/30 via-blue-400/20 to-indigo-500/30 blur-xl opacity-70 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                <div className="absolute -inset-2 rounded-full border border-blue-300/30 border-dashed animate-[spin_60s_linear_infinite] pointer-events-none" />
+                
+                {/* Circular Image Container */}
+                <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full p-2.5 bg-gradient-to-br from-white/30 via-blue-400/20 to-white/10 shadow-2xl backdrop-blur-sm">
+                  <div className="w-full h-full rounded-full overflow-hidden border-4 border-white/90 shadow-2xl relative">
+                    <img
+                      src="/images/Annex 4.jpeg"
+                      alt="St. Theresa Annex Campus Pupils"
+                      className="w-full h-full object-cover object-center scale-105 group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-blue-950/50 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
+                  </div>
+                </div>
+
+                {/* Floating pill badge attached to circle */}
+                <div className="absolute -bottom-3 -left-2 sm:bottom-2 sm:-left-4 bg-white/95 backdrop-blur-md text-slate-900 px-4 py-2 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-2.5 z-20 transition-transform duration-300 group-hover:scale-105">
+                  <div className="w-8 h-8 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-sm shadow-sm">
+                    🌹
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-extrabold uppercase tracking-wider text-blue-700 leading-none">Annex Campus</p>
+                    <p className="text-xs font-bold text-slate-800 leading-tight mt-0.5">Kakumiro, Uganda</p>
+                  </div>
+                </div>
+
+                <div className="absolute -top-3 -right-2 sm:top-2 sm:-right-4 bg-blue-900/90 backdrop-blur-md text-white px-3.5 py-1.5 rounded-xl border border-blue-400/30 text-xs font-semibold shadow-lg flex items-center gap-2 z-20">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Nurturing Potential</span>
                 </div>
               </div>
             </div>
@@ -200,43 +222,66 @@ export default function HomePage() {
       </section>
 
       {/* ── Mission Strip ─────────────────────────────────────── */}
-      <section className="py-16 lg:py-20">
+      <section className="py-16 lg:py-20 bg-gradient-to-b from-white to-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <RevealSection>
-            <div className="bg-blue-900 rounded-2xl p-8 sm:p-12 text-white relative overflow-hidden">
-              <div className="absolute right-6 bottom-4 text-white/5 text-[120px] select-none font-serif pointer-events-none">
+            <div className="animate-float relative bg-gradient-to-br from-blue-900 via-blue-900 to-indigo-950 rounded-3xl p-8 sm:p-12 lg:p-14 text-white shadow-2xl border border-blue-700/40 overflow-hidden group hover:shadow-[0_25px_60px_rgba(30,58,138,0.3)] transition-all duration-500">
+              {/* Soft decorative background glows */}
+              <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
+              
+              {/* Giant watermark icon */}
+              <div className="absolute right-6 bottom-4 text-white/5 text-[140px] select-none font-serif pointer-events-none transition-transform duration-700 group-hover:scale-110">
                 🌹
               </div>
-              <div className="max-w-3xl relative z-10 space-y-5">
-                <span className="inline-block bg-white/15 text-blue-100 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                  Our Mission
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-extrabold leading-tight">
-                  Empowering every child to flourish with dignity and hope.
+
+              <div className="max-w-4xl relative z-10 space-y-6">
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="inline-block bg-amber-400/20 text-amber-200 border border-amber-300/30 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider">
+                    Our Mission &amp; Calling
+                  </span>
+                  <span className="text-blue-200 text-xs font-medium">
+                    Guided by St. Theresa of Lisieux’s Little Way
+                  </span>
+                </div>
+
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-white">
+                  Empowering every child with education, faith, and human dignity.
                 </h2>
-                <p className="text-blue-100 text-base leading-relaxed">
-                  "To nurture talent, support education, strengthen families, and create
-                  opportunities for children and youth to flourish with dignity and hope."
+
+                <p className="text-blue-100 text-base sm:text-lg leading-relaxed font-normal">
+                  "To nurture rural talent, remove financial barriers to education, strengthen vulnerable
+                  families, and walk alongside youth so they grow with strong moral grounding, self-reliance,
+                  and bright futures."
                 </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 pt-3">
                   {[
                     {
-                      title: "Educational Sponsorship",
-                      desc: "Scholarships and learning materials for underprivileged children.",
+                      title: "Vulnerable Learner Sponsorship",
+                      desc: "Removing school fee barriers so orphans and underprivileged children in Kakumiro, Kibaale, and Kagadi remain safely in school.",
                     },
                     {
-                      title: "Holistic Youth Formation",
-                      desc: "Academic rigor combined with moral grounding and sports academies.",
+                      title: "Faith & Character Formation",
+                      desc: "Rooted in Catholic traditions of compassion, humility, truth, and community responsibility inspired by the Little Flower.",
+                    },
+                    {
+                      title: "Quality Academics & Practical Skills",
+                      desc: "Equipping learners across our three campuses with strong foundational literacy, numeracy, and vocational disciplines.",
+                    },
+                    {
+                      title: "Sports & Talent Academies",
+                      desc: "Developing character, resilience, and teamwork through competitive football, athletics, netball, and strategic chess.",
                     },
                   ].map((item) => (
                     <div
                       key={item.title}
-                      className="flex items-start gap-3 bg-white/10 p-4 rounded-xl"
+                      className="flex items-start gap-3.5 bg-white/10 hover:bg-white/15 p-4 sm:p-5 rounded-2xl border border-white/10 backdrop-blur-sm transition-all duration-300 hover:translate-x-1"
                     >
-                      <CheckCircle2 className="w-5 h-5 text-blue-300 mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="w-5 h-5 text-amber-300 mt-0.5 flex-shrink-0" />
                       <div>
-                        <h4 className="font-bold text-white text-sm">{item.title}</h4>
-                        <p className="text-xs text-blue-200/80 mt-0.5">{item.desc}</p>
+                        <h4 className="font-bold text-white text-sm sm:text-base">{item.title}</h4>
+                        <p className="text-xs sm:text-sm text-blue-100/80 mt-1 leading-relaxed">{item.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -248,91 +293,131 @@ export default function HomePage() {
       </section>
 
       {/* ── Inspiration ───────────────────────────────────────── */}
-      <section className="py-4 pb-16 lg:pb-20">
+      <section className="py-8 pb-16 lg:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <RevealSection>
             <div className="text-center max-w-2xl mx-auto mb-12">
               <span className="text-blue-600 font-bold text-xs uppercase tracking-widest">
-                Inspiring Stories
+                Living Examples of Faith &amp; Grit
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mt-2">
                 Our Inspiration
               </h2>
-              <p className="text-slate-500 mt-2 text-sm">
-                Transforming lives through opportunity, passion, and faith.
+              <p className="text-slate-600 mt-2 text-sm sm:text-base">
+                Real lives that teach our young pupils in Kakumiro that humble beginnings do not limit God's purpose.
               </p>
             </div>
           </RevealSection>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {[
-              {
-                icon: "♟️",
-                iconBg: "bg-amber-50",
-                title: "Queen of Katwe — Phiona Mutesi",
-                body: "From the unpaved streets of Katwe slums in Kampala to the international chess grandmaster stage, Phiona Mutesi's story is a living reminder that brilliance can emerge from the most unexpected places when a child is given a chance.",
-                quote:
-                  "\"Size does not dictate potential. Strategic thinking, belief, and mentorship can turn an underprivileged learner into a global leader.\"",
-                quoteBg: "bg-amber-50",
-                quoteText: "text-amber-800",
-                quoteIcon: "text-amber-500",
-                delay: 0,
-              },
-              {
-                icon: "⚽",
-                iconBg: "bg-emerald-50",
-                title: "Pelé: Birth of a Legend",
-                body: "From barefoot street football in Brazil to becoming a world icon, Pelé demonstrated that talent, when nurtured with discipline and passion, can transform a young life, lift an entire family, and inspire nations.",
-                quote:
-                  "\"Enthusiasm is everything. Every child in our rural communities carries extraordinary potential waiting to be unlocked.\"",
-                quoteBg: "bg-emerald-50",
-                quoteText: "text-emerald-800",
-                quoteIcon: "text-emerald-500",
-                delay: 100,
-              },
-            ].map((card) => (
-              <RevealSection key={card.title} delay={card.delay}>
-                <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col justify-between group">
-                  <div>
-                    <div
-                      className={`w-12 h-12 rounded-xl ${card.iconBg} flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      {card.icon}
-                    </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3">{card.title}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed mb-5">{card.body}</p>
-                  </div>
-                  <div
-                    className={`p-4 ${card.quoteBg} rounded-xl flex items-start gap-3 text-xs ${card.quoteText}`}
-                  >
-                    <Quote className={`w-4 h-4 ${card.quoteIcon} flex-shrink-0 mt-0.5`} />
-                    <p className="italic leading-relaxed">{card.quote}</p>
-                  </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Queen of Katwe Card */}
+            <RevealSection delay={0}>
+              <div className="relative bg-white rounded-3xl p-8 sm:p-10 shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 h-full flex flex-col justify-between overflow-hidden group">
+                {/* Faint Queen of Katwe Image on the right side */}
+                <div className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-5/12 pointer-events-none overflow-hidden rounded-r-3xl z-0">
+                  <img
+                    src="/images/queen 1.png"
+                    alt="Phiona Mutesi - Queen of Katwe"
+                    className="w-full h-full object-cover object-top opacity-20 mix-blend-multiply group-hover:scale-105 group-hover:opacity-25 transition-all duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-white via-white/60 to-transparent" />
                 </div>
-              </RevealSection>
-            ))}
+
+                <div className="relative z-10">
+                  <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300">
+                    ♟️
+                  </div>
+                  <span className="text-xs font-bold text-amber-700 uppercase tracking-wider block mb-1">
+                    Quiet Tenacity &amp; Strategic Vision
+                  </span>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                    Queen of Katwe — Phiona Mutesi
+                  </h3>
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 max-w-md">
+                    Growing up amidst severe hardship in Katwe, Kampala, Phiona Mutesi discovered chess at a community outreach center. Through patient study, resilience, and dedicated mentorship, she rose to international acclaim. Her story reminds our teachers and pupils in Kakumiro that brilliance is never confined to affluent cities—given opportunity, faith, and patience, any village child can master the board of life.
+                  </p>
+                </div>
+
+                <div className="relative z-10 p-4 sm:p-5 bg-amber-50/80 rounded-2xl border border-amber-100/80 flex items-start gap-3.5 text-xs sm:text-sm text-amber-900 backdrop-blur-xs">
+                  <Quote className="w-4 h-4 text-amber-600 flex-shrink-0 mt-1" />
+                  <p className="italic leading-relaxed font-medium">
+                    "In chess, as in life: a humble pawn, walking forward one step at a time with quiet faith, can reach the other side and become a queen."
+                  </p>
+                </div>
+              </div>
+            </RevealSection>
+
+            {/* Pelé Card */}
+            <RevealSection delay={100}>
+              <div className="relative bg-white rounded-3xl p-8 sm:p-10 shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 h-full flex flex-col justify-between overflow-hidden group">
+                {/* Faint pele 2.png in the background */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl z-0">
+                  <img
+                    src="/images/pele 2.png"
+                    alt=""
+                    aria-hidden="true"
+                    className="w-full h-full object-cover object-center opacity-10 mix-blend-luminosity filter contrast-125 group-hover:scale-105 transition-all duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/70" />
+                </div>
+
+                {/* Faint pele.png on the right side */}
+                <div className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-5/12 pointer-events-none overflow-hidden rounded-r-3xl z-0">
+                  <img
+                    src="/images/pele.png"
+                    alt="Pelé"
+                    className="w-full h-full object-cover object-top opacity-20 mix-blend-multiply group-hover:scale-105 group-hover:opacity-25 transition-all duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-white via-white/60 to-transparent" />
+                </div>
+
+                <div className="relative z-10">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300">
+                    ⚽
+                  </div>
+                  <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider block mb-1">
+                    Humble Roots &amp; Relentless Passion
+                  </span>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                    Pelé: Birth of a Legend
+                  </h3>
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 max-w-md">
+                    Starting on dusty clearings playing barefoot with a sock stuffed with rags, Pelé's joy, tireless work ethic, and humility took him from poverty to world glory. He embodies the exact spirit we teach our young athletes at St. Theresa: that lack of costly boots never prevents a dedicated boy or girl from developing great discipline, lifting their family, and honoring God with their talent.
+                  </p>
+                </div>
+
+                <div className="relative z-10 p-4 sm:p-5 bg-emerald-50/80 rounded-2xl border border-emerald-100/80 flex items-start gap-3.5 text-xs sm:text-sm text-emerald-900 backdrop-blur-xs">
+                  <Quote className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-1" />
+                  <p className="italic leading-relaxed font-medium">
+                    "Success is no accident. It is hard work, perseverance, learning, studying, sacrifice, and above all, love of what you are doing or learning to do."
+                  </p>
+                </div>
+              </div>
+            </RevealSection>
           </div>
 
           {/* St. Theresa Summary */}
           <RevealSection delay={150}>
-            <div className="mt-6 bg-blue-50 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-5">
+            <div className="mt-8 bg-blue-50/80 border border-blue-100 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs">
               <div className="flex items-center gap-4">
-                <div className="text-3xl">🌹</div>
+                <div className="w-14 h-14 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center text-3xl flex-shrink-0 shadow-inner">
+                  🌹
+                </div>
                 <div>
-                  <h4 className="font-bold text-blue-950 text-base">
-                    St. Theresa of Lisieux — Patron of Simplicity &amp; Love
+                  <h4 className="font-extrabold text-blue-950 text-base sm:text-lg">
+                    St. Theresa of Lisieux — Patroness of Simplicity &amp; Love
                   </h4>
-                  <p className="text-sm text-slate-500 mt-0.5">
-                    Her 'Little Way' teaches that small acts of love performed with great heart
-                    can transform the world.
+                  <p className="text-sm text-slate-600 mt-1 max-w-2xl leading-relaxed">
+                    Her 'Little Way' teaches that changing lives begins with small acts done with great love:
+                    a hot cup of porridge for a pupil, a shared notebook, or a word of encouragement to a struggling village family.
                   </p>
                 </div>
               </div>
               <Link
                 to="/about"
-                className="whitespace-nowrap bg-blue-700 hover:bg-blue-800 text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all flex-shrink-0"
+                className="whitespace-nowrap bg-blue-700 hover:bg-blue-800 text-white text-sm font-bold px-6 py-3 rounded-xl transition-all shadow-sm hover:shadow-md flex-shrink-0"
               >
-                Read Our Full Inspiration
+                Read Our Story &amp; Values
               </Link>
             </div>
           </RevealSection>
@@ -343,39 +428,41 @@ export default function HomePage() {
       <section className="py-16 lg:py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <RevealSection>
-            <div className="text-center max-w-xl mx-auto mb-12">
+            <div className="text-center max-w-2xl mx-auto mb-12">
               <span className="text-blue-600 font-bold text-xs uppercase tracking-widest">
-                Explore the Foundation
+                Our Work in Kakumiro
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mt-2">
-                What We Do
+                What We Do in Our Community
               </h2>
-              <p className="text-slate-500 mt-2 text-sm">
-                Discover our educational, sports, and charitable programs.
+              <p className="text-slate-600 mt-2 text-sm sm:text-base">
+                Nurturing children, supporting rural families, and building lasting educational infrastructure.
               </p>
             </div>
           </RevealSection>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {quickLinks.map((item, i) => {
               const Icon = item.icon;
               return (
-                <RevealSection key={item.title} delay={i * 60}>
+                <RevealSection key={item.title} delay={i * 50}>
                   <Link
                     to={item.href}
-                    className="group block bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full"
+                    className="group block bg-white rounded-3xl p-6 sm:p-7 shadow-xs hover:shadow-xl border border-slate-100 transition-all duration-300 hover:-translate-y-1.5 h-full flex flex-col justify-between"
                   >
-                    <div
-                      className={`w-11 h-11 rounded-xl ${item.iconBg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <Icon className="w-5 h-5" />
+                    <div>
+                      <div
+                        className={`w-12 h-12 rounded-2xl ${item.iconBg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 shadow-xs`}
+                      >
+                        <Icon className="w-6 h-6" />
+                      </div>
+                      <h3 className="font-bold text-slate-900 text-lg mb-2 group-hover:text-blue-700 transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
                     </div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1.5 group-hover:text-blue-700 transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-slate-500 text-xs leading-relaxed">{item.desc}</p>
-                    <div className="flex items-center gap-1 mt-4 text-xs font-bold text-blue-600 group-hover:gap-2 transition-all">
-                      Explore <ArrowRight className="w-3.5 h-3.5" />
+                    <div className="flex items-center gap-1.5 mt-5 text-xs font-bold text-blue-600 group-hover:gap-2.5 transition-all">
+                      Learn More <ArrowRight className="w-3.5 h-3.5" />
                     </div>
                   </Link>
                 </RevealSection>
@@ -389,28 +476,32 @@ export default function HomePage() {
       <section className="py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <RevealSection>
-            <div className="bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 rounded-2xl p-10 sm:p-14 text-white flex flex-col lg:flex-row items-center justify-between gap-8">
-              <div className="space-y-3 text-center lg:text-left max-w-2xl">
-                <h2 className="text-3xl sm:text-4xl font-extrabold leading-tight">
-                  Join Us in Sponsoring a Child Today
+            <div className="relative bg-gradient-to-r from-blue-800 via-blue-900 to-indigo-950 rounded-3xl p-10 sm:p-14 lg:p-16 text-white shadow-2xl overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-10">
+              <div className="absolute -right-10 -bottom-10 w-80 h-80 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="space-y-4 text-center lg:text-left max-w-2xl relative z-10">
+                <span className="inline-block bg-white/15 text-blue-200 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider">
+                  Community Solidarity
+                </span>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
+                  Help Keep a Vulnerable Child in the Classroom
                 </h2>
-                <p className="text-blue-100 text-base">
-                  Our Education Fund targets £40,000 annually to support 200 underprivileged
-                  learners with tuition, uniforms, feeding, and medical care.
+                <p className="text-blue-100 text-base sm:text-lg leading-relaxed">
+                  Every term, promising children in our villages face the heartbreak of staying home due to unpaid school fees or lack of scholastic materials. Through our Education Fund, £40,000 annually provides full sponsorship, daily nutrition, uniforms, and books for 200 learners.
                 </p>
               </div>
-              <div className="flex flex-wrap gap-3 justify-center flex-shrink-0">
+              <div className="flex flex-wrap gap-4 justify-center flex-shrink-0 relative z-10">
                 <Link
                   to="/education-fund"
-                  className="bg-white text-blue-900 font-bold px-8 py-3.5 rounded-xl shadow-lg hover:bg-blue-50 transition-all text-sm"
+                  className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-8 py-4 rounded-2xl shadow-xl hover:shadow-amber-400/20 transition-all hover:-translate-y-0.5 text-sm sm:text-base flex items-center gap-2"
                 >
-                  Donate to Education Fund
+                  <Heart className="w-4 h-4 fill-slate-950 text-slate-950" />
+                  Support a Learner Today
                 </Link>
                 <Link
                   to="/contact"
-                  className="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3.5 rounded-xl border border-white/30 transition-all text-sm"
+                  className="bg-white/10 hover:bg-white/20 text-white font-semibold px-7 py-4 rounded-2xl border border-white/25 backdrop-blur-sm transition-all hover:-translate-y-0.5 text-sm sm:text-base"
                 >
-                  Contact Foundation
+                  Speak With Fr. Paul &amp; Team
                 </Link>
               </div>
             </div>

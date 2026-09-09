@@ -37,32 +37,34 @@ export default function Header() {
           : "bg-white shadow-sm"
       }`}
     >
-      {/* Top Info Bar */}
-      <div className="bg-blue-900 text-white text-xs hidden sm:block">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-2 gap-2">
-            <div className="flex items-center gap-5">
-              <a
-                href="tel:+256772543737"
-                className="flex items-center gap-1.5 text-blue-200 hover:text-white transition-colors"
-              >
-                <Phone className="w-3 h-3" />
-                +256 772 543 737
-              </a>
-              <a
-                href="mailto:sttfoundation2@gmail.com"
-                className="flex items-center gap-1.5 text-blue-200 hover:text-white transition-colors"
-              >
-                <Mail className="w-3 h-3" />
-                sttfoundation2@gmail.com
-              </a>
+      {/* Top Info Bar - Hidden on Home Page */}
+      {location.pathname !== "/" && (
+        <div className="bg-blue-900 text-white text-xs hidden sm:block">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center py-2 gap-2">
+              <div className="flex items-center gap-5">
+                <a
+                  href="tel:+256772543737"
+                  className="flex items-center gap-1.5 text-blue-200 hover:text-white transition-colors"
+                >
+                  <Phone className="w-3 h-3" />
+                  +256 772 543 737
+                </a>
+                <a
+                  href="mailto:sttfoundation2@gmail.com"
+                  className="flex items-center gap-1.5 text-blue-200 hover:text-white transition-colors"
+                >
+                  <Mail className="w-3 h-3" />
+                  sttfoundation2@gmail.com
+                </a>
+              </div>
+              <span className="text-blue-300 font-medium">
+                Silver Jubilee Priesthood — 05 July 2025
+              </span>
             </div>
-            <span className="text-blue-300 font-medium">
-              Silver Jubilee Priesthood — 05 July 2025
-            </span>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Main Navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
