@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router";
-import { Menu, X, Phone, Mail, Heart } from "lucide-react";
+import { Menu, X, Phone, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function Header() {
@@ -115,16 +115,8 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* CTA + Mobile Toggle */}
+          {/* Mobile Toggle */}
           <div className="flex items-center gap-3">
-            <Link
-              to="/education-fund"
-              className="hidden sm:inline-flex items-center gap-1.5 bg-blue-700 hover:bg-blue-800 text-white font-semibold px-4 py-2 rounded-lg text-sm transition-all shadow-sm hover:shadow-md"
-            >
-              <Heart className="w-3.5 h-3.5 fill-white" />
-              Donate
-            </Link>
-
             <button
               onClick={() => setMobileMenuOpen(true)}
               className="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
@@ -201,17 +193,7 @@ export default function Header() {
           </nav>
         </div>
 
-        {/* Drawer Footer CTA */}
-        <div className="p-4 border-t border-slate-100 bg-white">
-          <Link
-            to="/education-fund"
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 text-white py-3 px-4 rounded-xl font-bold text-sm shadow-md transition-all"
-          >
-            <Heart className="w-4 h-4 fill-white" />
-            Donate to Education Fund
-          </Link>
-        </div>
+
       </aside>
     </header>
   );

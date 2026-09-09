@@ -66,13 +66,14 @@ export default function HomePage() {
 
   const heroMessages = [
     {
+      title: "Welcome to St. Theresa Foundation",
+      subtitle: "A Silver Jubilee thanksgiving initiative dedicated to empowering children, uplifting families, and spreading the gentle love of St. Theresa the Little Flower. Founded by Rev. Fr. Paul Bigirwa, the Foundation stands as a living memorial of gratitude for 25 years of priesthood, celebrated on 05 July 2025.",
+    },
+    {
       title: "Empowering Minds, Shaping Futures",
       subtitle: "Inspiring students to achieve excellence in academics, sports, and character.",
     },
-    {
-      title: "Welcome to St. Theresa Foundation",
-      subtitle: "Rooted in faith, uplifting rural families, and nurturing the promise of every child in Kakumiro, Uganda.",
-    },
+
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -374,13 +375,13 @@ export default function HomePage() {
                 <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
                   Rooted in Kakumiro District and reaching across the rural communities of Bunyoro sub-region, our schools and outreach initiatives walk hand-in-hand with families, parish communities, and local leaders. Guided by the pastoral dedication of Rev. Fr. Paul Bigirwa, we provide quality Catholic education, moral grounding, and loving care—opening meaningful pathways of hope, talent discovery, and life-changing opportunity for every child.
                 </p>
-                <div className="pt-4 flex justify-center">
+                <div className="pt-4">
                   <Link
                     to="/about"
-                    className="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white font-bold px-8 py-3.5 rounded-xl text-sm uppercase tracking-wider shadow-sm transition-all hover:gap-3"
+                    className="inline-flex items-center gap-1.5 text-blue-700 hover:text-blue-900 font-semibold text-sm border-b border-blue-300 hover:border-blue-600 pb-0.5 transition-all"
                   >
                     <span>About Us</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </div>
@@ -398,42 +399,42 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── St. Theresa Education Fund (Matching Screenshot 3 Layout) ── */}
+      {/* ── St. Theresa Education Fund ── */}
       <section className="py-14 sm:py-20 bg-slate-50 border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <RevealSection>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-              {/* Left Column: Image Annex collection */}
-              <div className="lg:col-span-6 flex justify-center">
+            <div className="relative bg-white rounded-2xl shadow-md overflow-hidden p-8 sm:p-12">
+              {/* Small image in top-right corner */}
+              <div className="absolute top-0 right-0 w-36 sm:w-48 h-28 sm:h-36 overflow-hidden rounded-bl-2xl">
                 <img
                   src="/images/Annex collection.jpg"
                   alt="St. Theresa Annex Pupils"
-                  className="w-full h-[360px] sm:h-[420px] object-cover rounded-2xl shadow-md"
+                  className="w-full h-full object-cover object-center opacity-90"
                 />
               </div>
 
-              {/* Right Column: Message & Details */}
-              <div className="lg:col-span-6 space-y-4">
+              {/* Content */}
+              <div className="max-w-2xl">
                 <div className="text-4xl sm:text-5xl font-serif text-slate-400 leading-none">
-                  “
+                  "
                 </div>
-                <h3 className="text-xs sm:text-sm font-bold uppercase tracking-widest text-blue-700">
+                <h3 className="text-xs sm:text-sm font-bold uppercase tracking-widest text-blue-700 mt-2">
                   ST. THERESA EDUCATION FUND
                 </h3>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug">
-                  The Education Fund is the Foundation’s core charity arm, dedicated to supporting children who face financial hardship.
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug mt-3">
+                  The Education Fund is the Foundation's core charity arm, dedicated to supporting children who face financial hardship.
                 </h2>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed pt-1">
-                  Through annual sponsorships, tuition subsidies, scholastic materials, and nutritious feeding, we stand with over 200 vulnerable learners across Kakumiro, Kibaale, and Kagadi districts—ensuring that poverty never interrupts a child’s right to learn, grow, and flourish.
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed pt-3">
+                  Through annual sponsorships, tuition subsidies, scholastic materials, and nutritious feeding, we stand with over 200 vulnerable learners across Kakumiro, Kibaale, and Kagadi districts—ensuring that poverty never interrupts a child's right to learn, grow, and flourish.
                 </p>
-                <div className="pt-4">
+                <div className="pt-6">
                   <Link
                     to="/education-fund"
-                    className="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white font-bold px-7 py-3.5 rounded-xl text-sm uppercase tracking-wider shadow-md transition-all hover:gap-3"
+                    className="inline-flex items-center gap-1.5 text-blue-700 hover:text-blue-900 font-semibold text-sm border-b border-blue-300 hover:border-blue-600 pb-0.5 transition-all"
                   >
-                    <Heart className="w-4 h-4 fill-white" />
+                    <Heart className="w-3.5 h-3.5" />
                     <span>Support the Education Fund</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </div>
