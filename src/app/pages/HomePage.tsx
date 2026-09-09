@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Heart, Award, ArrowRight, BookOpen, Trophy, Bus, Image as ImageIcon, Phone, ChevronLeft, ChevronRight } from "lucide-react";
+import { Heart, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 // Scroll-triggered animation hook
@@ -64,74 +64,47 @@ export default function HomePage() {
     },
   ];
 
+  const heroMessages = [
+    {
+      title: "Empowering Minds, Shaping Futures",
+      subtitle: "Inspiring students to achieve excellence in academics, sports, and character.",
+    },
+    {
+      title: "Welcome to St. Theresa Foundation",
+      subtitle: "Rooted in faith, uplifting rural families, and nurturing the promise of every child in Kakumiro, Uganda.",
+    },
+  ];
+
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+      setCurrentSlide((prev) => {
+        const next = (prev + 1) % heroSlides.length;
+        // Toggle text message after one full cycle of images moving
+        if (next === 0) {
+          setCurrentMessageIndex((mPrev) => (mPrev + 1) % heroMessages.length);
+        }
+        return next;
+      });
     }, 5000);
     return () => clearInterval(timer);
-  }, [heroSlides.length]);
+  }, [heroSlides.length, heroMessages.length]);
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
   };
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    setCurrentSlide((prev) => {
+      const next = (prev + 1) % heroSlides.length;
+      if (next === 0) {
+        setCurrentMessageIndex((mPrev) => (mPrev + 1) % heroMessages.length);
+      }
+      return next;
+    });
   };
-
-  const quickLinks = [
-    {
-      title: "Rev. Fr. Paul Bigirwa",
-      desc: "25 years in holy priesthood, dedicated to pastoral care, uplifting rural families, and child education in Kakumiro.",
-      icon: Award,
-      href: "/about",
-      iconBg: "bg-blue-100 text-blue-700",
-    },
-    {
-      title: "St. Theresa Schools",
-      desc: "Main Campus, Annex Campus, and Murubya Outreach — welcoming classrooms, dedicated teachers, and joyful learning.",
-      icon: BookOpen,
-      href: "/schools",
-      iconBg: "bg-indigo-100 text-indigo-700",
-    },
-    {
-      title: "Sports Academy",
-      desc: "Nurturing young champions in football, athletics, netball, and chess with discipline, teamwork, and character.",
-      icon: Trophy,
-      href: "/sports-academy",
-      iconBg: "bg-emerald-100 text-emerald-700",
-    },
-    {
-      title: "Education Fund",
-      desc: "Directly sponsoring over 200 vulnerable learners annually across Kakumiro, Kibaale, and Kagadi districts.",
-      icon: Heart,
-      href: "/education-fund",
-      iconBg: "bg-amber-100 text-amber-700",
-    },
-    {
-      title: "School Transporters",
-      desc: "Dependable vans and buses ensuring pupils from distant rural villages travel safely to and from school each day.",
-      icon: Bus,
-      href: "/transporters",
-      iconBg: "bg-violet-100 text-violet-700",
-    },
-    {
-      title: "Photo Gallery",
-      desc: "A celebration of school life, sports competitions, campus milestones, and community thanksgiving moments.",
-      icon: ImageIcon,
-      href: "/gallery",
-      iconBg: "bg-pink-100 text-pink-700",
-    },
-    {
-      title: "Contact Foundation",
-      desc: "Visit our head office in Igayaza or connect directly with our school administration and community leaders.",
-      icon: Phone,
-      href: "/contact",
-      iconBg: "bg-slate-100 text-slate-700",
-    },
-  ];
 
   return (
     <div className="bg-white">
@@ -155,18 +128,20 @@ export default function HomePage() {
           ))}
         </div>
 
-        {/* Centered Welcome Message (Exact design from user's reference image 5) */}
+        {/* Centered Welcome Message (Toggles after one cycle of images moving) */}
         <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
           <div className="text-center px-4 sm:px-6 max-w-4xl mx-auto">
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] leading-tight">
-              Welcome to St. Theresa Foundation
+            <h1
+              key={`title-${currentMessageIndex}`}
+              className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] leading-tight transition-all duration-700 animate-in fade-in"
+            >
+              {heroMessages[currentMessageIndex].title}
             </h1>
-            <p className="mt-3 sm:mt-4 text-base sm:text-lg lg:text-xl text-white font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] max-w-3xl mx-auto">
-              A Silver Jubilee thanksgiving initiative dedicated to empowering children,
-              uplifting families, and spreading the gentle love of
-              St. Theresa — the Little Flower. Founded by Rev. Fr. Paul Bigirwa,
-              the Foundation stands as a living memorial of gratitude for 25 years of
-              priesthood, celebrated on 05 July 2025.
+            <p
+              key={`sub-${currentMessageIndex}`}
+              className="mt-3 sm:mt-4 text-base sm:text-lg lg:text-xl text-white font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] max-w-3xl mx-auto transition-all duration-700 animate-in fade-in"
+            >
+              {heroMessages[currentMessageIndex].subtitle}
             </p>
           </div>
         </div>
@@ -265,7 +240,7 @@ export default function HomePage() {
                     Quiet Tenacity &amp; Strategic Vision
                   </span>
                   <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                    Queen of Katwe — Phiona Mutesi
+                    Queen of Katwe: Phiona Mutesi
                   </h3>
                   <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                     Growing up amidst severe hardship in Katwe, Kampala, Phiona Mutesi discovered chess at a community outreach center.
@@ -385,85 +360,82 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Quick Links Grid ──────────────────────────────────── */}
-      <section className="py-16 lg:py-20 bg-slate-50">
+      {/* ── About the Community (Matching Screenshot 2 Layout) ── */}
+      <section className="py-14 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <RevealSection>
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <span className="text-blue-600 font-bold text-xs uppercase tracking-widest">
-                Our Work in Kakumiro
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mt-2">
-                What We Do in Our Community
-              </h2>
-              <p className="text-slate-600 mt-2 text-sm sm:text-base">
-                Nurturing children, supporting rural families, and building lasting educational infrastructure.
-              </p>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+              {/* Left Column: Text */}
+              <div className="lg:col-span-6 space-y-5">
+                <div className="w-16 h-1 bg-blue-600 rounded-full" />
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                  About the Community
+                </h2>
+                <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+                  Rooted in Kakumiro District and reaching across the rural communities of Bunyoro sub-region, our schools and outreach initiatives walk hand-in-hand with families, parish communities, and local leaders. Guided by the pastoral dedication of Rev. Fr. Paul Bigirwa, we provide quality Catholic education, moral grounding, and loving care—opening meaningful pathways of hope, talent discovery, and life-changing opportunity for every child.
+                </p>
+                <div className="pt-4 flex justify-center">
+                  <Link
+                    to="/about"
+                    className="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white font-bold px-8 py-3.5 rounded-xl text-sm uppercase tracking-wider shadow-sm transition-all hover:gap-3"
+                  >
+                    <span>About Us</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right Column: Image murubya with director 2 */}
+              <div className="lg:col-span-6 flex justify-center">
+                <img
+                  src="/images/Murubya with director 2.jpg"
+                  alt="Murubya Pupils with Director Rev. Fr. Paul Bigirwa"
+                  className="w-full h-[360px] sm:h-[420px] object-cover rounded-2xl shadow-md"
+                />
+              </div>
             </div>
           </RevealSection>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {quickLinks.map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <RevealSection key={item.title} delay={i * 50}>
-                  <Link
-                    to={item.href}
-                    className="group block bg-white rounded-3xl p-6 sm:p-7 shadow-xs hover:shadow-xl border border-slate-100 transition-all duration-300 hover:-translate-y-1.5 h-full flex flex-col justify-between"
-                  >
-                    <div>
-                      <div
-                        className={`w-12 h-12 rounded-2xl ${item.iconBg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 shadow-xs`}
-                      >
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <h3 className="font-bold text-slate-900 text-lg mb-2 group-hover:text-blue-700 transition-colors">
-                        {item.title}
-                      </h3>
-                      <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
-                    </div>
-                    <div className="flex items-center gap-1.5 mt-5 text-xs font-bold text-blue-600 group-hover:gap-2.5 transition-all">
-                      Learn More <ArrowRight className="w-3.5 h-3.5" />
-                    </div>
-                  </Link>
-                </RevealSection>
-              );
-            })}
-          </div>
         </div>
       </section>
 
-      {/* ── CTA Banner ───────────────────────────────────────── */}
-      <section className="py-16 lg:py-20">
+      {/* ── St. Theresa Education Fund (Matching Screenshot 3 Layout) ── */}
+      <section className="py-14 sm:py-20 bg-slate-50 border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <RevealSection>
-            <div className="relative bg-gradient-to-r from-blue-800 via-blue-900 to-indigo-950 rounded-3xl p-10 sm:p-14 lg:p-16 text-white shadow-2xl overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-10">
-              <div className="absolute -right-10 -bottom-10 w-80 h-80 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
-              <div className="space-y-4 text-center lg:text-left max-w-2xl relative z-10">
-                <span className="inline-block bg-white/15 text-blue-200 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider">
-                  Community Solidarity
-                </span>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
-                  Help Keep a Vulnerable Child in the Classroom
-                </h2>
-                <p className="text-blue-100 text-base sm:text-lg leading-relaxed">
-                  Every term, promising children in our villages face the heartbreak of staying home due to unpaid school fees or lack of scholastic materials. Through our Education Fund, £40,000 annually provides full sponsorship, daily nutrition, uniforms, and books for 200 learners.
-                </p>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+              {/* Left Column: Image Annex collection */}
+              <div className="lg:col-span-6 flex justify-center">
+                <img
+                  src="/images/Annex collection.jpg"
+                  alt="St. Theresa Annex Pupils"
+                  className="w-full h-[360px] sm:h-[420px] object-cover rounded-2xl shadow-md"
+                />
               </div>
-              <div className="flex flex-wrap gap-4 justify-center flex-shrink-0 relative z-10">
-                <Link
-                  to="/education-fund"
-                  className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-8 py-4 rounded-2xl shadow-xl hover:shadow-amber-400/20 transition-all hover:-translate-y-0.5 text-sm sm:text-base flex items-center gap-2"
-                >
-                  <Heart className="w-4 h-4 fill-slate-950 text-slate-950" />
-                  Support a Learner Today
-                </Link>
-                <Link
-                  to="/contact"
-                  className="bg-white/10 hover:bg-white/20 text-white font-semibold px-7 py-4 rounded-2xl border border-white/25 backdrop-blur-sm transition-all hover:-translate-y-0.5 text-sm sm:text-base"
-                >
-                  Speak With Fr. Paul &amp; Team
-                </Link>
+
+              {/* Right Column: Message & Details */}
+              <div className="lg:col-span-6 space-y-4">
+                <div className="text-4xl sm:text-5xl font-serif text-slate-400 leading-none">
+                  “
+                </div>
+                <h3 className="text-xs sm:text-sm font-bold uppercase tracking-widest text-blue-700">
+                  ST. THERESA EDUCATION FUND
+                </h3>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug">
+                  The Education Fund is the Foundation’s core charity arm, dedicated to supporting children who face financial hardship.
+                </h2>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed pt-1">
+                  Through annual sponsorships, tuition subsidies, scholastic materials, and nutritious feeding, we stand with over 200 vulnerable learners across Kakumiro, Kibaale, and Kagadi districts—ensuring that poverty never interrupts a child’s right to learn, grow, and flourish.
+                </p>
+                <div className="pt-4">
+                  <Link
+                    to="/education-fund"
+                    className="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white font-bold px-7 py-3.5 rounded-xl text-sm uppercase tracking-wider shadow-md transition-all hover:gap-3"
+                  >
+                    <Heart className="w-4 h-4 fill-white" />
+                    <span>Support the Education Fund</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
             </div>
           </RevealSection>
