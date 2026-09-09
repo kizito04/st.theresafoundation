@@ -39,9 +39,8 @@ function RevealSection({
   return (
     <div
       ref={ref}
-      className={`transition-all duration-700 ease-out ${className} ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      }`}
+      className={`transition-all duration-700 ease-out ${className} ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        }`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
@@ -160,10 +159,14 @@ export default function HomePage() {
         <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
           <div className="text-center px-4 sm:px-6 max-w-4xl mx-auto">
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] leading-tight">
-              Empowering Minds, Shaping Futures
+              Welcome to St. Theresa Foundation
             </h1>
             <p className="mt-3 sm:mt-4 text-base sm:text-lg lg:text-xl text-white font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] max-w-3xl mx-auto">
-              Inspiring students to achieve excellence in academics, sports, and character.
+              A Silver Jubilee thanksgiving initiative dedicated to empowering children,
+              uplifting families, and spreading the gentle love of
+              St. Theresa — the Little Flower. Founded by Rev. Fr. Paul Bigirwa,
+              the Foundation stands as a living memorial of gratitude for 25 years of
+              priesthood, celebrated on 05 July 2025.
             </p>
           </div>
         </div>
@@ -190,9 +193,8 @@ export default function HomePage() {
             <button
               key={idx}
               onClick={() => setCurrentSlide(idx)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                currentSlide === idx ? "w-6 bg-white" : "w-2 bg-white/50 hover:bg-white/80"
-              }`}
+              className={`h-2 rounded-full transition-all duration-300 ${currentSlide === idx ? "w-6 bg-white" : "w-2 bg-white/50 hover:bg-white/80"
+                }`}
               aria-label={`Slide ${idx + 1}`}
             />
           ))}
@@ -266,7 +268,9 @@ export default function HomePage() {
                     Queen of Katwe — Phiona Mutesi
                   </h3>
                   <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                    Growing up amidst severe hardship in Katwe, Kampala, Phiona Mutesi discovered chess at a community outreach center. Through patient study, resilience, and dedicated mentorship, she rose to international acclaim. Her story reminds our teachers and pupils in Kakumiro that brilliance is never confined to affluent cities—given opportunity, faith, and patience, any village child can master the board of life.
+                    Growing up amidst severe hardship in Katwe, Kampala, Phiona Mutesi discovered chess at a community outreach center.
+                    Through patient study, resilience, and dedicated mentorship, she rose to international acclaim. Her story reminds our teachers
+                    and pupils in Kakumiro that brilliance is never confined to affluent cities given opportunity, faith, and patience, any village child can master the board of life.
                   </p>
                 </div>
               </div>
@@ -304,7 +308,9 @@ export default function HomePage() {
                     Pelé: Birth of a Legend
                   </h3>
                   <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                    Starting on dusty clearings playing barefoot with a sock stuffed with rags, Pelé's joy, tireless work ethic, and humility took him from poverty to world glory. He embodies the exact spirit we teach our young athletes at St. Theresa: that lack of costly boots never prevents a dedicated boy or girl from developing great discipline, lifting their family, and honoring God with their talent.
+                    Starting on dusty clearings playing barefoot with a sock stuffed with rags, Pelé's joy,
+                    tireless work ethic, and humility took him from poverty to world glory. He embodies the exact spirit we teach our young athletes at
+                    St. Theresa: that lack of costly boots never prevents a dedicated boy or girl from developing great discipline, lifting their family, and honoring God with their talent.
                   </p>
                 </div>
               </div>
