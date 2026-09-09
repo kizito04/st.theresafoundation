@@ -26,6 +26,17 @@ export default function Header() {
     { name: "Contact", href: "/contact" },
   ];
 
+  const mobileNavLinks = [
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
+    { name: "St. Theresa Schools", href: "/schools" },
+    { name: "Sports Academy", href: "/sports-academy" },
+    { name: "Transporters", href: "/transporters" },
+    { name: "Photo Gallery", href: "/gallery" },
+    { name: "News & Events", href: "/news" },
+    { name: "Contact Us", href: "/contact" },
+  ];
+
   const isActive = (path: string) =>
     path === "/" ? location.pathname === "/" : location.pathname.startsWith(path);
 
@@ -115,45 +126,93 @@ export default function Header() {
             </Link>
 
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onClick={() => setMobileMenuOpen(true)}
               className="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
-              aria-label="Toggle menu"
+              aria-label="Open menu"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              <Menu className="w-6 h-6" />
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t border-slate-100">
-          <nav className="max-w-7xl mx-auto px-4 py-4 space-y-1">
-            {navLinks.map((item) => (
+      {/* Mobile Side Drawer Overlay */}
+      <div
+        className={`fixed inset-0 bg-black/60 z-50 lg:hidden transition-opacity duration-300 ${
+          mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setMobileMenuOpen(false)}
+      />
+
+      {/* Mobile Side Drawer Panel (Slides from left, white background style) */}
+      <aside
+        className={`fixed top-0 left-0 bottom-0 w-72 sm:w-80 max-w-[85vw] bg-white z-50 shadow-2xl flex flex-col transform transition-transform duration-300 ease-in-out lg:hidden ${
+          mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+        aria-label="Mobile Navigation"
+      >
+        {/* Drawer Header */}
+        <div className="p-4 border-b border-slate-100 flex items-center justify-between bg-white">
+          <Link
+            to="/"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex items-center gap-2.5"
+          >
+            <div className="w-10 h-10 rounded-xl bg-blue-700 flex items-center justify-center text-xl shadow-sm text-white">
+              🌹
+            </div>
+            <div className="leading-tight">
+              <div className="font-extrabold text-sm text-slate-900 tracking-tight">
+                ST. THERESA
+              </div>
+              <div className="text-[10px] text-blue-600 font-bold tracking-wide uppercase">
+                Foundation
+              </div>
+            </div>
+          </Link>
+
+          {/* Close button X */}
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            className="w-9 h-9 rounded-lg bg-blue-700 hover:bg-blue-800 text-white flex items-center justify-center transition-colors shadow-sm"
+            aria-label="Close menu"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Drawer Menu List - White background */}
+        <div className="flex-1 overflow-y-auto py-3 bg-white">
+          <nav className="px-3 space-y-1">
+            {mobileNavLinks.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`flex items-center px-4 py-3 rounded-xl text-sm font-semibold transition-all ${
+                onClick={() => setMobileMenuOpen(false)}
+                className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold transition-all ${
                   isActive(item.href)
-                    ? "bg-blue-700 text-white"
-                    : "text-slate-700 hover:bg-blue-50 hover:text-blue-700"
+                    ? "bg-blue-50 text-blue-700 font-bold"
+                    : "text-slate-800 hover:bg-slate-50 hover:text-blue-700"
                 }`}
               >
-                {item.name}
+                <span>{item.name}</span>
               </Link>
             ))}
-            <div className="pt-3">
-              <Link
-                to="/education-fund"
-                className="flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 text-white py-3 px-4 rounded-xl font-bold text-sm transition-all shadow-md"
-              >
-                <Heart className="w-4 h-4 fill-white" />
-                Donate to Education Fund
-              </Link>
-            </div>
           </nav>
         </div>
-      )}
+
+        {/* Drawer Footer CTA */}
+        <div className="p-4 border-t border-slate-100 bg-white">
+          <Link
+            to="/education-fund"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 text-white py-3 px-4 rounded-xl font-bold text-sm shadow-md transition-all"
+          >
+            <Heart className="w-4 h-4 fill-white" />
+            Donate to Education Fund
+          </Link>
+        </div>
+      </aside>
     </header>
   );
 }

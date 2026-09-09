@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Heart, Award, ArrowRight, BookOpen, Trophy, Bus, Image as ImageIcon, Phone, CheckCircle2, Quote } from "lucide-react";
+import { Heart, Award, ArrowRight, BookOpen, Trophy, Bus, Image as ImageIcon, Phone, CheckCircle2, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 // Scroll-triggered animation hook
@@ -50,6 +50,38 @@ function RevealSection({
 }
 
 export default function HomePage() {
+  const heroSlides = [
+    {
+      src: "/images/Annex 4.jpeg",
+      alt: "St. Theresa Annex Campus Pupils",
+    },
+    {
+      src: "/images/Murubya with director 1.jpg",
+      alt: "Murubya Pupils with Director Rev. Fr. Paul Bigirwa",
+    },
+    {
+      src: "/images/House 2.jpg",
+      alt: "St. Theresa Campus",
+    },
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [heroSlides.length]);
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  };
+
   const quickLinks = [
     {
       title: "Rev. Fr. Paul Bigirwa",
@@ -104,120 +136,66 @@ export default function HomePage() {
 
   return (
     <div className="bg-white">
-      {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-950 via-blue-900 to-slate-900 text-white min-h-[580px] flex items-center">
-        {/* Faint atmospheric background photo of House 2 */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <img
-            src="/images/House 2.jpg"
-            alt=""
-            aria-hidden="true"
-            className="w-full h-full object-cover object-center opacity-20 mix-blend-luminosity scale-105"
-          />
-          {/* Subtle gradient overlay to keep text crystal clear and create depth */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-950/95 via-blue-950/85 to-blue-900/80" />
-          <div className="absolute inset-0 bg-radial-at-c from-transparent via-blue-950/30 to-blue-950/80" />
+      {/* ── Hero Slider (Matching Seeta High Reference Design) ─────────── */}
+      <section className="relative w-full h-[460px] sm:h-[540px] lg:h-[620px] overflow-hidden bg-slate-900">
+        {/* Horizontal sliding track */}
+        <div
+          className="flex w-full h-full transition-transform duration-700 ease-in-out"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {heroSlides.map((slide, idx) => (
+            <div key={idx} className="w-full h-full flex-shrink-0 relative">
+              <img
+                src={slide.src}
+                alt={slide.alt}
+                className="w-full h-full object-cover object-center"
+              />
+              {/* Balanced overlay so background photos remain clearly visible, matching reference */}
+              <div className="absolute inset-0 bg-black/35" />
+            </div>
+          ))}
         </div>
 
-        {/* Subtle dot grid pattern */}
-        <div
-          className="absolute inset-0 opacity-10 pointer-events-none"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle, rgba(255,255,255,0.7) 1px, transparent 1px)",
-            backgroundSize: "28px 28px",
-          }}
-        />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 relative z-10 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left */}
-            <div className="lg:col-span-7 space-y-6">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
-                Welcome to{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-amber-100 to-white">
-                  St. Theresa Foundation
-                </span>
-              </h1>
-
-              <p className="text-lg text-blue-100/90 leading-relaxed max-w-xl">
-                Founded by <strong className="text-white font-semibold">Rev. Fr. Paul Bigirwa</strong> in
-                humble thanksgiving for 25 years of priestly service, we walk beside rural families
-                across Kakumiro and greater Bunyoro—giving every boy and girl a quality Catholic education,
-                dignity, and a real chance to thrive.
-              </p>
-
-              <div className="flex flex-wrap gap-3 pt-2">
-                <Link
-                  to="/education-fund"
-                  className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-6 py-3.5 rounded-xl shadow-lg hover:shadow-amber-400/20 transition-all hover:-translate-y-0.5 text-sm"
-                >
-                  <Heart className="w-4 h-4 fill-slate-950 text-slate-950" />
-                  Sponsor a Child in Kakumiro
-                </Link>
-                <Link
-                  to="/about"
-                  className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3.5 rounded-xl border border-white/25 backdrop-blur-sm transition-all hover:-translate-y-0.5 text-sm"
-                >
-                  Fr. Paul's Calling &amp; Story
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 pt-4 border-t border-white/15">
-                {[
-                  { value: "25 Yrs", label: "Priesthood of Fr. Bigirwa" },
-                  { value: "200+", label: "Vulnerable Pupils Sponsored" },
-                  { value: "3 Campuses", label: "Main, Annex & Murubya" },
-                ].map((stat) => (
-                  <div key={stat.label}>
-                    <span className="block text-2xl sm:text-3xl font-extrabold text-white">
-                      {stat.value}
-                    </span>
-                    <span className="text-xs text-blue-200 mt-0.5 block">{stat.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right — Annex 4 photo inside a stylized circular frame */}
-            <div className="lg:col-span-5 flex justify-center items-center">
-              <div className="relative group">
-                {/* Glowing decorative rings */}
-                <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-amber-400/30 via-blue-400/20 to-indigo-500/30 blur-xl opacity-70 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                <div className="absolute -inset-2 rounded-full border border-blue-300/30 border-dashed animate-[spin_60s_linear_infinite] pointer-events-none" />
-                
-                {/* Circular Image Container */}
-                <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full p-2.5 bg-gradient-to-br from-white/30 via-blue-400/20 to-white/10 shadow-2xl backdrop-blur-sm">
-                  <div className="w-full h-full rounded-full overflow-hidden border-4 border-white/90 shadow-2xl relative">
-                    <img
-                      src="/images/Annex 4.jpeg"
-                      alt="St. Theresa Annex Campus Pupils"
-                      className="w-full h-full object-cover object-center scale-105 group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-blue-950/50 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
-                  </div>
-                </div>
-
-                {/* Floating pill badge attached to circle */}
-                <div className="absolute -bottom-3 -left-2 sm:bottom-2 sm:-left-4 bg-white/95 backdrop-blur-md text-slate-900 px-4 py-2 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-2.5 z-20 transition-transform duration-300 group-hover:scale-105">
-                  <div className="w-8 h-8 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-sm shadow-sm">
-                    🌹
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-extrabold uppercase tracking-wider text-blue-700 leading-none">Annex Campus</p>
-                    <p className="text-xs font-bold text-slate-800 leading-tight mt-0.5">Kakumiro, Uganda</p>
-                  </div>
-                </div>
-
-                <div className="absolute -top-3 -right-2 sm:top-2 sm:-right-4 bg-blue-900/90 backdrop-blur-md text-white px-3.5 py-1.5 rounded-xl border border-blue-400/30 text-xs font-semibold shadow-lg flex items-center gap-2 z-20">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>Nurturing Potential</span>
-                </div>
-              </div>
-            </div>
+        {/* Centered Welcome Message (Exact design from user's reference image 5) */}
+        <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
+          <div className="text-center px-4 sm:px-6 max-w-4xl mx-auto">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] leading-tight">
+              Empowering Minds, Shaping Futures
+            </h1>
+            <p className="mt-3 sm:mt-4 text-base sm:text-lg lg:text-xl text-white font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] max-w-3xl mx-auto">
+              Inspiring students to achieve excellence in academics, sports, and character.
+            </p>
           </div>
+        </div>
+
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 text-white/80 hover:text-white hover:scale-110 transition-all cursor-pointer focus:outline-none"
+          aria-label="Previous Slide"
+        >
+          <ChevronLeft className="w-8 h-8 sm:w-11 sm:h-11 drop-shadow-lg" />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 text-white/80 hover:text-white hover:scale-110 transition-all cursor-pointer focus:outline-none"
+          aria-label="Next Slide"
+        >
+          <ChevronRight className="w-8 h-8 sm:w-11 sm:h-11 drop-shadow-lg" />
+        </button>
+
+        {/* Slide Indicators */}
+        <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
+          {heroSlides.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentSlide(idx)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                currentSlide === idx ? "w-6 bg-white" : "w-2 bg-white/50 hover:bg-white/80"
+              }`}
+              aria-label={`Slide ${idx + 1}`}
+            />
+          ))}
         </div>
       </section>
 
