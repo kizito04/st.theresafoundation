@@ -229,7 +229,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Queen of Katwe Card */}
             <RevealSection delay={0}>
-              <div className="relative bg-white rounded-3xl p-8 sm:p-10 shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 h-full flex flex-col justify-center overflow-hidden group min-h-[320px]">
+              <div className="relative bg-white rounded-1xl p-8 sm:p-10 shadow-md hover:shadow-xl border border-slate-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden group min-h-[320px]">
                 {/* Highly Visible Queen of Katwe Image on the right side */}
                 <div className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-5/12 pointer-events-none overflow-hidden rounded-r-3xl z-0">
                   <img
@@ -264,13 +264,13 @@ export default function HomePage() {
                     src="/images/pele 2.png"
                     alt=""
                     aria-hidden="true"
-                    className="w-full h-full object-cover object-center opacity-30 filter contrast-110 group-hover:scale-105 transition-all duration-700"
+                    className="w-full h-full object-cover object-center opacity-30 filter contrast-110 group-hover:scale-105 transition-all duration-900"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/80 to-white/50" />
                 </div>
 
                 {/* Highly Visible pele.png on the right side */}
-                <div className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-5/12 pointer-events-none overflow-hidden rounded-r-3xl z-0">
+                <div className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-5/12 pointer-events-none overflow-hidden rounded-r-1xl z-0">
                   <img
                     src="/images/pele.png"
                     alt="Pelé"
