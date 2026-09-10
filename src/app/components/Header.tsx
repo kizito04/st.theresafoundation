@@ -20,6 +20,7 @@ export default function Header() {
 
   const navLinks = [
     { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
     { name: "Schools", href: "/schools" },
     { name: "Gallery", href: "/gallery" },
     { name: "News", href: "/news" },
@@ -42,11 +43,10 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
+      className={`sticky top-0 z-50 transition-all duration-300 ${scrolled
           ? "bg-white/95 backdrop-blur-md shadow-[0_1px_20px_rgba(0,0,0,0.08)]"
           : "bg-white shadow-sm"
-      }`}
+        }`}
     >
       {/* Top Info Bar - Hidden on Home Page */}
       {location.pathname !== "/" && (
@@ -113,11 +113,10 @@ export default function Header() {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`relative px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
-                  isActive(item.href)
+                className={`relative px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${isActive(item.href)
                     ? "text-blue-700 bg-blue-50"
                     : "text-slate-600 hover:text-blue-700 hover:bg-blue-50"
-                }`}
+                  }`}
               >
                 {item.name}
                 {isActive(item.href) && (
@@ -131,17 +130,15 @@ export default function Header() {
 
       {/* Mobile Side Drawer Overlay */}
       <div
-        className={`fixed inset-0 bg-black/60 z-50 lg:hidden transition-opacity duration-300 ${
-          mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 bg-black/60 z-50 lg:hidden transition-opacity duration-300 ${mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
         onClick={() => setMobileMenuOpen(false)}
       />
 
       {/* Mobile Side Drawer Panel */}
       <aside
-        className={`fixed top-0 left-0 bottom-0 w-72 sm:w-80 max-w-[85vw] bg-white z-50 shadow-2xl flex flex-col transform transition-transform duration-300 ease-in-out lg:hidden ${
-          mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed top-0 left-0 bottom-0 w-72 sm:w-80 max-w-[85vw] bg-white z-50 shadow-2xl flex flex-col transform transition-transform duration-300 ease-in-out lg:hidden ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
         aria-label="Mobile Navigation"
       >
         {/* Drawer Header */}
@@ -181,11 +178,10 @@ export default function Header() {
                 key={item.name}
                 to={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`flex items-center justify-between px-4 py-3 text-sm font-semibold transition-all ${
-                  isActive(item.href)
+                className={`flex items-center justify-between px-4 py-3 text-sm font-semibold transition-all ${isActive(item.href)
                     ? "text-slate-900 font-bold border-b-2"
                     : "text-slate-700 hover:text-slate-900"
-                }`}
+                  }`}
                 style={isActive(item.href) ? { borderBottomColor: "#5D8AA8" } : {}}
               >
                 <span>{item.name}</span>
