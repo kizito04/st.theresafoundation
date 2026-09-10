@@ -29,11 +29,9 @@ export default function Header() {
 
   const mobileNavLinks = [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
-    { name: "St. Theresa Schools", href: "/schools" },
-    { name: "Sports Academy", href: "/sports-academy" },
-    { name: "Transporters", href: "/transporters" },
-    { name: "Photo Gallery", href: "/gallery" },
+    { name: "About", href: "/about" },
+    { name: "Schools", href: "/schools" },
+    { name: "Gallery", href: "/gallery" },
     { name: "News & Events", href: "/news" },
     { name: "Contact Us", href: "/contact" },
   ];
@@ -44,8 +42,8 @@ export default function Header() {
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-[0_1px_20px_rgba(0,0,0,0.08)]"
-          : "bg-white shadow-sm"
+        ? "bg-white/95 backdrop-blur-md shadow-[0_1px_20px_rgba(0,0,0,0.08)]"
+        : "bg-white shadow-sm"
         }`}
     >
       {/* Top Info Bar - Hidden on Home Page */}
@@ -114,8 +112,8 @@ export default function Header() {
                 key={item.name}
                 to={item.href}
                 className={`relative px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${isActive(item.href)
-                    ? "text-blue-700 bg-blue-50"
-                    : "text-slate-600 hover:text-blue-700 hover:bg-blue-50"
+                  ? "text-blue-700 bg-blue-50"
+                  : "text-slate-600 hover:text-blue-700 hover:bg-blue-50"
                   }`}
               >
                 {item.name}
@@ -179,8 +177,8 @@ export default function Header() {
                 to={item.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`flex items-center justify-between px-4 py-3 text-sm font-semibold transition-all ${isActive(item.href)
-                    ? "text-slate-900 font-bold border-b-2"
-                    : "text-slate-700 hover:text-slate-900"
+                  ? "text-slate-900 font-bold border-b-2"
+                  : "text-slate-700 hover:text-slate-900"
                   }`}
                 style={isActive(item.href) ? { borderBottomColor: "#5D8AA8" } : {}}
               >

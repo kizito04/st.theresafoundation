@@ -231,7 +231,7 @@ export default function HomePage() {
             <RevealSection delay={0}>
               <div className="relative bg-white rounded-1xl p-8 sm:p-10 shadow-md hover:shadow-xl border border-slate-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden group min-h-[320px]">
                 {/* Highly Visible Queen of Katwe Image on the right side */}
-                <div className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-5/12 pointer-events-none overflow-hidden rounded-r-3xl z-0">
+                <div className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-5/12 pointer-events-none overflow-hidden rounded-r-1xl z-0">
                   <img
                     src="/images/queen 1.png"
                     alt="Phiona Mutesi - Queen of Katwe"
@@ -257,7 +257,7 @@ export default function HomePage() {
 
             {/* Pelé Card */}
             <RevealSection delay={100}>
-              <div className="relative bg-white rounded-3xl p-8 sm:p-10 shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 h-full flex flex-col justify-center overflow-hidden group min-h-[320px]">
+              <div className="relative bg-white rounded-1xl p-8 sm:p-10 shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 h-full flex flex-col justify-center overflow-hidden group min-h-[320px]">
                 {/* Highly Visible pele 2.png in the background */}
                 <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl z-0">
                   <img
@@ -393,7 +393,7 @@ export default function HomePage() {
                 <img
                   src="/images/Murubya with director 2.jpg"
                   alt="Murubya Pupils with Director Rev. Fr. Paul Bigirwa"
-                  className="w-full h-[360px] sm:h-[420px] object-cover rounded-2xl shadow-md"
+                  className="w-full h-[360px] sm:h-[420px] object-cover rounded-1xl shadow-md"
                 />
               </div>
             </div>
@@ -418,7 +418,7 @@ export default function HomePage() {
                   The Education Fund is the Foundation's core charity arm, dedicated to supporting children who face financial hardship.
                 </h2>
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed pt-3">
-                  Through annual sponsorships, tuition subsidies, scholastic materials, and nutritious feeding, we stand with over 200 vulnerable learners across Kakumiro, Kibaale, and Kagadi districts—ensuring that poverty never interrupts a child's right to learn, grow, and flourish.
+                  Through annual sponsorships, tuition subsidies, scholastic materials, and nutritious feeding, we stand with over 200 vulnerable learners across Kakumiro, Kibaale, and Kagadi districts ensuring that poverty never interrupts a child's right to learn, grow, and flourish.
                 </p>
                 <div className="pt-6">
                   <Link
@@ -426,8 +426,8 @@ export default function HomePage() {
                     className="inline-flex items-center gap-1.5 text-blue-700 hover:text-blue-900 font-semibold text-sm border-b border-blue-300 hover:border-blue-600 pb-0.5 transition-all"
                   >
                     <Heart className="w-3.5 h-3.5" />
-                    <span>Support the Education Fund</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    {/* <span>Support the Education Fund</span> */}
+                    {/* <ArrowRight className="w-3.5 h-3.5" /> */}
                   </Link>
                 </div>
               </div>
