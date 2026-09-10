@@ -152,7 +152,7 @@ export default function HomePage() {
         </div>
 
         {/* Navigation Arrows */}
-        <button
+        {/* <button
           onClick={prevSlide}
           className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 text-white/80 hover:text-white hover:scale-110 transition-all cursor-pointer focus:outline-none"
           aria-label="Previous Slide"
@@ -165,7 +165,7 @@ export default function HomePage() {
           aria-label="Next Slide"
         >
           <ChevronRight className="w-8 h-8 sm:w-11 sm:h-11 drop-shadow-lg" />
-        </button>
+        </button> */}
 
         {/* Slide Indicators */}
         <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
@@ -249,8 +249,7 @@ export default function HomePage() {
                   </h3>
                   <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                     Growing up amidst severe hardship in Katwe, Kampala, Phiona Mutesi discovered chess at a community outreach center.
-                    Through patient study, resilience, and dedicated mentorship, she rose to international acclaim. Her story reminds our teachers
-                    and pupils in Kakumiro that brilliance is never confined to affluent cities given opportunity, faith, and patience, any village child can master the board of life.
+                    Through patient study, resilience, and dedicated mentorship, she rose to international acclaim.
                   </p>
                 </div>
               </div>
@@ -289,8 +288,7 @@ export default function HomePage() {
                   </h3>
                   <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                     Starting on dusty clearings playing barefoot with a sock stuffed with rags, Pelé's joy,
-                    tireless work ethic, and humility took him from poverty to world glory. He embodies the exact spirit we teach our young athletes at
-                    St. Theresa: that lack of costly boots never prevents a dedicated boy or girl from developing great discipline, lifting their family, and honoring God with their talent.
+                    tireless work ethic, and humility took him from poverty to world glory.
                   </p>
                 </div>
               </div>

@@ -17,7 +17,7 @@ function WhatsAppIcon({ className }: { className?: string }) {
 
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: "#5D8AA8" }} className="text-white pt-14 pb-8">
+    <footer style={{ backgroundColor: "#242e66c4" }} className="text-white pt-14 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/25">
 
@@ -74,7 +74,7 @@ export default function Footer() {
                 <Youtube className="w-4 h-4 text-white" />
               </a>
               <a
-                href="https://wa.me/256772543737"
+                href="https://whatsapp.com/256772543737"
                 target="_blank"
                 rel="noreferrer"
                 className="w-8 h-8 bg-white/15 hover:bg-white/30 rounded-lg flex items-center justify-center transition-colors"
