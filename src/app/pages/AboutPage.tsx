@@ -29,6 +29,57 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* About St. Theresa Foundation — Screenshot 1 design (Second top of About page, before Director) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white">
+          {/* Top section: Wide image with overlapping dark navy badge */}
+          <div className="relative">
+            {/* Murubya pupils 1 banner image */}
+            <div className="w-full h-[320px] sm:h-[420px] lg:h-[480px] overflow-hidden">
+              <img
+                src="/images/Murubya pupils 1.jpg"
+                alt="Murubya Pupils - St. Theresa Foundation"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+
+            {/* Overlapping dark navy card on bottom-left */}
+            <div className="sm:absolute sm:-bottom-12 sm:left-8 lg:left-12 bg-[#10243e] text-white p-8 sm:p-10 sm:max-w-md lg:max-w-lg shadow-xl">
+              <span className="block text-xs font-semibold uppercase tracking-[0.25em] text-slate-300 mb-3">
+                About
+              </span>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold leading-tight">
+                About St. Theresa Foundation
+              </h2>
+            </div>
+          </div>
+
+          {/* Lower section: Decorative grid on left, descriptive text on right */}
+          <div className="pt-12 sm:pt-20 pb-8 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            {/* Left: Decorative cross/grid element matching screenshot */}
+            <div className="hidden lg:flex lg:col-span-4 items-center justify-start pl-12 pt-6">
+              <div className="relative w-28 h-28">
+                {/* Thin structural grid lines */}
+                <div className="absolute top-0 bottom-0 left-10 w-[1.5px] bg-slate-800" />
+                <div className="absolute left-0 right-0 top-10 h-[1.5px] bg-slate-800" />
+                <div className="absolute left-0 top-0 w-10 h-10 border-t border-l border-slate-300" />
+                <div className="absolute right-0 bottom-0 w-10 h-10 border-b border-r border-slate-300" />
+              </div>
+            </div>
+
+            {/* Right: Narrative paragraphs */}
+            <div className="lg:col-span-8 space-y-6 text-slate-600 leading-relaxed text-base sm:text-lg">
+              <p>
+                St. Theresa Foundation was established as a thanksgiving initiative following the Silver Jubilee of priesthood of Rev. Fr. Paul Bigirwa.
+              </p>
+              <p>
+                The Foundation seeks to transform gratitude into meaningful service by supporting children, families and communities through education, talent development, sports and other community initiatives.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Founder Section — Screenshot 2 design */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         <div className="relative">
@@ -92,56 +143,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* A Living Memory of Gratitude — Screenshot 3 design */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white">
-          {/* Top section: Wide image with overlapping dark navy badge */}
-          <div className="relative">
-            {/* Murubya pupils 1 banner image */}
-            <div className="w-full h-[320px] sm:h-[420px] lg:h-[480px] overflow-hidden">
-              <img
-                src="/images/Murubya pupils 1.jpg"
-                alt="Murubya Pupils - St. Theresa Foundation"
-                className="w-full h-full object-cover object-center"
-              />
-            </div>
-
-            {/* Overlapping dark navy card on bottom-left */}
-            <div className="sm:absolute sm:-bottom-12 sm:left-8 lg:left-12 bg-[#10243e] text-white p-8 sm:p-10 sm:max-w-md lg:max-w-lg shadow-xl">
-              <span className="block text-xs font-semibold uppercase tracking-[0.25em] text-slate-300 mb-3">
-                About
-              </span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold leading-tight">
-                A living memory of gratitude
-              </h2>
-            </div>
-          </div>
-
-          {/* Lower section: Decorative grid on left, descriptive text on right */}
-          <div className="pt-12 sm:pt-20 pb-8 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-            {/* Left: Decorative cross/grid element matching screenshot */}
-            <div className="hidden lg:flex lg:col-span-4 items-center justify-start pl-12 pt-6">
-              <div className="relative w-28 h-28">
-                {/* Thin structural grid lines */}
-                <div className="absolute top-0 bottom-0 left-10 w-[1.5px] bg-slate-800" />
-                <div className="absolute left-0 right-0 top-10 h-[1.5px] bg-slate-800" />
-                <div className="absolute left-0 top-0 w-10 h-10 border-t border-l border-slate-300" />
-                <div className="absolute right-0 bottom-0 w-10 h-10 border-b border-r border-slate-300" />
-              </div>
-            </div>
-
-            {/* Right: Narrative paragraphs */}
-            <div className="lg:col-span-8 space-y-6 text-slate-600 leading-relaxed text-base sm:text-lg">
-              <p>
-                The St. Theresa Foundation was born out of 25 years of priestly gratitude, dedicated to transforming young lives through faith, education, and love. Established by Rev. Fr. Paul Bigirwa as his lasting silver jubilee gift back to the soil and community that nurtured him, it creates enduring opportunities for generations of children.
-              </p>
-              <p>
-                Throughout the years, the foundation has expanded its facilities, introduced new programs, and embraced technological and vocational advancements to enhance the learning experience. We have built a strong reputation for fostering a culture of excellence, where students are encouraged to explore their passions, develop critical thinking skills, and become active, responsible members of the community.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Inspirations Behind the Foundation — Screenshot 2 design (single 3-column card) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -269,6 +270,50 @@ export default function AboutPage() {
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Jubilee Gift to the Community (Before Footer — Matching Screenshot) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          {/* Left: Message with blue horizontal accent bar */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="w-16 h-1 bg-blue-600 rounded-full" />
+
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+              Jubilee Gift to the Community
+            </h2>
+
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+              The Foundation was born from a simple but profound desire:
+            </p>
+
+            <blockquote className="p-6 bg-slate-50 border-l-4 border-blue-600 rounded-r-xl">
+              <p className="font-serif italic text-xl sm:text-2xl text-slate-900 font-semibold leading-relaxed">
+                “To give back to the community for the Lord’s goodness in my life.”
+              </p>
+              <footer className="text-sm font-bold text-blue-900 mt-3">
+                — Rev. Fr. Paul Bigirwa (Silver Jubilee Message)
+              </footer>
+            </blockquote>
+
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              As a living prayer of thanksgiving, the Foundation translates this gratitude into tangible impact — providing life-changing education, nurturing innate gifts, and fostering dignity and hope for generations of children.
+            </p>
+          </div>
+
+          {/* Right: Video player */}
+          <div className="lg:col-span-7">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-slate-900 aspect-video border border-slate-200">
+              <video
+                src="/images/Video.mp4"
+                controls
+                playsInline
+                preload="metadata"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>

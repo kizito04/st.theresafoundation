@@ -15,11 +15,70 @@ function WhatsAppIcon({ className }: { className?: string }) {
   );
 }
 
+// Grid Crosshairs Pattern from Screenshot 2
+function GridCrossPattern({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 240 120"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      {/* Dim grid crosshairs */}
+      {[20, 60, 100, 140, 180, 220].map((x) => (
+        <g key={`r1-${x}`} stroke="rgba(255,255,255,0.22)" strokeWidth="1.5">
+          <line x1={x - 10} y1={25} x2={x + 10} y2={25} />
+          <line x1={x} y1={15} x2={x} y2={35} />
+        </g>
+      ))}
+
+      {[20, 60, 100, 140, 180, 220].map((x) => (
+        <g key={`r2-${x}`} stroke="rgba(255,255,255,0.22)" strokeWidth="1.5">
+          <line x1={x - 10} y1={60} x2={x + 10} y2={60} />
+          <line x1={x} y1={50} x2={x} y2={70} />
+        </g>
+      ))}
+
+      {[20, 60, 100, 140, 180, 220].map((x) => (
+        <g key={`r3-${x}`} stroke="rgba(255,255,255,0.22)" strokeWidth="1.5">
+          <line x1={x - 10} y1={95} x2={x + 10} y2={95} />
+          <line x1={x} y1={85} x2={x} y2={105} />
+        </g>
+      ))}
+
+      {/* Bright illuminated white accents matching Screenshot 2 */}
+      {/* Row 1, col 5 (x=180, y=25) */}
+      <g stroke="#ffffff" strokeWidth="2.5">
+        <line x1={170} y1={25} x2={190} y2={25} />
+        <line x1={180} y1={15} x2={180} y2={35} />
+      </g>
+
+      {/* Row 2, col 3 (x=100, y=60) */}
+      <g stroke="#ffffff" strokeWidth="2.5">
+        <line x1={90} y1={60} x2={110} y2={60} />
+        <line x1={100} y1={50} x2={100} y2={70} />
+      </g>
+
+      {/* Row 3, col 2 (x=60, y=95) */}
+      <g stroke="#ffffff" strokeWidth="2.5">
+        <line x1={50} y1={95} x2={70} y2={95} />
+        <line x1={60} y1={85} x2={60} y2={105} />
+      </g>
+    </svg>
+  );
+}
+
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: "#242e66c4" }} className="text-white pt-14 pb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/25">
+    <footer style={{ backgroundColor: "#102035" }} className="relative text-white pt-14 pb-8 overflow-hidden">
+      {/* Decorative background watermark of the crosshair grid on desktop */}
+      <div className="absolute right-0 bottom-0 pointer-events-none opacity-20 hidden lg:block translate-x-10 translate-y-6">
+        <GridCrossPattern className="w-80 h-auto" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/20">
 
           {/* Column 1: Foundation Info */}
           <div className="space-y-4">
@@ -43,6 +102,13 @@ export default function Footer() {
               uplifting families, and spreading the gentle love of St. Theresa. Founded by
               Rev. Fr. Paul Bigirwa — 25 Years of Priesthood (05 July 2025).
             </p>
+
+            {/* Crosshair pattern card embedded in Footer */}
+            <div className="pt-2">
+              <div className="inline-block bg-[#0b1626]/80 border border-white/15 rounded-lg p-2.5 shadow-inner">
+                <GridCrossPattern className="w-44 h-auto" />
+              </div>
+            </div>
 
             {/* Social Links */}
             <div className="flex gap-2 pt-1">
