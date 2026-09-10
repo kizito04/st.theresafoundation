@@ -2,9 +2,9 @@ export default function AboutPage() {
 
   return (
     <div className="space-y-16 pb-16">
-      {/* Header Banner — Annex 2 background image */}
+      {/* Header Banner — Screenshot 3 design with dark blue line & Annex 2 background */}
       <section
-        className="relative text-white py-24 overflow-hidden"
+        className="relative text-white min-h-[460px] sm:min-h-[520px] flex items-center py-28 sm:py-36 overflow-hidden"
         style={{
           backgroundImage: "url('/images/Annex 2.jpg')",
           backgroundSize: "cover",
@@ -12,13 +12,18 @@ export default function AboutPage() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-rose-950/80 via-rose-900/70 to-slate-900/80" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-extrabold font-serif tracking-tight">
-            Our Story &amp; Founder's Vision
-          </h1>
-          <p className="text-lg text-rose-100/80 max-w-2xl mx-auto mt-3">
+        {/* Dark overlay without red gradient */}
+        <div className="absolute inset-0 bg-slate-950/75" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          {/* Left-aligned heading with dark blue vertical accent bar */}
+          <div className="flex items-center gap-4 sm:gap-5 mb-4">
+            <div className="w-2.5 sm:w-3 h-12 sm:h-16 bg-[#1e3a8a] flex-shrink-0" />
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
+              Our Story &amp; Founder's Vision
+            </h1>
+          </div>
+          <p className="text-base sm:text-lg text-slate-200 max-w-3xl leading-relaxed pl-6 sm:pl-8">
             Born out of 25 years of priestly gratitude, dedicated to transforming young lives through faith, education, and love.
           </p>
         </div>
@@ -138,78 +143,51 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 1.3 Inspirations Behind the Foundation */}
+      {/* Inspirations Behind the Foundation — Screenshot 2 design (single 3-column card) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-rose-700 font-bold text-xs uppercase tracking-widest bg-rose-50 px-3 py-1 rounded-full border border-rose-200">
-            1.3 Guiding Pillars
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold font-serif text-slate-900 mt-3">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
             Inspirations Behind the Foundation
           </h2>
-          <p className="text-gray-600 mt-2">
-            Three powerful stories that shape our devotion, passion, and strategic vision.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Inspiration 1: Queen of Katwe */}
-          <div className="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-lg hover:shadow-2xl transition-all space-y-4 flex flex-col justify-between">
-            <div className="space-y-4">
-              <div className="w-14 h-14 rounded-2xl bg-amber-100 text-amber-900 flex items-center justify-center text-2xl font-bold">
-                ♟️
-              </div>
-              <h3 className="text-xl font-bold font-serif text-slate-900">
-                Queen of Katwe
+        {/* Single card with 3 columns and vertical divider lines */}
+        <div className="bg-white rounded-xl border border-slate-200/80 shadow-sm p-8 sm:p-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200">
+            {/* Column 1: Queen of Katwe */}
+            <div className="py-6 md:py-2 md:px-8 first:md:pl-2 space-y-3">
+              <h3 className="text-xl font-bold text-slate-900">
+                Queen of Katwe — Phiona Mutesi
               </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                A reminder that brilliance can emerge from the most unexpected places when a child is given a chance. Phiona Mutesi's journey from a slum child to an international chess icon inspires our academic and chess mentorship programs.
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                A reminder that brilliance can emerge from the most unexpected places when a child is given a chance.
               </p>
             </div>
-            <div className="pt-4 border-t border-slate-100 text-xs font-semibold text-amber-800">
-              Key Lesson: Opportunity unlocks potential.
-            </div>
-          </div>
 
-          {/* Inspiration 2: Pelé */}
-          <div className="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-lg hover:shadow-2xl transition-all space-y-4 flex flex-col justify-between">
-            <div className="space-y-4">
-              <div className="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-900 flex items-center justify-center text-2xl font-bold">
-                ⚽
-              </div>
-              <h3 className="text-xl font-bold font-serif text-slate-900">
+            {/* Column 2: Pelé */}
+            <div className="py-6 md:py-2 md:px-8 space-y-3">
+              <h3 className="text-xl font-bold text-slate-900">
                 Pelé: Birth of a Legend
               </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                A testimony that talent, when nurtured, can transform a life and inspire a nation. From playing with improvised socks stuffed with rags to world glory, Pelé's grit guides our Sports Academy.
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                A testimony that talent, when nurtured, can transform a life and inspire a nation.
               </p>
             </div>
-            <div className="pt-4 border-t border-slate-100 text-xs font-semibold text-emerald-800">
-              Key Lesson: Nurtured talent transforms lives.
-            </div>
-          </div>
 
-          {/* Inspiration 3: St. Theresa of Lisieux */}
-          <div className="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-lg hover:shadow-2xl transition-all space-y-4 flex flex-col justify-between">
-            <div className="space-y-4">
-              <div className="w-14 h-14 rounded-2xl bg-rose-100 text-rose-900 flex items-center justify-center text-2xl font-bold">
-                🌹
-              </div>
-              <h3 className="text-xl font-bold font-serif text-slate-900">
+            {/* Column 3: St. Theresa of Lisieux */}
+            <div className="py-6 md:py-2 md:px-8 last:md:pr-2 space-y-3">
+              <h3 className="text-xl font-bold text-slate-900">
                 St. Theresa of Lisieux
               </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Patron of simplicity, love, and small acts that change the world — "the Little Flower". She inspires us to perform small, daily acts of kindness with profound love for every vulnerable learner.
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Patron of simplicity, love, and small acts that change the world.
               </p>
-            </div>
-            <div className="pt-4 border-t border-slate-100 text-xs font-semibold text-rose-800">
-              Key Lesson: Small acts done with great love.
             </div>
           </div>
         </div>
       </section>
 
-      {/* Mission & Vision — Screenshot 4 design */}
+      {/* Mission, Vision & Values — Screenshot 4 design */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section heading with red underline accent matching Screenshot 4 */}
         <div className="text-center mb-12">
@@ -219,7 +197,7 @@ export default function AboutPage() {
           <div className="w-16 h-1 bg-red-600 mx-auto mt-3" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Vision Card */}
           <div className="bg-white rounded-none border border-slate-200 border-t-4 border-t-slate-900 p-8 sm:p-10 shadow-sm flex flex-col justify-between">
             <div className="space-y-4">
@@ -258,6 +236,32 @@ export default function AboutPage() {
                   "Comprehensive education & school sponsorship",
                   "Talent nurturing in sports, arts, and leadership",
                   "Strengthening vulnerable families and communities",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm font-medium text-slate-700">
+                    <span className="text-red-600 font-bold text-base leading-none mt-0.5 select-none">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Values Card */}
+          <div className="bg-white rounded-none border border-slate-200 border-t-4 border-t-slate-900 p-8 sm:p-10 shadow-sm flex flex-col justify-between">
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold text-slate-900 tracking-tight">
+                Our Values
+              </h3>
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                The core convictions and moral compass that inspire our dedication to every child.
+              </p>
+              <ul className="space-y-3 pt-3">
+                {[
+                  "Faith",
+                  "Discipline",
+                  "Excellence",
+                  "Compassion",
+                  "Opportunity for every child",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm font-medium text-slate-700">
                     <span className="text-red-600 font-bold text-base leading-none mt-0.5 select-none">✓</span>
