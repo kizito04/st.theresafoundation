@@ -393,7 +393,7 @@ export default function HomePage() {
                 <img
                   src="/images/Murubya with director 2.jpg"
                   alt="Murubya Pupils with Director Rev. Fr. Paul Bigirwa"
-                  className="w-full h-[360px] sm:h-[420px] object-cover rounded-1xl shadow-md"
+                  className="w-full h-[360px] sm:h-[420px] object-cover rounded-1.5xl shadow-md"
                 />
               </div>
             </div>
