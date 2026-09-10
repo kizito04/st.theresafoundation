@@ -51,7 +51,7 @@ function RevealSection({
 export default function HomePage() {
   const heroSlides = [
     {
-      src: "/images/Annex 4.jpeg",
+      src: "/images/Annex 4.png",
       alt: "St. Theresa Annex Campus Pupils",
     },
     {
