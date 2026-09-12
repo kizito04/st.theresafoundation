@@ -55,15 +55,15 @@ export default function HomePage() {
       alt: "St. Theresa Annex Campus Pupils",
     },
     {
-      src: "/images/Murubya with director 1.jpg",
+      src: "/images/Fr with pupils 1.png",
       alt: "Murubya Pupils with Director Rev. Fr. Paul Bigirwa",
     },
     {
-      src: "/images/Annex 2.jpg",
+      src: "/images/Annex 1.jpg",
       alt: "St. Theresa Campus",
     },
     {
-      src: "/images/Murubya 2.jpg",
+      src: "/images/Fr with pupils.png",
       alt: "St. Theresa Campus",
     },
   ];
