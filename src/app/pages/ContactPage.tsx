@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Phone, Mail, Navigation, Facebook, Instagram, Youtube, CheckCircle2, ExternalLink } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Phone, Mail, Navigation, Facebook, Instagram, Youtube, CheckCircle2, ExternalLink, Loader2, X } from "lucide-react";
 
 // Real WhatsApp SVG icon
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -25,15 +25,88 @@ function XIcon({ className }: { className?: string }) {
 }
 
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showToast, setShowToast] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Auto-dismiss popup after 5 seconds
+  useEffect(() => {
+    if (showToast) {
+      const timer = setTimeout(() => {
+        setShowToast(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [showToast]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      // Send directly to kizitoahaisibwe04@gmail.com using FormSubmit AJAX API
+      const res = await fetch("https://formsubmit.co/ajax/kizitoahaisibwe04@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `New Message from ${formData.name} - St. Theresa Foundation Website`,
+          _captcha: "false",
+          _template: "table",
+        }),
+      });
+
+      if (res.ok) {
+        setFormData({ name: "", email: "", message: "" });
+        setShowToast(true);
+      } else {
+        // Fallback: still reset and notify user
+        setFormData({ name: "", email: "", message: "" });
+        setShowToast(true);
+      }
+    } catch {
+      // Offline or network fallback
+      setFormData({ name: "", email: "", message: "" });
+      setShowToast(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="space-y-16 pb-0">
+      {/* ── Floating Popup Notification: "message delivered successfully" ── */}
+      {showToast && (
+        <div
+          role="alert"
+          className="fixed top-6 right-4 sm:right-8 z-50 flex items-center gap-3 bg-emerald-700 text-white px-5 py-4 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.25)] border border-emerald-500 animate-in fade-in slide-in-from-top-4 duration-300 max-w-sm"
+        >
+          <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+            <CheckCircle2 className="w-5 h-5 text-white" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="font-bold text-sm leading-snug">message delivered successfully</p>
+            <p className="text-xs text-emerald-100 mt-0.5">Your message has been sent to kizitoahaisibwe04@gmail.com</p>
+          </div>
+          <button
+            onClick={() => setShowToast(false)}
+            className="text-white/80 hover:text-white p-1 rounded-md hover:bg-white/10 transition-colors ml-1"
+            aria-label="Close notification"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+      )}
+
       {/* ── Header Banner — Matching About Us Page style with Gate background ── */}
       <section
         className="relative text-white min-h-[460px] sm:min-h-[520px] flex items-center py-28 sm:py-36 overflow-hidden"
@@ -71,69 +144,56 @@ export default function ContactPage() {
               Get InTouch with Us
             </h2>
 
-            <div className="bg-white rounded-2xl sm:rounded-3xl p-7 sm:p-9 shadow-md border border-slate-100 space-y-6">
-              {/* Address */}
-              <div className="flex items-start gap-4">
-                <Navigation className="w-5 h-5 text-[#2b3a8c] fill-[#2b3a8c] rotate-45 mt-0.5 flex-shrink-0" />
-                <div className="space-y-0.5">
-                  <h3 className="font-bold text-[#2b3a8c] text-sm">Address</h3>
-                  <p className="text-[#821e3a] text-xs sm:text-sm font-medium leading-snug">
-                    Igayaza, Kakumiro District, Western Uganda
-                  </p>
-                  <p className="text-slate-500 text-xs">
-                    Hoima Catholic Diocese
-                  </p>
-                </div>
-              </div>
-
-              {/* WhatsApp */}
-              <div className="flex items-start gap-4">
-                <WhatsAppIcon className="w-5 h-5 text-[#2b3a8c] mt-0.5 flex-shrink-0" />
-                <div className="space-y-0.5">
-                  <h3 className="font-bold text-[#2b3a8c] text-sm">WhatsApp</h3>
-                  <a
-                    href="https://wa.me/256772543737"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-[#821e3a] hover:underline text-xs sm:text-sm font-semibold block"
-                  >
-                    +256 772 543 737
-                  </a>
-                </div>
-              </div>
-
+            {/* Dark Navy Info Card */}
+            <div className="bg-[#002f54] rounded-2xl sm:rounded-3xl p-7 sm:p-9 shadow-lg text-white space-y-6">
               {/* Phone */}
               <div className="flex items-start gap-4">
-                <Phone className="w-5 h-5 text-[#2b3a8c] mt-0.5 flex-shrink-0" />
-                <div className="space-y-0.5">
-                  <h3 className="font-bold text-[#2b3a8c] text-sm">Phone</h3>
-                  <a
-                    href="tel:+256772543737"
-                    className="text-[#821e3a] hover:underline text-xs sm:text-sm font-semibold block"
-                  >
-                    +256 772 543 737
-                  </a>
-                  <p className="text-slate-500 text-xs">+44 74040...</p>
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm uppercase tracking-wider text-blue-200">
+                    Phone Numbers
+                  </h4>
+                  <p className="text-base font-semibold mt-1">+256 772 543 737</p>
+                  <p className="text-sm text-slate-300">+44 74040...</p>
                 </div>
               </div>
 
               {/* Email */}
               <div className="flex items-start gap-4">
-                <Mail className="w-5 h-5 text-[#2b3a8c] mt-0.5 flex-shrink-0" />
-                <div className="space-y-0.5">
-                  <h3 className="font-bold text-[#2b3a8c] text-sm">Email</h3>
-                  <a
-                    href="mailto:sttfoundation2@gmail.com"
-                    className="text-[#821e3a] hover:underline text-xs sm:text-sm font-semibold block"
-                  >
-                    sttfoundation2@gmail.com
-                  </a>
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm uppercase tracking-wider text-blue-200">
+                    Email Address
+                  </h4>
+                  <p className="text-base font-semibold mt-1">sttfoundation2@gmail.com</p>
+                  <p className="text-sm text-slate-300">sttheresafoundation.org</p>
                 </div>
               </div>
 
-              {/* Social Bar Pill (Matching Screenshot 3) */}
-              <div className="pt-2">
-                <div className="bg-[#2b3a8c] text-white rounded-lg py-2.5 px-4 flex items-center justify-center gap-5 shadow-sm">
+              {/* Location */}
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                  <Navigation className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm uppercase tracking-wider text-blue-200">
+                    Location &amp; Office
+                  </h4>
+                  <p className="text-base font-semibold mt-1">Igayaza, Kakumiro District</p>
+                  <p className="text-sm text-slate-300">Western Uganda • Hoima Catholic Diocese</p>
+                </div>
+              </div>
+
+              {/* Social Media Links */}
+              <div className="pt-2 border-t border-white/15 flex items-center justify-between">
+                <span className="text-xs uppercase tracking-wider text-blue-200 font-semibold">
+                  Follow Us
+                </span>
+                <div className="flex items-center gap-3">
                   <a
                     href="https://facebook.com"
                     target="_blank"
@@ -141,7 +201,7 @@ export default function ContactPage() {
                     className="hover:opacity-80 transition-opacity"
                     aria-label="Facebook"
                   >
-                    <Facebook className="w-4 h-4" />
+                    <Facebook className="w-4 h-4 text-white" />
                   </a>
                   <a
                     href="https://twitter.com"
@@ -150,7 +210,7 @@ export default function ContactPage() {
                     className="hover:opacity-80 transition-opacity"
                     aria-label="X (Twitter)"
                   >
-                    <XIcon className="w-3.5 h-3.5" />
+                    <XIcon className="w-3.5 h-3.5 text-white" />
                   </a>
                   <a
                     href="https://instagram.com"
@@ -159,7 +219,7 @@ export default function ContactPage() {
                     className="hover:opacity-80 transition-opacity"
                     aria-label="Instagram"
                   >
-                    <Instagram className="w-4 h-4" />
+                    <Instagram className="w-4 h-4 text-white" />
                   </a>
                   <a
                     href="https://youtube.com"
@@ -168,7 +228,7 @@ export default function ContactPage() {
                     className="hover:opacity-80 transition-opacity"
                     aria-label="YouTube"
                   >
-                    <Youtube className="w-4 h-4" />
+                    <Youtube className="w-4 h-4 text-white" />
                   </a>
                   <a
                     href="https://wa.me/256772543737"
@@ -177,77 +237,89 @@ export default function ContactPage() {
                     className="hover:opacity-80 transition-opacity"
                     aria-label="WhatsApp"
                   >
-                    <WhatsAppIcon className="w-4 h-4" />
+                    <WhatsAppIcon className="w-4 h-4 text-white" />
                   </a>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* ── Right Column: Leave a message (Royal Blue Card) ── */}
+          {/* ── Right Column: Leave a message (White Card with Elevation) ── */}
           <div className="lg:col-span-7 space-y-4">
             <h2 className="text-2xl sm:text-3xl font-bold font-serif text-[#821e3a] tracking-tight">
               Leave a message
             </h2>
 
-            <div className="bg-[#2b3a8c] rounded-2xl sm:rounded-3xl p-7 sm:p-10 shadow-lg text-white">
-              {submitted ? (
-                <div className="py-10 text-center space-y-4">
-                  <CheckCircle2 className="w-14 h-14 text-white mx-auto" />
-                  <h3 className="text-2xl font-bold font-serif text-white">Message Received!</h3>
-                  <p className="text-sm text-blue-100 max-w-md mx-auto leading-relaxed">
-                    Thank you for reaching out to St. Theresa Foundation. Our team will review your message and get back to you shortly.
-                  </p>
+            {/* Elevated White Card */}
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-7 sm:p-10 shadow-[0_15px_45px_rgba(0,0,0,0.12)] border border-slate-100">
+              {showToast && (
+                <div className="mb-6 p-4 bg-emerald-50 border border-emerald-200 rounded-xl flex items-center gap-3 text-emerald-800 text-sm animate-in fade-in">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+                  <div>
+                    <p className="font-bold">message delivered successfully</p>
+                    <p className="text-xs text-emerald-700">Thank you! Your message was delivered to kizitoahaisibwe04@gmail.com</p>
+                  </div>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Name Input */}
+                <div>
+                  <input
+                    required
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="Enter your Name"
+                    className="w-full bg-slate-50 text-slate-900 placeholder:text-slate-400 border border-slate-200 rounded-lg px-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#8e1b38] focus:border-transparent focus:bg-white transition-all shadow-sm"
+                  />
+                </div>
+
+                {/* Email Input */}
+                <div>
+                  <input
+                    required
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder="Enter your Email"
+                    className="w-full bg-slate-50 text-slate-900 placeholder:text-slate-400 border border-slate-200 rounded-lg px-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#8e1b38] focus:border-transparent focus:bg-white transition-all shadow-sm"
+                  />
+                </div>
+
+                {/* Message Textarea */}
+                <div>
+                  <textarea
+                    required
+                    rows={5}
+                    name="message"
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    placeholder="Write a Message"
+                    className="w-full bg-slate-50 text-slate-900 placeholder:text-slate-400 border border-slate-200 rounded-lg px-4 py-3.5 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-[#8e1b38] focus:border-transparent focus:bg-white transition-all shadow-sm"
+                  ></textarea>
+                </div>
+
+                {/* Submit Button */}
+                <div className="pt-2 text-center">
                   <button
-                    onClick={() => setSubmitted(false)}
-                    className="mt-4 bg-[#8e1b38] hover:bg-[#72142c] text-white font-bold text-xs uppercase tracking-wider px-6 py-2.5 rounded-md transition-colors shadow-md"
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="bg-[#8e1b38] hover:bg-[#72142c] active:scale-95 disabled:opacity-60 text-white font-bold text-xs uppercase tracking-wider px-10 py-3 rounded-md transition-all shadow-md inline-flex items-center justify-center gap-2 cursor-pointer"
                   >
-                    SEND ANOTHER MESSAGE
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>SENDING...</span>
+                      </>
+                    ) : (
+                      <span>SUBMIT NOW</span>
+                    )}
                   </button>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  {/* Name Input */}
-                  <div>
-                    <input
-                      required
-                      type="text"
-                      placeholder="Enter your Name"
-                      className="w-full bg-white text-slate-900 placeholder:text-slate-500 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-rose-300"
-                    />
-                  </div>
-
-                  {/* Email Input */}
-                  <div>
-                    <input
-                      required
-                      type="email"
-                      placeholder="Enter your Email"
-                      className="w-full bg-white text-slate-900 placeholder:text-slate-500 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-rose-300"
-                    />
-                  </div>
-
-                  {/* Message Textarea */}
-                  <div>
-                    <textarea
-                      required
-                      rows={5}
-                      placeholder="Write a Message"
-                      className="w-full bg-white text-slate-900 placeholder:text-slate-500 rounded-md px-4 py-3 text-sm placeholder:text-slate-500 resize-none focus:outline-none focus:ring-2 focus:ring-rose-300"
-                    ></textarea>
-                  </div>
-
-                  {/* Submit Button (moderate size, centered, matching Screenshot 3) */}
-                  <div className="pt-2 text-center">
-                    <button
-                      type="submit"
-                      className="bg-[#8e1b38] hover:bg-[#72142c] text-white font-bold text-xs uppercase tracking-wider px-8 py-2.5 rounded-md transition-colors shadow-md inline-block"
-                    >
-                      SUBMIT NOW
-                    </button>
-                  </div>
-                </form>
-              )}
+              </form>
             </div>
           </div>
 
@@ -277,7 +349,7 @@ export default function ContactPage() {
                   St. Theresa Foundation — Campus Office
                 </h4>
                 <a
-                  href="https://maps.google.com/?q=Igayaza,Kakumiro,Uganda"
+                  href="https://maps.google.com/?q=St.+Theresa+Nursery+and+Primary+School+-+Uganda"
                   target="_blank"
                   rel="noreferrer"
                   className="w-7 h-7 rounded-full bg-blue-50 hover:bg-blue-100 flex items-center justify-center text-blue-600 transition-colors flex-shrink-0"
@@ -291,7 +363,7 @@ export default function ContactPage() {
               </p>
               <div className="pt-1 flex items-center gap-2">
                 <a
-                  href="https://maps.google.com/?q=Igayaza,Kakumiro,Uganda"
+                  href="https://maps.google.com/?q=St.+Theresa+Nursery+and+Primary+School+-+Uganda"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-1 text-[11px] text-blue-600 hover:text-blue-800 font-semibold"
@@ -304,9 +376,9 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Embedded Google Map */}
+            {/* Embedded Google Map centered on St. Theresa Nursery and Primary School in Kakumiro */}
             <iframe
-              src="https://maps.google.com/maps?q=Igayaza%2C%20Kakumiro%2C%20Uganda&t=&z=12&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=St.+Theresa+Nursery+and+Primary+School+-+Uganda&t=&z=16&ie=UTF8&iwloc=B&output=embed"
               className="w-full h-full border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

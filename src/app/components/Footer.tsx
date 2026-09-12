@@ -34,37 +34,31 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
 
-          {/* Left Column: Rose Flower Logo & Foundation Info */}
+          {/* Left Column: Rose Flower Logo & Foundation Info (Enlarged, description removed) */}
           <div className="lg:col-span-4 space-y-4">
-            <Link to="/" className="flex items-center gap-3 group inline-flex">
-              <span className="text-3xl sm:text-4xl leading-none select-none">🌹</span>
+            <Link to="/" className="flex items-center gap-4 group inline-flex">
+              <span className="text-5xl sm:text-6xl lg:text-7xl leading-none select-none drop-shadow-sm">🌹</span>
               <div className="leading-tight">
-                <h3 className="font-serif font-extrabold text-lg sm:text-xl text-[#002f54] tracking-wider">
+                <h3 className="font-serif font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#002f54] tracking-wider">
                   ST. THERESA
                 </h3>
-                <p className="text-[11px] text-blue-700 font-bold tracking-[0.2em] uppercase">
+                <p className="text-sm sm:text-base text-blue-700 font-bold tracking-[0.22em] uppercase mt-1">
                   Foundation
                 </p>
-                <p className="text-xs text-slate-500 font-medium mt-0.5">
+                <p className="text-sm sm:text-base text-slate-600 font-medium mt-1">
                   The Little Flower Initiative
                 </p>
               </div>
             </Link>
-
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm">
-              A thanksgiving initiative dedicated to empowering children,
-              uplifting families, and spreading the gentle love of St. Theresa. Founded by
-              Rev. Fr. Paul Bigirwa — 25 Years of Priesthood (05 July 2025).
-            </p>
           </div>
 
-          {/* Column 1: About us (with bold heading) */}
+          {/* Column 1: About us (with bold heading & increased text size) */}
           <div className="lg:col-span-2 sm:col-span-4">
             <div className="border-t-2 border-[#002f54] pt-4">
-              <h4 className="font-bold text-[#002f54] text-base mb-4 tracking-tight">
+              <h4 className="font-bold text-[#002f54] text-lg sm:text-xl mb-4 tracking-tight">
                 About us
               </h4>
-              <ul className="space-y-3 text-sm">
+              <ul className="space-y-3.5 text-base sm:text-[17px]">
                 <li>
                   <Link to="/about" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
                     About the Founder
@@ -89,13 +83,13 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Quick links (with bold heading) */}
+          {/* Column 2: Quick links (with bold heading & increased text size) */}
           <div className="lg:col-span-2 sm:col-span-4">
             <div className="border-t-2 border-[#002f54] pt-4">
-              <h4 className="font-bold text-[#002f54] text-base mb-4 tracking-tight">
+              <h4 className="font-bold text-[#002f54] text-lg sm:text-xl mb-4 tracking-tight">
                 Quick links
               </h4>
-              <ul className="space-y-3 text-sm">
+              <ul className="space-y-3.5 text-base sm:text-[17px]">
                 <li>
                   <Link to="/transporters" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
                     St. Theresa Transporters
@@ -120,34 +114,34 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 3: Contact us (with bold heading) */}
+          {/* Column 3: Contact us (with bold heading & increased text size) */}
           <div className="lg:col-span-4 sm:col-span-4">
-            <div className="border-t-2 border-[#002f54] pt-4 space-y-3.5 text-xs sm:text-sm">
-              <h4 className="font-bold text-[#002f54] text-base mb-4 tracking-tight">
+            <div className="border-t-2 border-[#002f54] pt-4 space-y-4 text-base sm:text-[17px]">
+              <h4 className="font-bold text-[#002f54] text-lg sm:text-xl mb-4 tracking-tight">
                 Contact us
               </h4>
 
-              <div className="flex items-start gap-2.5">
-                <Phone className="w-4 h-4 text-[#002f54] mt-0.5 flex-shrink-0" />
+              <div className="flex items-start gap-3">
+                <Phone className="w-5 h-5 text-[#002f54] mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-[#002f54] font-semibold">+256 772 543 737</p>
-                  <p className="text-slate-500 text-xs">+44 74040...</p>
+                  <p className="text-[#002f54] font-semibold text-base sm:text-lg">+256 772 543 737</p>
+                  <p className="text-slate-600 text-xs sm:text-sm">+44 74040...</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-2.5">
-                <Mail className="w-4 h-4 text-[#002f54] mt-0.5 flex-shrink-0" />
+              <div className="flex items-start gap-3">
+                <Mail className="w-5 h-5 text-[#002f54] mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-[#002f54] font-semibold">sttfoundation2@gmail.com</p>
-                  <p className="text-slate-500 text-xs">sttheresafoundation.org</p>
+                  <p className="text-[#002f54] font-semibold text-base sm:text-lg">sttfoundation2@gmail.com</p>
+                  <p className="text-slate-600 text-xs sm:text-sm">sttheresafoundation.org</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#002f54] mt-0.5 flex-shrink-0" />
+              <div className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-[#002f54] mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-[#002f54] font-semibold">Igayaza, Western Uganda</p>
-                  <p className="text-slate-500 text-xs">Hoima Catholic Diocese • Kakumiro District</p>
+                  <p className="text-[#002f54] font-semibold text-base sm:text-lg">Igayaza, Western Uganda</p>
+                  <p className="text-slate-600 text-xs sm:text-sm">Hoima Catholic Diocese • Kakumiro District</p>
                 </div>
               </div>
             </div>
@@ -157,15 +151,15 @@ export default function Footer() {
       </div>
 
       {/* ── Bottom Bar (Matching Screenshot 1 Dark Navy & White Circular Social Buttons) ── */}
-      <div className="bg-[#002f54] text-white py-5">
+      <div className="bg-[#002f54] text-white py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
 
-          {/* Copyright & Founder Info */}
-          <div className="text-xs text-white/80 space-y-1 text-center sm:text-left">
+          {/* Copyright & Founder Info (Increased text size) */}
+          <div className="text-sm sm:text-base text-white/90 space-y-1 text-center sm:text-left">
             <p className="font-normal">
               &copy; {new Date().getFullYear()} St. Theresa Foundation. All rights reserved.
             </p>
-            <p className="text-white/60 text-[11px]">
+            <p className="text-white/70 text-xs sm:text-sm">
               Founded by Rev. Fr. Paul Bigirwa (Silver Jubilee — 05 July 2025). Building futures, one child at a time.
             </p>
           </div>

@@ -59,7 +59,7 @@ export default function HomePage() {
       alt: "Murubya Pupils with Director Rev. Fr. Paul Bigirwa",
     },
     {
-      src: "/images/Annex 1.jpg",
+      src: "/images/Annex1.jpg",
       alt: "St. Theresa Campus",
     },
     {
@@ -451,9 +451,9 @@ export default function HomePage() {
       <section className="py-16 sm:py-24 bg-white border-t border-slate-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <RevealSection>
-            {/* Script Heading matching Screenshot 2 */}
+            {/* Section Heading matching other sections */}
             <div className="text-center mb-10 sm:mb-12">
-              <h2 className="font-cursive text-4xl sm:text-5xl text-[#a8822d] tracking-wide">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
                 Latest updates
               </h2>
             </div>
