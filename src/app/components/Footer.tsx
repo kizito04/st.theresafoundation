@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Facebook, Instagram, Youtube, Phone, Mail, MapPin, Heart } from "lucide-react";
+import { Facebook, Instagram, Youtube, Phone, Mail, MapPin } from "lucide-react";
 
 // Real WhatsApp SVG icon
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -15,240 +15,249 @@ function WhatsAppIcon({ className }: { className?: string }) {
   );
 }
 
-// Grid Crosshairs Pattern from Screenshot 2
-function GridCrossPattern({ className }: { className?: string }) {
+// X (formerly Twitter) SVG icon
+function XIcon({ className }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 240 120"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
-    >
-      {/* Dim grid crosshairs */}
-      {[20, 60, 100, 140, 180, 220].map((x) => (
-        <g key={`r1-${x}`} stroke="rgba(255,255,255,0.22)" strokeWidth="1.5">
-          <line x1={x - 10} y1={25} x2={x + 10} y2={25} />
-          <line x1={x} y1={15} x2={x} y2={35} />
-        </g>
-      ))}
-
-      {[20, 60, 100, 140, 180, 220].map((x) => (
-        <g key={`r2-${x}`} stroke="rgba(255,255,255,0.22)" strokeWidth="1.5">
-          <line x1={x - 10} y1={60} x2={x + 10} y2={60} />
-          <line x1={x} y1={50} x2={x} y2={70} />
-        </g>
-      ))}
-
-      {[20, 60, 100, 140, 180, 220].map((x) => (
-        <g key={`r3-${x}`} stroke="rgba(255,255,255,0.22)" strokeWidth="1.5">
-          <line x1={x - 10} y1={95} x2={x + 10} y2={95} />
-          <line x1={x} y1={85} x2={x} y2={105} />
-        </g>
-      ))}
-
-      {/* Bright illuminated white accents matching Screenshot 2 */}
-      {/* Row 1, col 5 (x=180, y=25) */}
-      <g stroke="#ffffff" strokeWidth="2.5">
-        <line x1={170} y1={25} x2={190} y2={25} />
-        <line x1={180} y1={15} x2={180} y2={35} />
-      </g>
-
-      {/* Row 2, col 3 (x=100, y=60) */}
-      <g stroke="#ffffff" strokeWidth="2.5">
-        <line x1={90} y1={60} x2={110} y2={60} />
-        <line x1={100} y1={50} x2={100} y2={70} />
-      </g>
-
-      {/* Row 3, col 2 (x=60, y=95) */}
-      <g stroke="#ffffff" strokeWidth="2.5">
-        <line x1={50} y1={95} x2={70} y2={95} />
-        <line x1={60} y1={85} x2={60} y2={105} />
-      </g>
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
     </svg>
+  );
+}
+
+// St. Theresa Crest Emblem Icon
+function FoundationCrest({ className }: { className?: string }) {
+  return (
+    <div className={`relative flex items-center justify-center ${className}`}>
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-[#002f54]">
+        {/* Heraldic Shield Frame */}
+        <path
+          d="M50 8C70 8 86 16 86 28C86 62 50 88 50 88C50 88 14 62 14 28C14 16 30 8 50 8Z"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          fill="rgba(0,47,84,0.03)"
+        />
+        {/* Inner Shield Accent */}
+        <path
+          d="M50 14C66 14 80 21 80 31C80 58 50 81 50 81C50 81 20 58 20 31C20 21 34 14 50 14Z"
+          stroke="currentColor"
+          strokeWidth="1"
+          strokeDasharray="2 2"
+        />
+        {/* Cross / Rose symbol */}
+        <path
+          d="M50 24V56M36 36H64"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+        />
+        <circle cx="50" cy="36" r="4" fill="#a8203e" />
+        {/* Crown / Stars */}
+        <circle cx="34" cy="22" r="1.5" fill="currentColor" />
+        <circle cx="50" cy="18" r="2" fill="currentColor" />
+        <circle cx="66" cy="22" r="1.5" fill="currentColor" />
+      </svg>
+    </div>
   );
 }
 
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: "#102035" }} className="relative text-white pt-14 pb-8 overflow-hidden">
-      {/* Decorative background watermark of the crosshair grid on desktop */}
-      <div className="absolute right-0 bottom-0 pointer-events-none opacity-20 hidden lg:block translate-x-10 translate-y-6">
-        <GridCrossPattern className="w-80 h-auto" />
+    <footer className="bg-white text-[#002f54] font-sans border-t border-slate-200">
+      {/* ── Top Newsletter Row (Matching Screenshot 1) ── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-12 pb-6">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#002f54]">
+            Subscribe to our newsletter
+          </h2>
+
+          <Link
+            to="/contact"
+            className="inline-flex items-center justify-center bg-[#a8203e] hover:bg-[#8f1530] text-white font-bold text-xs sm:text-sm tracking-wider uppercase px-7 py-3 rounded-full transition-colors shadow-sm"
+          >
+            SUBSCRIBE FOR FOUNDATION UPDATES
+          </Link>
+        </div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/20">
+      {/* ── Main Footer Columns (Matching Screenshot 1 layout and navy lines) ── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
 
-          {/* Column 1: Foundation Info */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <span className="text-2xl">🌹</span>
+          {/* Left Column: Crest & Foundation Info */}
+          <div className="lg:col-span-4 space-y-4">
+            <div className="flex items-start gap-4">
+              <FoundationCrest className="w-16 h-16 flex-shrink-0" />
               <div>
-                <h3
-                  className="text-base font-bold text-white tracking-wide"
-                  style={{ textDecoration: "underline", textDecorationColor: "rgba(255,255,255,0.5)", textUnderlineOffset: "4px" }}
-                >
-                  ST. THERESA FOUNDATION
+                <h3 className="font-serif font-extrabold text-xl tracking-wider text-[#002f54] leading-tight">
+                  ST. THERESA
                 </h3>
-                <p className="text-xs text-white/70 font-medium mt-0.5">
+                <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#a8203e]">
+                  Foundation
+                </p>
+                <p className="text-xs text-slate-500 font-medium mt-0.5">
                   The Little Flower Initiative
                 </p>
               </div>
             </div>
 
-            <p className="text-sm text-white/80 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm">
               A thanksgiving initiative dedicated to empowering children,
               uplifting families, and spreading the gentle love of St. Theresa. Founded by
               Rev. Fr. Paul Bigirwa — 25 Years of Priesthood (05 July 2025).
             </p>
+          </div>
 
-            {/* Crosshair pattern card embedded in Footer */}
-            <div className="pt-2">
-              <div className="inline-block bg-[#0b1626]/80 border border-white/15 rounded-lg p-2.5 shadow-inner">
-                <GridCrossPattern className="w-44 h-auto" />
-              </div>
-            </div>
-
-            {/* Social Links */}
-            <div className="flex gap-2 pt-1">
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-8 h-8 bg-white/15 hover:bg-white/30 rounded-lg flex items-center justify-center transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-4 h-4 text-white" />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-8 h-8 bg-white/15 hover:bg-white/30 rounded-lg flex items-center justify-center transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-4 h-4 text-white" />
-              </a>
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-8 h-8 bg-white/15 hover:bg-white/30 rounded-lg flex items-center justify-center transition-colors"
-                aria-label="YouTube"
-              >
-                <Youtube className="w-4 h-4 text-white" />
-              </a>
-              <a
-                href="https://whatsapp.com/256772543737"
-                target="_blank"
-                rel="noreferrer"
-                className="w-8 h-8 bg-white/15 hover:bg-white/30 rounded-lg flex items-center justify-center transition-colors"
-                aria-label="WhatsApp"
-              >
-                <WhatsAppIcon className="w-4 h-4 text-white" />
-              </a>
+          {/* Quick Links Column 1 (with dark navy line rule above) */}
+          <div className="lg:col-span-2 sm:col-span-4">
+            <div className="border-t-2 border-[#002f54] pt-4">
+              <ul className="space-y-3 text-sm">
+                <li>
+                  <Link to="/about" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
+                    About the Founder
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/schools" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
+                    St. Theresa Schools
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/sports-academy" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
+                    Sports Academy
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/education-fund" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
+                    Education Fund
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
-          <div>
-            <h4
-              className="text-white font-bold text-sm mb-4 uppercase tracking-wider"
-              style={{ textDecoration: "underline", textDecorationColor: "rgba(255,255,255,0.5)", textUnderlineOffset: "4px" }}
-            >
-              Quick Links
-            </h4>
-            <ul className="space-y-2.5 text-sm">
-              <li>
-                <Link to="/about" className="text-white/80 hover:text-white transition-colors flex items-center gap-1.5">
-                  <span className="text-white/50">›</span> About the Founder
-                </Link>
-              </li>
-              <li>
-                <Link to="/schools" className="text-white/80 hover:text-white transition-colors flex items-center gap-1.5">
-                  <span className="text-white/50">›</span> St. Theresa Schools
-                </Link>
-              </li>
-              <li>
-                <Link to="/sports-academy" className="text-white/80 hover:text-white transition-colors flex items-center gap-1.5">
-                  <span className="text-white/50">›</span> Sports Academy
-                </Link>
-              </li>
-              <li>
-                <Link to="/education-fund" className="text-white/80 hover:text-white transition-colors flex items-center gap-1.5">
-                  <span className="text-white/50">›</span> Education Fund
-                </Link>
-              </li>
-              <li>
-                <Link to="/transporters" className="text-white/80 hover:text-white transition-colors flex items-center gap-1.5">
-                  <span className="text-white/50">›</span> St. Theresa Transporters
-                </Link>
-              </li>
-              <li>
-                <Link to="/gallery" className="text-white/80 hover:text-white transition-colors flex items-center gap-1.5">
-                  <span className="text-white/50">›</span> Photo Gallery
-                </Link>
-              </li>
-              <li>
-                <Link to="/news" className="text-white/80 hover:text-white transition-colors flex items-center gap-1.5">
-                  <span className="text-white/50">›</span> News &amp; Updates
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="text-white/80 hover:text-white transition-colors flex items-center gap-1.5">
-                  <span className="text-white/50">›</span> Contact Us
-                </Link>
-              </li>
-            </ul>
+          {/* Quick Links Column 2 (with dark navy line rule above) */}
+          <div className="lg:col-span-2 sm:col-span-4">
+            <div className="border-t-2 border-[#002f54] pt-4">
+              <ul className="space-y-3 text-sm">
+                <li>
+                  <Link to="/transporters" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
+                    St. Theresa Transporters
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/gallery" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
+                    Photo Gallery
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/news" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
+                    News &amp; Updates
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contact" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
+                    Contact Us
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
 
-          {/* Column 3: Contact Us */}
-          <div>
-            <h4
-              className="text-white font-bold text-sm mb-4 uppercase tracking-wider"
-              style={{ textDecoration: "underline", textDecorationColor: "rgba(255,255,255,0.5)", textUnderlineOffset: "4px" }}
-            >
-              Contact Us
-            </h4>
-            <div className="space-y-3 text-sm">
+          {/* Contact Details Column 3 (with dark navy line rule above) */}
+          <div className="lg:col-span-4 sm:col-span-4">
+            <div className="border-t-2 border-[#002f54] pt-4 space-y-3 text-xs sm:text-sm">
               <div className="flex items-start gap-2.5">
-                <Phone className="w-4 h-4 text-white/70 mt-0.5 flex-shrink-0" />
+                <Phone className="w-4 h-4 text-[#002f54] mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-white font-medium">+256 772 543 737</p>
-                  <p className="text-white/70 text-xs">+44 74040...</p>
+                  <p className="text-[#002f54] font-semibold">+256 772 543 737</p>
+                  <p className="text-slate-500 text-xs">+44 74040...</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-2.5">
-                <Mail className="w-4 h-4 text-white/70 mt-0.5 flex-shrink-0" />
+                <Mail className="w-4 h-4 text-[#002f54] mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-white font-medium">sttfoundation2@gmail.com</p>
-                  <p className="text-white/70 text-xs">sttheresafoundation.org</p>
+                  <p className="text-[#002f54] font-semibold">sttfoundation2@gmail.com</p>
+                  <p className="text-slate-500 text-xs">sttheresafoundation.org</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-white/70 mt-0.5 flex-shrink-0" />
+                <MapPin className="w-4 h-4 text-[#002f54] mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-white font-medium">Igayaza, Western Uganda</p>
-                  <p className="text-white/70 text-xs">Hoima Catholic Diocese • Kakumiro District</p>
+                  <p className="text-[#002f54] font-semibold">Igayaza, Western Uganda</p>
+                  <p className="text-slate-500 text-xs">Hoima Catholic Diocese • Kakumiro District</p>
                 </div>
               </div>
             </div>
           </div>
 
         </div>
+      </div>
 
-        {/* Bottom bar */}
-        <div className="pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-white/60 gap-3">
-          <p>
-            &copy; {new Date().getFullYear()} St. Theresa Foundation. Founded by Rev. Fr. Paul Bigirwa. All rights reserved.
-          </p>
-          <div className="flex items-center gap-1.5">
-            <Heart className="w-3 h-3 fill-white/60" />
-            <span>Building futures, one child at a time.</span>
+      {/* ── Bottom Bar (Matching Screenshot 1 Dark Navy & White Circular Social Buttons) ── */}
+      <div className="bg-[#002f54] text-white py-5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+
+          {/* Copyright & Founder Info */}
+          <div className="text-xs text-white/80 space-y-1 text-center sm:text-left">
+            <p className="font-normal">
+              &copy; {new Date().getFullYear()} St. Theresa Foundation. All rights reserved.
+            </p>
+            <p className="text-white/60 text-[11px]">
+              Founded by Rev. Fr. Paul Bigirwa (Silver Jubilee — 05 July 2025). Building futures, one child at a time.
+            </p>
           </div>
+
+          {/* Circular White Social Buttons with Dark Navy Icons (Matching Screenshot 1) */}
+          <div className="flex items-center gap-2.5">
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noreferrer"
+              className="w-8 h-8 rounded-full bg-white text-[#002f54] hover:bg-slate-200 transition-colors flex items-center justify-center shadow-sm"
+              aria-label="X (Twitter)"
+            >
+              <XIcon className="w-3.5 h-3.5" />
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noreferrer"
+              className="w-8 h-8 rounded-full bg-white text-[#002f54] hover:bg-slate-200 transition-colors flex items-center justify-center shadow-sm"
+              aria-label="Facebook"
+            >
+              <Facebook className="w-4 h-4" />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noreferrer"
+              className="w-8 h-8 rounded-full bg-white text-[#002f54] hover:bg-slate-200 transition-colors flex items-center justify-center shadow-sm"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-4 h-4" />
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noreferrer"
+              className="w-8 h-8 rounded-full bg-white text-[#002f54] hover:bg-slate-200 transition-colors flex items-center justify-center shadow-sm"
+              aria-label="YouTube"
+            >
+              <Youtube className="w-4 h-4" />
+            </a>
+            <a
+              href="https://wa.me/256772543737"
+              target="_blank"
+              rel="noreferrer"
+              className="w-8 h-8 rounded-full bg-white text-[#002f54] hover:bg-slate-200 transition-colors flex items-center justify-center shadow-sm"
+              aria-label="WhatsApp"
+            >
+              <WhatsAppIcon className="w-4 h-4" />
+            </a>
+          </div>
+
         </div>
       </div>
     </footer>

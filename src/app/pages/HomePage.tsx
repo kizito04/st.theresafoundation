@@ -71,7 +71,7 @@ export default function HomePage() {
   const heroMessages = [
     {
       title: "Welcome to St. Theresa Foundation",
-      subtitle: "A Silver Jubilee thanksgiving initiative dedicated to empowering children, uplifting families, and spreading the gentle love of St. Theresa the Little Flower. Founded by Rev. Fr. Paul Bigirwa, the Foundation stands as a living memorial of gratitude for 25 years of priesthood, celebrated on 05 July 2025.",
+      subtitle: "A Silver Jubilee thanksgiving initiative dedicated to empowering children, uplifting families, and spreading the gentle love of St. Theresa the Little Flower.",
     },
     {
       title: "Empowering Minds, Shaping Futures",
@@ -426,8 +426,8 @@ export default function HomePage() {
                     className="inline-flex items-center gap-1.5 text-blue-700 hover:text-blue-900 font-semibold text-sm border-b border-blue-300 hover:border-blue-600 pb-0.5 transition-all"
                   >
                     <Heart className="w-3.5 h-3.5" />
-                    {/* <span>Support the Education Fund</span> */}
-                    {/* <ArrowRight className="w-3.5 h-3.5" /> */}
+                    <span>Support the Education Fund</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </div>
@@ -442,6 +442,99 @@ export default function HomePage() {
                   />
                 </div>
               </div>
+            </div>
+          </RevealSection>
+        </div>
+      </section>
+
+      {/* ── Latest Updates Section (Matching Screenshot 2) ── */}
+      <section className="py-16 sm:py-24 bg-white border-t border-slate-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <RevealSection>
+            {/* Script Heading matching Screenshot 2 */}
+            <div className="text-center mb-10 sm:mb-12">
+              <h2 className="font-cursive text-4xl sm:text-5xl text-[#a8822d] tracking-wide">
+                Latest updates
+              </h2>
+            </div>
+
+            {/* Grid layout with vertical divider */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+              {/* Left Column: Featured Large Article (Annex 3) */}
+              <div className="lg:col-span-6 space-y-4">
+                <div className="w-full h-[260px] sm:h-[320px] overflow-hidden rounded-md shadow-sm">
+                  <img
+                    src="/images/Annex 3.jpg"
+                    alt="Applying for St. Theresa Schools - Annex 3"
+                    className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="pt-2">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-[#002f54] tracking-tight leading-snug hover:text-[#a8203e] transition-colors">
+                    <Link to="/schools">
+                      Applying for St. Theresa
+                    </Link>
+                  </h3>
+                  <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
+                    Find out about the St. Theresa Schools admissions and scholarship application process.
+                  </p>
+                </div>
+              </div>
+
+              {/* Right Column: Two stacked cards with Signpost and House 2 */}
+              <div className="lg:col-span-6 flex flex-col justify-between space-y-8 lg:pl-4 lg:border-l lg:border-slate-200">
+                {/* Top Item: Signpost */}
+                <div className="flex flex-col sm:flex-row gap-5 items-start">
+                  <div className="w-full sm:w-44 h-36 sm:h-28 overflow-hidden rounded-md flex-shrink-0 shadow-sm">
+                    <img
+                      src="/images/Signpost.jpeg"
+                      alt="Signpost - Getting ready for St. Theresa"
+                      className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <h4 className="text-lg sm:text-xl font-bold text-[#002f54] tracking-tight leading-snug hover:text-[#a8203e] transition-colors">
+                      <Link to="/about">
+                        Getting ready for St. Theresa
+                      </Link>
+                    </h4>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      Prepare for campus life with our essential guide to the St. Theresa student and community experience.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Bottom Item: House 2 */}
+                <div className="flex flex-col sm:flex-row gap-5 items-start">
+                  <div className="w-full sm:w-44 h-36 sm:h-28 overflow-hidden rounded-md flex-shrink-0 shadow-sm">
+                    <img
+                      src="/images/House 2.jpg"
+                      alt="House 2 - Joining the St. Theresa community"
+                      className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <h4 className="text-lg sm:text-xl font-bold text-[#002f54] tracking-tight leading-snug hover:text-[#a8203e] transition-colors">
+                      <Link to="/news">
+                        Joining the St. Theresa alumni community
+                      </Link>
+                    </h4>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      Completing your studies is not the end of your journey with St. Theresa. Find out how to stay involved with our network.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Button matching Screenshot 2 */}
+            <div className="text-center mt-12">
+              <Link
+                to="/news"
+                className="inline-flex items-center justify-center bg-[#a8203e] hover:bg-[#8f1530] text-white font-bold text-xs uppercase tracking-wider px-8 py-3 rounded-full transition-colors shadow-md"
+              >
+                VIEW ALL NEWS
+              </Link>
             </div>
           </RevealSection>
         </div>
