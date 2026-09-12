@@ -24,81 +24,32 @@ function XIcon({ className }: { className?: string }) {
   );
 }
 
-// St. Theresa Crest Emblem Icon
-function FoundationCrest({ className }: { className?: string }) {
-  return (
-    <div className={`relative flex items-center justify-center ${className}`}>
-      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-[#002f54]">
-        {/* Heraldic Shield Frame */}
-        <path
-          d="M50 8C70 8 86 16 86 28C86 62 50 88 50 88C50 88 14 62 14 28C14 16 30 8 50 8Z"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          fill="rgba(0,47,84,0.03)"
-        />
-        {/* Inner Shield Accent */}
-        <path
-          d="M50 14C66 14 80 21 80 31C80 58 50 81 50 81C50 81 20 58 20 31C20 21 34 14 50 14Z"
-          stroke="currentColor"
-          strokeWidth="1"
-          strokeDasharray="2 2"
-        />
-        {/* Cross / Rose symbol */}
-        <path
-          d="M50 24V56M36 36H64"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-        />
-        <circle cx="50" cy="36" r="4" fill="#a8203e" />
-        {/* Crown / Stars */}
-        <circle cx="34" cy="22" r="1.5" fill="currentColor" />
-        <circle cx="50" cy="18" r="2" fill="currentColor" />
-        <circle cx="66" cy="22" r="1.5" fill="currentColor" />
-      </svg>
-    </div>
-  );
-}
-
 export default function Footer() {
   return (
-    <footer className="bg-white text-[#002f54] font-sans border-t border-slate-200">
-      {/* ── Top Newsletter Row (Matching Screenshot 1) ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-12 pb-6">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#002f54]">
-            Subscribe to our newsletter
-          </h2>
+    <footer
+      style={{ backgroundColor: "#f0f4f9" }}
+      className="text-[#002f54] font-sans border-t border-slate-200"
+    >
+      {/* ── Main Footer Columns (Expanded Height + Faint Dark Blue Background) ── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
 
-          <Link
-            to="/contact"
-            className="inline-flex items-center justify-center bg-[#a8203e] hover:bg-[#8f1530] text-white font-bold text-xs sm:text-sm tracking-wider uppercase px-7 py-3 rounded-full transition-colors shadow-sm"
-          >
-            SUBSCRIBE FOR FOUNDATION UPDATES
-          </Link>
-        </div>
-      </div>
-
-      {/* ── Main Footer Columns (Matching Screenshot 1 layout and navy lines) ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
-
-          {/* Left Column: Crest & Foundation Info */}
+          {/* Left Column: Rose Flower Logo & Foundation Info */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-start gap-4">
-              <FoundationCrest className="w-16 h-16 flex-shrink-0" />
-              <div>
-                <h3 className="font-serif font-extrabold text-xl tracking-wider text-[#002f54] leading-tight">
+            <Link to="/" className="flex items-center gap-3 group inline-flex">
+              <span className="text-3xl sm:text-4xl leading-none select-none">🌹</span>
+              <div className="leading-tight">
+                <h3 className="font-serif font-extrabold text-lg sm:text-xl text-[#002f54] tracking-wider">
                   ST. THERESA
                 </h3>
-                <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#a8203e]">
+                <p className="text-[11px] text-blue-700 font-bold tracking-[0.2em] uppercase">
                   Foundation
                 </p>
                 <p className="text-xs text-slate-500 font-medium mt-0.5">
                   The Little Flower Initiative
                 </p>
               </div>
-            </div>
+            </Link>
 
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm">
               A thanksgiving initiative dedicated to empowering children,
@@ -107,9 +58,12 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Quick Links Column 1 (with dark navy line rule above) */}
+          {/* Column 1: About us (with bold heading) */}
           <div className="lg:col-span-2 sm:col-span-4">
             <div className="border-t-2 border-[#002f54] pt-4">
+              <h4 className="font-bold text-[#002f54] text-base mb-4 tracking-tight">
+                About us
+              </h4>
               <ul className="space-y-3 text-sm">
                 <li>
                   <Link to="/about" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
@@ -135,9 +89,12 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links Column 2 (with dark navy line rule above) */}
+          {/* Column 2: Quick links (with bold heading) */}
           <div className="lg:col-span-2 sm:col-span-4">
             <div className="border-t-2 border-[#002f54] pt-4">
+              <h4 className="font-bold text-[#002f54] text-base mb-4 tracking-tight">
+                Quick links
+              </h4>
               <ul className="space-y-3 text-sm">
                 <li>
                   <Link to="/transporters" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
@@ -163,9 +120,13 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Contact Details Column 3 (with dark navy line rule above) */}
+          {/* Column 3: Contact us (with bold heading) */}
           <div className="lg:col-span-4 sm:col-span-4">
-            <div className="border-t-2 border-[#002f54] pt-4 space-y-3 text-xs sm:text-sm">
+            <div className="border-t-2 border-[#002f54] pt-4 space-y-3.5 text-xs sm:text-sm">
+              <h4 className="font-bold text-[#002f54] text-base mb-4 tracking-tight">
+                Contact us
+              </h4>
+
               <div className="flex items-start gap-2.5">
                 <Phone className="w-4 h-4 text-[#002f54] mt-0.5 flex-shrink-0" />
                 <div>
@@ -209,7 +170,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Circular White Social Buttons with Dark Navy Icons (Matching Screenshot 1) */}
+          {/* Circular White Social Buttons with Dark Navy Icons */}
           <div className="flex items-center gap-2.5">
             <a
               href="https://twitter.com"

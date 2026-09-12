@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Phone, Mail, Navigation, Facebook, Instagram, Youtube, CheckCircle2 } from "lucide-react";
+import { Phone, Mail, Navigation, Facebook, Instagram, Youtube, CheckCircle2, ExternalLink } from "lucide-react";
 
 // Real WhatsApp SVG icon
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -33,7 +33,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="space-y-16 pb-20">
+    <div className="space-y-16 pb-0">
       {/* ── Header Banner — Matching About Us Page style with Gate background ── */}
       <section
         className="relative text-white min-h-[460px] sm:min-h-[520px] flex items-center py-28 sm:py-36 overflow-hidden"
@@ -251,6 +251,68 @@ export default function ContactPage() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* ── Interactive Map Banner (Matching Screenshot 4 design before footer) ── */}
+      <section
+        className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8 overflow-hidden bg-slate-900"
+        style={{
+          backgroundImage: "url('/images/Gate.jpeg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        {/* Soft overlay to let the tree landscape shine through */}
+        <div className="absolute inset-0 bg-slate-950/40 backdrop-blur-[1px]" />
+
+        <div className="relative z-10 max-w-6xl mx-auto">
+          {/* Floating Rounded Map Card with Shadow */}
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 border-white/60 bg-white h-[350px] sm:h-[420px]">
+            {/* Top-Left Location Info Card (Matching Screenshot 4) */}
+            <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-20 bg-white/95 backdrop-blur-md rounded-xl shadow-lg border border-slate-200/80 p-3.5 sm:p-4 max-w-[280px] sm:max-w-xs space-y-1">
+              <div className="flex items-start justify-between gap-3">
+                <h4 className="font-bold text-slate-900 text-xs sm:text-sm leading-snug">
+                  St. Theresa Foundation — Campus Office
+                </h4>
+                <a
+                  href="https://maps.google.com/?q=Igayaza,Kakumiro,Uganda"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-7 h-7 rounded-full bg-blue-50 hover:bg-blue-100 flex items-center justify-center text-blue-600 transition-colors flex-shrink-0"
+                  aria-label="Open directions in Google Maps"
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+              <p className="text-[11px] text-slate-500 leading-tight">
+                Igayaza, Kakumiro District, Western Uganda
+              </p>
+              <div className="pt-1 flex items-center gap-2">
+                <a
+                  href="https://maps.google.com/?q=Igayaza,Kakumiro,Uganda"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1 text-[11px] text-blue-600 hover:text-blue-800 font-semibold"
+                >
+                  <Navigation className="w-3 h-3 rotate-45 fill-blue-600" />
+                  Get Directions
+                </a>
+                <span className="text-slate-300 text-xs">•</span>
+                <span className="text-[10px] text-slate-400">Hoima Catholic Diocese</span>
+              </div>
+            </div>
+
+            {/* Embedded Google Map */}
+            <iframe
+              src="https://maps.google.com/maps?q=Igayaza%2C%20Kakumiro%2C%20Uganda&t=&z=12&ie=UTF8&iwloc=&output=embed"
+              className="w-full h-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="St. Theresa Foundation Location Map"
+            />
+          </div>
         </div>
       </section>
     </div>
