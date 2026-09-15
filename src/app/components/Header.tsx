@@ -56,11 +56,10 @@ export default function Header() {
   return (
     <>
       <header
-        className={`sticky top-0 z-40 transition-all duration-300 ${
-          scrolled
+        className={`sticky top-0 z-40 transition-all duration-300 ${scrolled
             ? "bg-white/95 backdrop-blur-md shadow-[0_1px_20px_rgba(0,0,0,0.08)]"
             : "bg-white shadow-sm"
-        }`}
+          }`}
       >
         {/* Top Info Bar - Hidden on Home Page */}
         {location.pathname !== "/" && (
@@ -125,11 +124,10 @@ export default function Header() {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`relative px-3 py-2 text-sm font-semibold transition-colors duration-150 ${
-                    isActive(item.href)
+                  className={`relative px-3 py-2 text-sm font-semibold transition-colors duration-150 ${isActive(item.href)
                       ? "text-[#1e3a8a] font-bold"
                       : "text-slate-600 hover:text-[#1e3a8a]"
-                  }`}
+                    }`}
                 >
                   {item.name}
                   {isActive(item.href) && (
@@ -143,9 +141,8 @@ export default function Header() {
 
         {/* Mobile Dropdown Menu */}
         <div
-          className={`absolute left-3 right-3 sm:left-6 sm:right-6 top-[calc(100%+8px)] bg-white rounded-2xl shadow-2xl border border-slate-200/80 lg:hidden transform transition-all duration-300 origin-top overflow-hidden ${
-            mobileMenuOpen ? "scale-y-100 opacity-100 pointer-events-auto" : "scale-y-0 opacity-0 pointer-events-none"
-          }`}
+          className={`absolute left-3 right-3 sm:left-6 sm:right-6 top-[calc(100%+8px)] bg-white rounded-1.5xl shadow-2xl border border-slate-200/80 lg:hidden transform transition-all duration-300 origin-top overflow-hidden ${mobileMenuOpen ? "scale-y-100 opacity-100 pointer-events-auto" : "scale-y-0 opacity-0 pointer-events-none"
+            }`}
         >
           <nav className="flex flex-col">
             {mobileNavLinks.map((item, idx) => (
@@ -153,13 +150,11 @@ export default function Header() {
                 key={item.name}
                 to={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`px-6 py-4 text-base transition-colors ${
-                  idx !== mobileNavLinks.length - 1 ? "border-b border-slate-100" : ""
-                } ${
-                  isActive(item.href)
+                className={`px-6 py-4 text-base transition-colors ${idx !== mobileNavLinks.length - 1 ? "border-b border-slate-100" : ""
+                  } ${isActive(item.href)
                     ? "text-[#1e3a8a] font-bold bg-slate-50"
                     : "text-slate-800 hover:bg-slate-50 hover:text-[#1e3a8a]"
-                }`}
+                  }`}
               >
                 <span>{item.name}</span>
               </Link>
