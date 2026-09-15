@@ -327,7 +327,7 @@ export default function HomePage() {
                 <div className="text-4xl sm:text-5xl font-serif text-slate-400 leading-none">
                   "
                 </div>
-                <h2 className="text-2xl sm:text-sm font-bold uppercase tracking-widest text-blue-700 mt-2">
+                <h2 className="text-2xl sm:text-2xl font-bold uppercase tracking-widest text-blue-700 mt-2">
                   ST. THERESA EDUCATION FUND
                 </h2>
                 <h3 className="text-1.5xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug mt-3">
@@ -390,7 +390,7 @@ export default function HomePage() {
               to="/contact"
               className="inline-flex items-center justify-center border-2 border-white/40 hover:border-white/80 text-white font-bold text-sm sm:text-base px-8 py-3.5 rounded-full transition-all"
             >
-              Partner With Us
+              Contact Us
             </Link>
           </div>
         </div>
