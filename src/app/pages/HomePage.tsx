@@ -327,10 +327,10 @@ export default function HomePage() {
                 <div className="text-4xl sm:text-5xl font-serif text-slate-400 leading-none">
                   "
                 </div>
-                <h2 className="text-xs sm:text-sm font-bold uppercase tracking-widest text-blue-700 mt-2">
+                <h2 className="text-2xl sm:text-sm font-bold uppercase tracking-widest text-blue-700 mt-2">
                   ST. THERESA EDUCATION FUND
                 </h2>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug mt-3">
+                <h3 className="text-1.5xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug mt-3">
                   The Education Fund is the Foundation's core charity arm, dedicated to supporting children who face financial hardship.
                 </h3>
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed pt-3">

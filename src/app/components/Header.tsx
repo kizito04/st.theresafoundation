@@ -56,45 +56,45 @@ export default function Header() {
   return (
     <>
       <header
-        className={`sticky top-0 z-40 transition-all duration-300 ${
+        className={`sticky top-0 z-40 transition-all duration-300 bg-[#002f54] text-white ${
           scrolled
-            ? "bg-white/95 backdrop-blur-md shadow-[0_1px_20px_rgba(0,0,0,0.08)]"
-            : "bg-white shadow-sm"
+            ? "shadow-[0_4px_25px_rgba(0,0,0,0.25)] bg-[#002f54]/95 backdrop-blur-md"
+            : "shadow-md"
         }`}
       >
         {/* Main Navigation */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-18">
+          <div className="flex items-center justify-between h-20 lg:h-[88px]">
             {/* Left side: Logo */}
-            <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
-              <span className="text-2xl leading-none">🌹</span>
+            <Link to="/" className="flex items-center gap-3.5 group flex-shrink-0">
+              <span className="text-3xl sm:text-4xl leading-none drop-shadow-sm">🌹</span>
               <div className="leading-tight">
-                <div className="font-extrabold text-base text-slate-900 tracking-tight">
+                <div className="font-serif font-extrabold text-xl sm:text-2xl text-white tracking-wider">
                   ST. THERESA
                 </div>
-                <div className="text-[11px] text-blue-600 font-semibold tracking-wide uppercase">
+                <div className="text-xs sm:text-sm text-amber-300 font-bold tracking-[0.2em] uppercase mt-0.5">
                   Foundation
                 </div>
               </div>
             </Link>
 
             {/* Right side: Desktop Nav & Mobile Hamburger */}
-            <div className="flex items-center gap-2">
-              {/* Desktop Nav (no fill, dark blue line when selected) */}
-              <nav className="hidden lg:flex items-center gap-2">
+            <div className="flex items-center gap-3 sm:gap-4">
+              {/* Desktop Nav */}
+              <nav className="hidden lg:flex items-center gap-2 xl:gap-3">
                 {navLinks.map((item) => (
                   <Link
                     key={item.name}
                     to={item.href}
-                    className={`relative px-3 py-2 text-sm font-semibold transition-colors duration-150 ${
+                    className={`relative px-4 py-2.5 text-base font-bold transition-all duration-200 ${
                       isActive(item.href)
-                        ? "text-[#1e3a8a] font-bold"
-                        : "text-slate-600 hover:text-[#1e3a8a]"
+                        ? "text-amber-300 font-extrabold"
+                        : "text-white/85 hover:text-white hover:bg-white/10 rounded-lg"
                     }`}
                   >
                     {item.name}
                     {isActive(item.href) && (
-                      <span className="absolute bottom-0 left-2 right-2 h-[2.5px] bg-[#1e3a8a] rounded-full" />
+                      <span className="absolute bottom-1 left-3 right-3 h-[3px] bg-amber-400 rounded-full" />
                     )}
                   </Link>
                 ))}
@@ -103,10 +103,10 @@ export default function Header() {
               {/* Hamburger bars on the right — mobile/tablet */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors"
+                className="lg:hidden p-2.5 rounded-xl text-white hover:bg-white/10 transition-colors cursor-pointer"
                 aria-label="Toggle menu"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
               </button>
             </div>
           </div>
@@ -114,8 +114,9 @@ export default function Header() {
 
         {/* Mobile Dropdown Menu */}
         <div
-          className={`absolute left-3 right-3 sm:left-6 sm:right-6 top-[calc(100%+8px)] bg-white rounded-1.5xl shadow-2xl border border-slate-200/80 lg:hidden transform transition-all duration-300 origin-top overflow-hidden ${mobileMenuOpen ? "scale-y-100 opacity-100 pointer-events-auto" : "scale-y-0 opacity-0 pointer-events-none"
-            }`}
+          className={`absolute left-3 right-3 sm:left-6 sm:right-6 top-[calc(100%+8px)] bg-[#002f54] text-white rounded-2xl shadow-2xl border border-white/15 lg:hidden transform transition-all duration-300 origin-top overflow-hidden ${
+            mobileMenuOpen ? "scale-y-100 opacity-100 pointer-events-auto" : "scale-y-0 opacity-0 pointer-events-none"
+          }`}
         >
           <nav className="flex flex-col">
             {mobileNavLinks.map((item, idx) => (
@@ -123,11 +124,13 @@ export default function Header() {
                 key={item.name}
                 to={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`px-6 py-4 text-base transition-colors ${idx !== mobileNavLinks.length - 1 ? "border-b border-slate-100" : ""
-                  } ${isActive(item.href)
-                    ? "text-[#1e3a8a] font-bold bg-slate-50"
-                    : "text-slate-800 hover:bg-slate-50 hover:text-[#1e3a8a]"
-                  }`}
+                className={`px-6 py-4.5 text-lg transition-colors ${
+                  idx !== mobileNavLinks.length - 1 ? "border-b border-white/10" : ""
+                } ${
+                  isActive(item.href)
+                    ? "text-amber-300 font-bold bg-white/10"
+                    : "text-white/90 hover:bg-white/10 hover:text-white"
+                }`}
               >
                 <span>{item.name}</span>
               </Link>
