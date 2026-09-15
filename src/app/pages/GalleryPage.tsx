@@ -187,6 +187,42 @@ export default function GalleryPage() {
       desc: "Staff residences and community development quarters advancing rural infrastructure in Igayaza.",
       src: "/images/House 2.jpg",
     },
+    {
+      id: 19,
+      title: "Murubya Campus Grounds & Learning Environment",
+      desc: "Scenic rural school grounds offering a peaceful, focused atmosphere for pupils at Murubya.",
+      src: "/images/Murubya 1.jpg",
+    },
+    {
+      id: 20,
+      title: "Classroom Buildings at Murubya Primary",
+      desc: "Dedicated primary school classrooms constructed to serve remote farming families in Kakumiro.",
+      src: "/images/Murubya 2.jpg",
+    },
+    {
+      id: 21,
+      title: "School Compound & Daily Pupil Gathering",
+      desc: "Learners assembling during morning devotion and outdoor recreational activities.",
+      src: "/images/Murubya 3.jpg",
+    },
+    {
+      id: 22,
+      title: "Murubya School Facility Overview",
+      desc: "Expanding education facilities ensuring no rural child is left behind.",
+      src: "/images/Murubya 4.jpg",
+    },
+    {
+      id: 23,
+      title: "Staff & Guest Residences — Campus Quarters",
+      desc: "Residential facilities supporting dedicated teaching staff and community volunteers.",
+      src: "/images/House 1.jpg",
+    },
+    {
+      id: 24,
+      title: "Director Rev. Fr. Paul Bigirwa — Founder Portrait",
+      desc: "Guiding the mission of St. Theresa Foundation with faith, humility, and priestly commitment.",
+      src: "/images/Director.jpg",
+    },
   ];
 
   const currentIndex = selectedImage

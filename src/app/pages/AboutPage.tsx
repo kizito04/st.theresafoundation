@@ -159,67 +159,97 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Queen of Katwe Card */}
-            <div className="relative bg-white rounded-1xl p-8 sm:p-10 shadow-md hover:shadow-xl border border-slate-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden group min-h-[320px]">
-              {/* Highly Visible Queen of Katwe Image on the right side */}
-              <div className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-5/12 pointer-events-none overflow-hidden rounded-r-1xl z-0">
+          <div className="space-y-8">
+            {/* St. Theresa of Lisieux Card — Placed on top of Queen of Katwe */}
+            <div className="relative bg-white rounded-2xl p-8 sm:p-12 shadow-md hover:shadow-xl border border-rose-100 transition-all duration-500 overflow-hidden group min-h-[340px] flex flex-col justify-center">
+              {/* Highly Visible St. Theresa Image on the right side */}
+              <div className="absolute right-0 top-0 bottom-0 w-full sm:w-1/2 md:w-5/12 pointer-events-none overflow-hidden rounded-r-2xl z-0">
                 <img
-                  src="/images/queen 1.png"
-                  alt="Phiona Mutesi - Queen of Katwe"
-                  className="w-full h-full object-cover object-top opacity-70 group-hover:scale-105 group-hover:opacity-85 transition-all duration-700"
+                  src="/images/Theresa.jpg"
+                  alt="St. Theresa of Lisieux - The Little Flower"
+                  className="w-full h-full object-cover object-center opacity-40 sm:opacity-75 group-hover:scale-105 group-hover:opacity-90 transition-all duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-white/20 sm:via-white/60" />
               </div>
 
-              <div className="relative z-10 max-w-sm sm:max-w-md">
-                <span className="text-xs font-bold text-amber-700 uppercase tracking-wider block mb-2">
-                  Quiet Tenacity &amp; Strategic Vision
+              <div className="relative z-10 max-w-2xl">
+                <span className="text-xs font-bold text-rose-700 uppercase tracking-wider block mb-2">
+                  Holy Patroness &amp; Spiritual Guide
                 </span>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                  Queen of Katwe: Phiona Mutesi
+                <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
+                  St. Theresa of Lisieux: The Little Flower
                 </h3>
+                <p className="text-slate-700 text-sm sm:text-base leading-relaxed mb-3">
+                  Saint Thérèse of the Child Jesus (1873–1897), known lovingly as "The Little Flower", is the holy patroness and spiritual cornerstone of our foundation. Declared a Doctor of the Church, she illuminated the world through "The Little Way" — demonstrating that true greatness lies in doing ordinary everyday things with extraordinary love, gentleness, and complete trust in God.
+                </p>
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  Growing up amidst severe hardship in Katwe, Kampala, Phiona Mutesi discovered chess at a community outreach center.
-                  Through patient study, resilience, and dedicated mentorship, she rose to international acclaim.
+                  Her life teaches every child at St. Theresa Foundation that regardless of humble beginnings, quiet devotion and small acts of kindness hold immense power to transform families, classrooms, and communities across Uganda and beyond.
                 </p>
               </div>
             </div>
 
-            {/* Pelé Card */}
-            <div className="relative bg-white rounded-1xl p-8 sm:p-10 shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 h-full flex flex-col justify-center overflow-hidden group min-h-[320px]">
-              {/* Highly Visible pele 2.png in the background */}
-              <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl z-0">
-                <img
-                  src="/images/pele 2.png"
-                  alt=""
-                  aria-hidden="true"
-                  className="w-full h-full object-cover object-center opacity-30 filter contrast-110 group-hover:scale-105 transition-all duration-900"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/80 to-white/50" />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Queen of Katwe Card */}
+              <div className="relative bg-white rounded-1xl p-8 sm:p-10 shadow-md hover:shadow-xl border border-slate-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden group min-h-[320px]">
+                {/* Highly Visible Queen of Katwe Image on the right side */}
+                <div className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-5/12 pointer-events-none overflow-hidden rounded-r-1xl z-0">
+                  <img
+                    src="/images/queen 1.png"
+                    alt="Phiona Mutesi - Queen of Katwe"
+                    className="w-full h-full object-cover object-top opacity-70 group-hover:scale-105 group-hover:opacity-85 transition-all duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-white via-white/50 to-transparent" />
+                </div>
+
+                <div className="relative z-10 max-w-sm sm:max-w-md">
+                  <span className="text-xs font-bold text-amber-700 uppercase tracking-wider block mb-2">
+                    Quiet Tenacity &amp; Strategic Vision
+                  </span>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                    Queen of Katwe: Phiona Mutesi
+                  </h3>
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    Growing up amidst severe hardship in Katwe, Kampala, Phiona Mutesi discovered chess at a community outreach center.
+                    Through patient study, resilience, and dedicated mentorship, she rose to international acclaim.
+                  </p>
+                </div>
               </div>
 
-              {/* Highly Visible pele.png on the right side */}
-              <div className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-5/12 pointer-events-none overflow-hidden rounded-r-1xl z-0">
-                <img
-                  src="/images/pele.png"
-                  alt="Pelé"
-                  className="w-full h-full object-cover object-top opacity-70 group-hover:scale-105 group-hover:opacity-85 transition-all duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/50 to-transparent" />
-              </div>
+              {/* Pelé Card */}
+              <div className="relative bg-white rounded-1xl p-8 sm:p-10 shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 h-full flex flex-col justify-center overflow-hidden group min-h-[320px]">
+                {/* Highly Visible pele 2.png in the background */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl z-0">
+                  <img
+                    src="/images/pele 2.png"
+                    alt=""
+                    aria-hidden="true"
+                    className="w-full h-full object-cover object-center opacity-30 filter contrast-110 group-hover:scale-105 transition-all duration-900"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/80 to-white/50" />
+                </div>
 
-              <div className="relative z-10 max-w-sm sm:max-w-md">
-                <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider block mb-2">
-                  Humble Roots &amp; Relentless Passion
-                </span>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                  Pelé: Birth of a Legend
-                </h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  Starting on dusty clearings playing barefoot with a sock stuffed with rags, Pelé's joy,
-                  tireless work ethic, and humility took him from poverty to world glory.
-                </p>
+                {/* Highly Visible pele.png on the right side */}
+                <div className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-5/12 pointer-events-none overflow-hidden rounded-r-1xl z-0">
+                  <img
+                    src="/images/pele.png"
+                    alt="Pelé"
+                    className="w-full h-full object-cover object-top opacity-70 group-hover:scale-105 group-hover:opacity-85 transition-all duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-white via-white/50 to-transparent" />
+                </div>
+
+                <div className="relative z-10 max-w-sm sm:max-w-md">
+                  <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider block mb-2">
+                    Humble Roots &amp; Relentless Passion
+                  </span>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                    Pelé: Birth of a Legend
+                  </h3>
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    Starting on dusty clearings playing barefoot with a sock stuffed with rags, Pelé's joy,
+                    tireless work ethic, and humility took him from poverty to world glory.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

@@ -141,28 +141,27 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Dropdown Menu (Seeta High School Style) */}
+        {/* Mobile Dropdown Menu */}
         <div
-          className={`absolute left-0 right-0 bg-white shadow-xl lg:hidden transform transition-all duration-300 origin-top overflow-hidden ${
+          className={`absolute left-3 right-3 sm:left-6 sm:right-6 top-[calc(100%+8px)] bg-white rounded-2xl shadow-2xl border border-slate-200/80 lg:hidden transform transition-all duration-300 origin-top overflow-hidden ${
             mobileMenuOpen ? "scale-y-100 opacity-100 pointer-events-auto" : "scale-y-0 opacity-0 pointer-events-none"
           }`}
-          style={{ top: '100%' }}
         >
           <nav className="flex flex-col">
-            {mobileNavLinks.map((item) => (
+            {mobileNavLinks.map((item, idx) => (
               <Link
                 key={item.name}
                 to={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`px-6 py-4 text-base border-b border-slate-200 flex justify-between items-center transition-colors ${
+                className={`px-6 py-4 text-base transition-colors ${
+                  idx !== mobileNavLinks.length - 1 ? "border-b border-slate-100" : ""
+                } ${
                   isActive(item.href)
                     ? "text-[#1e3a8a] font-bold bg-slate-50"
-                    : "text-slate-800 hover:bg-slate-50"
+                    : "text-slate-800 hover:bg-slate-50 hover:text-[#1e3a8a]"
                 }`}
               >
                 <span>{item.name}</span>
-                {/* Adding the '+' sign to mimic the screenshot style */}
-                <span className="text-slate-400 text-xl font-light leading-none">+</span>
               </Link>
             ))}
           </nav>

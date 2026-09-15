@@ -218,11 +218,21 @@ export default function HomePage() {
             </h2>
           </div>
 
-          {/* Single card with 3 columns and vertical divider lines */}
-          <div className="bg-white rounded-xl border border-slate-200/80 shadow-sm p-8 sm:p-12">
+          {/* Single card with 3 columns, no round borders, and elevated shadow */}
+          <div className="bg-white rounded-none border border-slate-200/80 shadow-2xl p-8 sm:p-12 hover:shadow-[0_20px_45px_rgba(0,0,0,0.12)] transition-shadow duration-300">
             <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200">
-              {/* Column 1: Queen of Katwe */}
+              {/* Column 1: St. Theresa of Lisieux */}
               <div className="py-6 md:py-2 md:px-8 first:md:pl-2 space-y-3">
+                <h3 className="text-xl font-bold text-slate-900">
+                  St. Theresa of Lisieux
+                </h3>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  Patroness of our foundation, teaching the little way of love, humility, and ordinary acts done with extraordinary grace.
+                </p>
+              </div>
+
+              {/* Column 2: Queen of Katwe */}
+              <div className="py-6 md:py-2 md:px-8 space-y-3">
                 <h3 className="text-xl font-bold text-slate-900">
                   Queen of Katwe — Phiona Mutesi
                 </h3>
@@ -231,23 +241,13 @@ export default function HomePage() {
                 </p>
               </div>
 
-              {/* Column 2: Pelé */}
-              <div className="py-6 md:py-2 md:px-8 space-y-3">
+              {/* Column 3: Pelé */}
+              <div className="py-6 md:py-2 md:px-8 last:md:pr-2 space-y-3">
                 <h3 className="text-xl font-bold text-slate-900">
                   Pelé: Birth of a Legend
                 </h3>
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                   A testimony that talent, when nurtured, can transform a life and inspire a nation.
-                </p>
-              </div>
-
-              {/* Column 3: St. Theresa of Lisieux */}
-              <div className="py-6 md:py-2 md:px-8 last:md:pr-2 space-y-3">
-                <h3 className="text-xl font-bold text-slate-900">
-                  St. Theresa of Lisieux
-                </h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  Patron of simplicity, love, and small acts that change the world.
                 </p>
               </div>
             </div>
