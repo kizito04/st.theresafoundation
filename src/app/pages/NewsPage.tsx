@@ -27,7 +27,7 @@ export default function NewsPage() {
         "Over the past two and a half decades, Fr. Paul has championed rural education, uplifted vulnerable families, and founded schools that now provide high-quality learning and moral grounding to hundreds of children across Western Uganda.",
         "The Thanksgiving celebration will feature a solemn Mass, the blessing of newly constructed campus facilities, and the official kickoff of new sponsorships under the St. Theresa Education Fund.",
       ],
-      image: "/images/Fr with pupils 1.png",
+      image: "/images/Director 3.jpg",
     },
     {
       id: 2,
@@ -55,21 +55,7 @@ export default function NewsPage() {
         "The new block includes child-friendly furniture, bright educational learning aids, reading corners, and clean sanitation facilities, reflecting the foundation's commitment to quality child-centered learning.",
         "Headmistress and teaching staff welcomed parents during an open day tour to inspect the state-of-the-art facilities ahead of the new school term.",
       ],
-      image: "/images/Annex 3.jpg",
-    },
-    {
-      id: 4,
-      title: "Sports Academy Champions Excel in Regional Youth Football & Chess Tournaments",
-      date: "28 August 2025",
-      author: "Academy Coach",
-      summary:
-        "Drawing inspiration from the quiet grit of Phiona Mutesi (Queen of Katwe), young chess proteges and football stars display remarkable discipline and sportsmanship at regional youth games.",
-      content: [
-        "Young athletes from the St. Theresa Sports Academy have earned outstanding victories in regional football and chess competitions held in Western Uganda.",
-        "The academy combines athletic rigor with academic tutoring and ethical character formation, giving talented boys and girls from rural villages a competitive platform to be scouted and mentored.",
-        "Special recognition was awarded to the junior chess club, which recorded an undefeated streak against top regional youth teams.",
-      ],
-      image: "/images/sports.png",
+      image: "/images/annex 3.png",
     },
     {
       id: 5,
@@ -107,7 +93,7 @@ export default function NewsPage() {
       <section
         className="relative text-white min-h-[460px] sm:min-h-[520px] flex items-center py-28 sm:py-36 overflow-hidden"
         style={{
-          backgroundImage: "url('/images/Gate.jpeg')",
+          backgroundImage: "url('/images/Murubya pupils.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

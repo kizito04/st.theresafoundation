@@ -91,7 +91,6 @@ export default function ContactPage() {
           </div>
           <div className="flex-1 min-w-0">
             <p className="font-bold text-sm leading-snug">message delivered successfully</p>
-            <p className="text-xs text-emerald-100 mt-0.5">Your message has been sent!</p>
           </div>
           <button
             onClick={() => setShowToast(false)}
@@ -107,7 +106,7 @@ export default function ContactPage() {
       <section
         className="relative text-white min-h-[460px] sm:min-h-[520px] flex items-center py-28 sm:py-36 overflow-hidden"
         style={{
-          backgroundImage: "url('/images/Gate.jpeg')",
+          backgroundImage: "url('/images/gate.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -253,7 +252,6 @@ export default function ContactPage() {
                   <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
                   <div>
                     <p className="font-bold">message delivered successfully</p>
-                    <p className="text-xs text-emerald-700">Thank you! Your message was delivered successfully.</p>
                   </div>
                 </div>
               )}
@@ -311,7 +309,7 @@ export default function ContactPage() {
                         <span>SENDING...</span>
                       </>
                     ) : (
-                      <span>SUBMIT NOW</span>
+                      <span>SEND NOW</span>
                     )}
                   </button>
                 </div>
@@ -326,7 +324,7 @@ export default function ContactPage() {
       <section
         className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8 overflow-hidden bg-slate-900"
         style={{
-          backgroundImage: "url('/images/Gate.jpeg')",
+          backgroundImage: "url('/images/house2.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

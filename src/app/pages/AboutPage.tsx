@@ -6,7 +6,7 @@ export default function AboutPage() {
       <section
         className="relative text-white min-h-[460px] sm:min-h-[520px] flex items-center py-28 sm:py-36 overflow-hidden"
         style={{
-          backgroundImage: "url('/images/Annex 2.jpg')",
+          backgroundImage: "url('/images/annex 2.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -37,7 +37,7 @@ export default function AboutPage() {
             {/* Murubya pupils 1 banner image */}
             <div className="w-full h-[320px] sm:h-[420px] lg:h-[480px] overflow-hidden">
               <img
-                src="/images/Murubya pupils 1.jpg"
+                src="/images/Murubya pupils.png"
                 alt="Murubya Pupils - St. Theresa Foundation"
                 className="w-full h-full object-cover object-center"
               />

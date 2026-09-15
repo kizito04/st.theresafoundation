@@ -9,7 +9,7 @@ function GalleryCard({ item, onClick }: { item: any; onClick: () => void }) {
   useEffect(() => {
     // Only apply intersection observer on small screens (width < 640px)
     const mediaQuery = window.matchMedia("(max-width: 639px)");
-    
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (mediaQuery.matches) {
@@ -98,70 +98,28 @@ export default function GalleryPage() {
       src: "/images/Fr with pupils.png",
     },
     {
-      id: 4,
-      title: "Murubya Outreach Pupils & Director",
-      desc: "Pupils gathered with Foundation Director Rev. Fr. Paul Bigirwa at Murubya Primary School.",
-      src: "/images/Murubya with director 1.jpg",
-    },
-    {
-      id: 5,
-      title: "Primary Pupils Community Assembly",
-      desc: "Eager learners listening attentively at the outdoor assembly grounds during morning devotions.",
-      src: "/images/Murubya with director 2.jpg",
-    },
-    {
       id: 6,
       title: "Classroom Learning & Joyful School Life",
       desc: "Energetic learners participating actively in structured lessons and group activities at Murubya.",
-      src: "/images/Murubya pupils 1.jpg",
+      src: "/images/Murubya pupils.png",
     },
     {
       id: 7,
       title: "St. Theresa Annex Classrooms & Grounds",
       desc: "The bright primary block and learning spaces nurturing rural children with high standards of education.",
-      src: "/images/Annex 3.jpg",
-    },
-    {
-      id: 8,
-      title: "Pupils at Annex Campus Grounds",
-      desc: "Young learners developing friendship, team spirit, and discipline in a safe school environment.",
-      src: "/images/Annex 2.jpg",
-    },
-    {
-      id: 9,
-      title: "Annex Campus Main Entrance",
-      desc: "Welcome to St. Theresa Nursery and Primary School Annex, providing early childhood education.",
-      src: "/images/Annex1.jpg",
-    },
-    {
-      id: 10,
-      title: "Annex Campus Pupil Community Collection",
-      desc: "Vibrant snapshots of daily learning, playtime, and pupil fellowship at the Annex campus.",
-      src: "/images/Annex collection.jpg",
+      src: "/images/annex 3.png",
     },
     {
       id: 11,
       title: "St. Theresa Foundation Main Campus Gate",
       desc: "The grand entrance gate welcoming students, guardians, and visitors to the foundation grounds in Igayaza.",
-      src: "/images/Gate.jpeg",
+      src: "/images/gate.png",
     },
     {
       id: 12,
       title: "Official Campus Signpost & Diocese Location",
       desc: "St. Theresa Nursery and Primary School signpost under Hoima Catholic Diocese in Kakumiro District.",
-      src: "/images/Signpost.jpeg",
-    },
-    {
-      id: 13,
-      title: "St. Theresa Sports Academy Football Training",
-      desc: "Youth football training fostering fitness, team communication, and talent discovery for rural boys and girls.",
-      src: "/images/sports.png",
-    },
-    {
-      id: 14,
-      title: "St. Theresa Transporters School Fleet",
-      desc: "Dedicated minivans and buses ensuring safe, reliable daily transit for learners across remote villages.",
-      src: "/images/transporters.png",
+      src: "/images/signpost.png",
     },
     {
       id: 15,
@@ -185,43 +143,37 @@ export default function GalleryPage() {
       id: 18,
       title: "Foundation Development & Facilities",
       desc: "Staff residences and community development quarters advancing rural infrastructure in Igayaza.",
-      src: "/images/House 2.jpg",
+      src: "/images/house 2.png",
     },
     {
       id: 19,
       title: "Murubya Campus Grounds & Learning Environment",
       desc: "Scenic rural school grounds offering a peaceful, focused atmosphere for pupils at Murubya.",
-      src: "/images/Murubya 1.jpg",
+      src: "/images/Murubya 1.png",
     },
     {
       id: 20,
       title: "Classroom Buildings at Murubya Primary",
       desc: "Dedicated primary school classrooms constructed to serve remote farming families in Kakumiro.",
-      src: "/images/Murubya 2.jpg",
+      src: "/images/Murubya 2.png",
     },
     {
       id: 21,
       title: "School Compound & Daily Pupil Gathering",
       desc: "Learners assembling during morning devotion and outdoor recreational activities.",
-      src: "/images/Murubya 3.jpg",
+      src: "/images/Murubya 3.png",
     },
     {
       id: 22,
       title: "Murubya School Facility Overview",
       desc: "Expanding education facilities ensuring no rural child is left behind.",
-      src: "/images/Murubya 4.jpg",
+      src: "/images/Murubya 4.png",
     },
     {
       id: 23,
       title: "Staff & Guest Residences — Campus Quarters",
       desc: "Residential facilities supporting dedicated teaching staff and community volunteers.",
-      src: "/images/House 1.jpg",
-    },
-    {
-      id: 24,
-      title: "Director Rev. Fr. Paul Bigirwa — Founder Portrait",
-      desc: "Guiding the mission of St. Theresa Foundation with faith, humility, and priestly commitment.",
-      src: "/images/Director.jpg",
+      src: "/images/House1.png",
     },
   ];
 
@@ -282,10 +234,10 @@ export default function GalleryPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {galleryItems.map((item) => (
-            <GalleryCard 
-              key={item.id} 
-              item={item} 
-              onClick={() => setSelectedImage({ src: item.src, title: item.title, desc: item.desc })} 
+            <GalleryCard
+              key={item.id}
+              item={item}
+              onClick={() => setSelectedImage({ src: item.src, title: item.title, desc: item.desc })}
             />
           ))}
         </div>

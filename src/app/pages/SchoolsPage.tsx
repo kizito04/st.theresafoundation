@@ -41,7 +41,7 @@ export default function SchoolsPage() {
       id: "murubya",
       name: "St. Theresa Murubya Primary School (Rural Outreach)",
       tagline: "Accessible Quality Education for Every Rural Child",
-      image: "/images/Murubya with director 1.jpg",
+      image: "/images/Fr with pupils 1.png",
       grades: "Nursery to Upper Primary",
       location: "Murubya Village, Kakumiro District",
       overview:
@@ -71,7 +71,7 @@ export default function SchoolsPage() {
       <section
         className="relative text-white min-h-[460px] sm:min-h-[520px] flex items-center py-28 sm:py-36 overflow-hidden"
         style={{
-          backgroundImage: "url('/images/House 1.jpg')",
+          backgroundImage: "url('/images/House1.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

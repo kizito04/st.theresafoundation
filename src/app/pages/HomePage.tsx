@@ -59,11 +59,11 @@ export default function HomePage() {
       alt: "Murubya Pupils with Director Rev. Fr. Paul Bigirwa",
     },
     {
-      src: "/images/Annex1.jpg",
+      src: "/images/Annex 1.png",
       alt: "St. Theresa Campus",
     },
     {
-      src: "/images/Fr with pupils.png",
+      src: "/House1.png",
       alt: "St. Theresa Campus",
     },
   ];
@@ -189,7 +189,7 @@ export default function HomePage() {
               {/* Left Photo: Annex 2 */}
               <div className="md:col-span-5 flex justify-center">
                 <img
-                  src="/images/Annex 2.jpg"
+                  src="/images/annex 2.png"
                   alt="St. Theresa Annex Campus"
                   className="w-full max-w-[340px] h-auto object-cover rounded-sm shadow-sm"
                 />
@@ -398,7 +398,7 @@ export default function HomePage() {
               <div className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/3 w-56 lg:w-72 h-64 lg:h-80 z-10">
                 <div className="w-full h-full rounded-2xl overflow-hidden shadow-2xl ring-8 ring-white transform hover:-translate-y-2 transition-transform duration-500">
                   <img
-                    src="/images/Annex collection.jpg"
+                    src="/images/annex collection 1.png"
                     alt="St. Theresa Annex Pupils"
                     className="w-full h-full object-cover object-center"
                   />
@@ -413,7 +413,7 @@ export default function HomePage() {
       <section
         className="relative text-white min-h-[460px] sm:min-h-[520px] flex items-center py-28 sm:py-36 overflow-hidden mt-8"
         style={{
-          backgroundImage: "url('/images/Annex1.jpg')",
+          backgroundImage: "url('/images/Annex 1.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -466,7 +466,7 @@ export default function HomePage() {
               <div className="lg:col-span-6 space-y-4">
                 <div className="w-full h-[260px] sm:h-[320px] overflow-hidden rounded-md shadow-sm">
                   <img
-                    src="/images/Annex 3.jpg"
+                    src="/images/annex 3.png"
                     alt="Applying for St. Theresa Schools - Annex 3"
                     className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
                   />
@@ -489,7 +489,7 @@ export default function HomePage() {
                 <div className="flex flex-col sm:flex-row gap-5 items-start">
                   <div className="w-full sm:w-44 h-36 sm:h-28 overflow-hidden rounded-md flex-shrink-0 shadow-sm">
                     <img
-                      src="/images/Signpost.jpeg"
+                      src="/images/signpost.png"
                       alt="Signpost - Getting ready for St. Theresa"
                       className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
                     />
@@ -510,7 +510,7 @@ export default function HomePage() {
                 <div className="flex flex-col sm:flex-row gap-5 items-start">
                   <div className="w-full sm:w-44 h-36 sm:h-28 overflow-hidden rounded-md flex-shrink-0 shadow-sm">
                     <img
-                      src="/images/House 2.jpg"
+                      src="/images/house 2.png"
                       alt="House 2 - Joining the St. Theresa community"
                       className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
                     />
