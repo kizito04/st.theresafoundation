@@ -374,7 +374,7 @@ export default function ContactPage() {
 
             {/* Embedded Google Map centered on St. Theresa Nursery and Primary School in Kakumiro */}
             <iframe
-              src="https://maps.google.com/maps?q=St.+Theresa+Nursery+and+Primary+School+-+Uganda&t=&z=16&ie=UTF8&iwloc=B&output=embed"
+              src="https://maps.google.com/maps?q=St.+Theresa+Nursery+and+Primary+School+-+Uganda&t=&z=9&ie=UTF8&iwloc=B&output=embed"
               className="w-full h-full border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

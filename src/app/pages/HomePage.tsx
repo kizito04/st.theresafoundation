@@ -209,92 +209,54 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Inspiration ───────────────────────────────────────── */}
-      <section className="py-8 pb-16 lg:pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <RevealSection>
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <span className="text-blue-600 font-bold text-xs uppercase tracking-widest">
-                Living Examples of Faith &amp; Grit
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mt-2">
-                Our Inspiration
-              </h2>
-              <p className="text-slate-600 mt-2 text-sm sm:text-base">
-                Real lives that teach our young pupils in Kakumiro that humble beginnings do not limit God's purpose.
-              </p>
-            </div>
-          </RevealSection>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Queen of Katwe Card */}
-            <RevealSection delay={0}>
-              <div className="relative bg-white rounded-1xl p-8 sm:p-10 shadow-md hover:shadow-xl border border-slate-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden group min-h-[320px]">
-                {/* Highly Visible Queen of Katwe Image on the right side */}
-                <div className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-5/12 pointer-events-none overflow-hidden rounded-r-1xl z-0">
-                  <img
-                    src="/images/queen 1.png"
-                    alt="Phiona Mutesi - Queen of Katwe"
-                    className="w-full h-full object-cover object-top opacity-70 group-hover:scale-105 group-hover:opacity-85 transition-all duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-white via-white/50 to-transparent" />
-                </div>
-
-                <div className="relative z-10 max-w-sm sm:max-w-md">
-                  <span className="text-xs font-bold text-amber-700 uppercase tracking-wider block mb-2">
-                    Quiet Tenacity &amp; Strategic Vision
-                  </span>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                    Queen of Katwe: Phiona Mutesi
-                  </h3>
-                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                    Growing up amidst severe hardship in Katwe, Kampala, Phiona Mutesi discovered chess at a community outreach center.
-                    Through patient study, resilience, and dedicated mentorship, she rose to international acclaim.
-                  </p>
-                </div>
-              </div>
-            </RevealSection>
-
-            {/* Pelé Card */}
-            <RevealSection delay={100}>
-              <div className="relative bg-white rounded-1xl p-8 sm:p-10 shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 h-full flex flex-col justify-center overflow-hidden group min-h-[320px]">
-                {/* Highly Visible pele 2.png in the background */}
-                <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl z-0">
-                  <img
-                    src="/images/pele 2.png"
-                    alt=""
-                    aria-hidden="true"
-                    className="w-full h-full object-cover object-center opacity-30 filter contrast-110 group-hover:scale-105 transition-all duration-900"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/80 to-white/50" />
-                </div>
-
-                {/* Highly Visible pele.png on the right side */}
-                <div className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-5/12 pointer-events-none overflow-hidden rounded-r-1xl z-0">
-                  <img
-                    src="/images/pele.png"
-                    alt="Pelé"
-                    className="w-full h-full object-cover object-top opacity-70 group-hover:scale-105 group-hover:opacity-85 transition-all duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-white via-white/50 to-transparent" />
-                </div>
-
-                <div className="relative z-10 max-w-sm sm:max-w-md">
-                  <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider block mb-2">
-                    Humble Roots &amp; Relentless Passion
-                  </span>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                    Pelé: Birth of a Legend
-                  </h3>
-                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                    Starting on dusty clearings playing barefoot with a sock stuffed with rags, Pelé's joy,
-                    tireless work ethic, and humility took him from poverty to world glory.
-                  </p>
-                </div>
-              </div>
-            </RevealSection>
+      {/* Inspirations Behind the Foundation — Screenshot 2 design (single 3-column card) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-16 lg:pb-20">
+        <RevealSection>
+          <div className="text-center mb-10">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+              Inspirations Behind the Foundation
+            </h2>
           </div>
 
+          {/* Single card with 3 columns and vertical divider lines */}
+          <div className="bg-white rounded-xl border border-slate-200/80 shadow-sm p-8 sm:p-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200">
+              {/* Column 1: Queen of Katwe */}
+              <div className="py-6 md:py-2 md:px-8 first:md:pl-2 space-y-3">
+                <h3 className="text-xl font-bold text-slate-900">
+                  Queen of Katwe — Phiona Mutesi
+                </h3>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  A reminder that brilliance can emerge from the most unexpected places when a child is given a chance.
+                </p>
+              </div>
+
+              {/* Column 2: Pelé */}
+              <div className="py-6 md:py-2 md:px-8 space-y-3">
+                <h3 className="text-xl font-bold text-slate-900">
+                  Pelé: Birth of a Legend
+                </h3>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  A testimony that talent, when nurtured, can transform a life and inspire a nation.
+                </p>
+              </div>
+
+              {/* Column 3: St. Theresa of Lisieux */}
+              <div className="py-6 md:py-2 md:px-8 last:md:pr-2 space-y-3">
+                <h3 className="text-xl font-bold text-slate-900">
+                  St. Theresa of Lisieux
+                </h3>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  Patron of simplicity, love, and small acts that change the world.
+                </p>
+              </div>
+            </div>
+          </div>
+        </RevealSection>
+      </section>
+
+      <section className="py-8 pb-16 lg:pb-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* ── Community Impact & Shared Values (Matching Reference Style) ── */}
           <RevealSection delay={150}>
             <div className="mt-14 pt-4">

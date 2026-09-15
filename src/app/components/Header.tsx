@@ -98,11 +98,11 @@ export default function Header() {
             <div className="flex items-center gap-2">
               {/* Hamburger — only on mobile/tablet */}
               <button
-                onClick={() => setMobileMenuOpen(true)}
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
-                aria-label="Open menu"
+                aria-label="Toggle menu"
               >
-                <Menu className="w-6 h-6" />
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
 
               {/* Logo */}
@@ -140,72 +140,34 @@ export default function Header() {
             </nav>
           </div>
         </div>
-      </header>
 
-      {/* Mobile Side Drawer Overlay (rendered outside sticky header context) */}
-      <div
-        className={`fixed inset-0 bg-black/60 z-[9998] lg:hidden transition-opacity duration-300 ${
-          mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-        onClick={() => setMobileMenuOpen(false)}
-        onTouchMove={(e) => e.preventDefault()}
-      />
-
-      {/* Mobile Side Drawer Panel (always fixed to viewport, 100dvh, non-scrollable background) */}
-      <aside
-        className={`fixed top-0 left-0 bottom-0 h-screen h-[100dvh] w-72 sm:w-80 max-w-[85vw] bg-white z-[9999] shadow-2xl flex flex-col transform transition-transform duration-300 ease-in-out lg:hidden ${
-          mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
-        aria-label="Mobile Navigation"
-      >
-        {/* Drawer Header */}
-        <div className="p-4 border-b border-slate-100 flex items-center justify-between bg-white flex-shrink-0">
-          <Link
-            to="/"
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center gap-2.5"
-          >
-            <span className="text-2xl leading-none">🌹</span>
-            <div className="leading-tight">
-              <div className="font-extrabold text-sm text-slate-900 tracking-tight">
-                ST. THERESA
-              </div>
-              <div className="text-[10px] text-blue-600 font-bold tracking-wide uppercase">
-                Foundation
-              </div>
-            </div>
-          </Link>
-
-          {/* Close button X */}
-          <button
-            onClick={() => setMobileMenuOpen(false)}
-            className="w-9 h-9 flex items-center justify-center text-slate-500 hover:text-slate-800 transition-colors"
-            aria-label="Close menu"
-          >
-            <X className="w-5 h-5" />
-          </button>
-        </div>
-
-        {/* Drawer Menu List */}
-        <div className="flex-1 overflow-y-auto py-3 bg-white">
-          <nav className="px-3 space-y-1">
+        {/* Mobile Dropdown Menu (Seeta High School Style) */}
+        <div
+          className={`absolute left-0 right-0 bg-white shadow-xl lg:hidden transform transition-all duration-300 origin-top overflow-hidden ${
+            mobileMenuOpen ? "scale-y-100 opacity-100 pointer-events-auto" : "scale-y-0 opacity-0 pointer-events-none"
+          }`}
+          style={{ top: '100%' }}
+        >
+          <nav className="flex flex-col">
             {mobileNavLinks.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`flex items-center justify-between px-4 py-3 text-sm transition-all ${
+                className={`px-6 py-4 text-base border-b border-slate-200 flex justify-between items-center transition-colors ${
                   isActive(item.href)
-                    ? "text-[#1e3a8a] font-bold border-b-2 border-[#1e3a8a]"
-                    : "text-slate-700 hover:text-[#1e3a8a]"
+                    ? "text-[#1e3a8a] font-bold bg-slate-50"
+                    : "text-slate-800 hover:bg-slate-50"
                 }`}
               >
                 <span>{item.name}</span>
+                {/* Adding the '+' sign to mimic the screenshot style */}
+                <span className="text-slate-400 text-xl font-light leading-none">+</span>
               </Link>
             ))}
           </nav>
         </div>
-      </aside>
+      </header>
     </>
   );
 }

@@ -1,5 +1,79 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
+
+// Add GalleryCard component at the top, just below imports
+function GalleryCard({ item, onClick }: { item: any; onClick: () => void }) {
+  const [isInCenter, setIsInCenter] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Only apply intersection observer on small screens (width < 640px)
+    const mediaQuery = window.matchMedia("(max-width: 639px)");
+    
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (mediaQuery.matches) {
+          setIsInCenter(entry.isIntersecting);
+        }
+      },
+      {
+        rootMargin: "-40% 0px -40% 0px", // triggers when the middle 20% of the screen intersects
+        threshold: 0,
+      }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    const handleResize = () => {
+      if (!mediaQuery.matches) {
+        setIsInCenter(false);
+      }
+    };
+    mediaQuery.addEventListener("change", handleResize);
+
+    return () => {
+      observer.disconnect();
+      mediaQuery.removeEventListener("change", handleResize);
+    };
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      onClick={onClick}
+      className="relative group overflow-hidden rounded-2xl bg-slate-100 shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer h-[290px] sm:h-[330px] border border-slate-200/70"
+    >
+      {/* Image */}
+      <img
+        src={item.src}
+        alt={item.title}
+        loading="lazy"
+        className="w-full h-full object-cover object-center sm:group-hover:scale-110 transition-transform duration-700 ease-out"
+      />
+
+      {/* Soft overlay gradient on hover/center */}
+      <div className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300 ${isInCenter ? 'opacity-100' : 'opacity-0 sm:group-hover:opacity-100'}`} />
+
+      {/* Top Zoom hint on hover/center */}
+      <div className={`absolute top-3 right-3 w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm text-white flex items-center justify-center transition-opacity duration-300 ${isInCenter ? 'opacity-100' : 'opacity-0 sm:group-hover:opacity-100'}`}>
+        <ZoomIn className="w-4 h-4" />
+      </div>
+
+      {/* Description that appears from the bottom on hover/center */}
+      <div className={`absolute inset-x-0 bottom-0 p-5 sm:p-6 transition-transform duration-300 ease-out flex flex-col justify-end text-white z-10 ${isInCenter ? 'translate-y-0' : 'translate-y-full sm:group-hover:translate-y-0'}`}>
+        <div className="w-8 h-1 bg-[#8e1b38] rounded-full mb-2" />
+        <h3 className="font-bold text-base sm:text-lg leading-snug drop-shadow-sm">
+          {item.title}
+        </h3>
+        <p className="text-xs sm:text-sm text-slate-200 mt-1.5 line-clamp-3 leading-relaxed drop-shadow-sm">
+          {item.desc}
+        </p>
+      </div>
+    </div>
+  );
+}
 
 export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState<{ src: string; title: string; desc: string } | null>(null);
@@ -172,38 +246,11 @@ export default function GalleryPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {galleryItems.map((item) => (
-            <div
-              key={item.id}
-              onClick={() => setSelectedImage({ src: item.src, title: item.title, desc: item.desc })}
-              className="relative group overflow-hidden rounded-2xl bg-slate-100 shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer h-[290px] sm:h-[330px] border border-slate-200/70"
-            >
-              {/* Image */}
-              <img
-                src={item.src}
-                alt={item.title}
-                loading="lazy"
-                className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
-              />
-
-              {/* Soft overlay gradient on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-              {/* Top Zoom hint on hover */}
-              <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <ZoomIn className="w-4 h-4" />
-              </div>
-
-              {/* Description that appears from the bottom on hover */}
-              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out flex flex-col justify-end text-white z-10">
-                <div className="w-8 h-1 bg-[#8e1b38] rounded-full mb-2" />
-                <h3 className="font-bold text-base sm:text-lg leading-snug drop-shadow-sm">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-200 mt-1.5 line-clamp-3 leading-relaxed drop-shadow-sm">
-                  {item.desc}
-                </p>
-              </div>
-            </div>
+            <GalleryCard 
+              key={item.id} 
+              item={item} 
+              onClick={() => setSelectedImage({ src: item.src, title: item.title, desc: item.desc })} 
+            />
           ))}
         </div>
       </section>
