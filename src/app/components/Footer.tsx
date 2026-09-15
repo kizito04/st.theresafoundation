@@ -28,7 +28,7 @@ export default function Footer() {
   return (
     <footer
       style={{ backgroundColor: "#f0f4f9" }}
-      className="text-[#002f54] font-sans border-t border-slate-200"
+      className="text-[#002f54] font-sans border-t border-[#002f54]/30"
     >
       {/* ── Main Footer Columns (Expanded Height + Faint Dark Blue Background) ── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
@@ -54,7 +54,7 @@ export default function Footer() {
 
           {/* Column 1: About us */}
           <div className="lg:col-span-2 sm:col-span-4">
-            <div className="border-t-2 border-[#002f54] pt-4">
+            <div className="border-t border-[#002f54] pt-4">
               <h4 className="font-bold text-[#002f54] text-lg sm:text-xl mb-4 tracking-tight">
                 About us
               </h4>
@@ -70,7 +70,7 @@ export default function Footer() {
 
           {/* Column 2: Quick links */}
           <div className="lg:col-span-2 sm:col-span-4">
-            <div className="border-t-2 border-[#002f54] pt-4">
+            <div className="border-t border-[#002f54] pt-4">
               <h4 className="font-bold text-[#002f54] text-lg sm:text-xl mb-4 tracking-tight">
                 Quick links
               </h4>
@@ -111,7 +111,7 @@ export default function Footer() {
 
           {/* Column 3: Contact us */}
           <div className="lg:col-span-4 sm:col-span-4">
-            <div className="border-t-2 border-[#002f54] pt-4 space-y-4 text-sm sm:text-[15px]">
+            <div className="border-t border-[#002f54] pt-4 space-y-4 text-sm sm:text-[15px]">
               <h4 className="font-bold text-[#002f54] text-lg sm:text-xl mb-4 tracking-tight">
                 Contact us
               </h4>
