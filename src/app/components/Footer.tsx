@@ -52,7 +52,7 @@ export default function Footer() {
             </Link>
           </div>
 
-          {/* Column 1: About us (with bold heading & increased text size) */}
+          {/* Column 1: About us */}
           <div className="lg:col-span-2 sm:col-span-4">
             <div className="border-t-2 border-[#002f54] pt-4">
               <h4 className="font-bold text-[#002f54] text-lg sm:text-xl mb-4 tracking-tight">
@@ -64,26 +64,11 @@ export default function Footer() {
                     About the Founder
                   </Link>
                 </li>
-                <li>
-                  <Link to="/schools" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
-                    St. Theresa Schools
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/sports-academy" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
-                    Sports Academy
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/education-fund" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
-                    Education Fund
-                  </Link>
-                </li>
               </ul>
             </div>
           </div>
 
-          {/* Column 2: Quick links (with bold heading & increased text size) */}
+          {/* Column 2: Quick links */}
           <div className="lg:col-span-2 sm:col-span-4">
             <div className="border-t-2 border-[#002f54] pt-4">
               <h4 className="font-bold text-[#002f54] text-lg sm:text-xl mb-4 tracking-tight">
@@ -91,8 +76,18 @@ export default function Footer() {
               </h4>
               <ul className="space-y-3.5 text-base sm:text-[17px]">
                 <li>
-                  <Link to="/transporters" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
-                    St. Theresa Transporters
+                  <Link to="/" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/about" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/schools" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
+                    Schools
                   </Link>
                 </li>
                 <li>
@@ -102,7 +97,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link to="/news" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
-                    News &amp; Updates
+                    News and Updates
                   </Link>
                 </li>
                 <li>

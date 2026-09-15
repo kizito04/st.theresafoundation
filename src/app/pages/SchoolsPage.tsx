@@ -59,10 +59,26 @@ export default function SchoolsPage() {
   };
 
   const sharedValues = [
-    { title: "Faith & Morals", desc: "Rooted in Catholic traditions, prayer, and Christian virtues.", icon: "✝️" },
-    { title: "Academic Rigor", desc: "Instilling discipline, critical inquiry, and reading excellence.", icon: "📚" },
-    { title: "Dignity of Every Child", desc: "Ensuring no child is left behind due to poverty or background.", icon: "🌱" },
-    { title: "Gentle Love of St. Theresa", desc: "Doing little things each day with extraordinary love and humility.", icon: "🌹" },
+    {
+      title: "Faith & Morals",
+      desc: "Rooted in Catholic traditions, daily prayer, and Christian virtues that guide ethical leadership.",
+      image: "/images/Fr with pupils.png",
+    },
+    {
+      title: "Academic Rigor",
+      desc: "Instilling discipline, critical inquiry, foundational literacy, and a lifelong commitment to excellence.",
+      image: "/images/annex 3.png",
+    },
+    {
+      title: "Dignity of Every Child",
+      desc: "Ensuring every young learner is embraced, protected, and empowered regardless of background.",
+      image: "/images/Fr with pupils 1.png",
+    },
+    {
+      title: "Gentle Love of St. Theresa",
+      desc: "Walking the Little Way — doing ordinary everyday things with extraordinary love, kindness, and humility.",
+      image: "/images/Theresa.jpg",
+    },
   ];
 
   return (
@@ -199,9 +215,9 @@ export default function SchoolsPage() {
 
       </section>
 
-      {/* ── Shared Values Across Campuses ── */}
+      {/* ── Shared Values Across Campuses (Screenshot 4 design) ── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-        <div className="bg-[#f0f4f9] rounded-3xl p-8 sm:p-12 border border-slate-200 space-y-8">
+        <div className="bg-[#f0f4f9] rounded-3xl p-8 sm:p-12 border border-slate-200 space-y-10">
           <div className="text-center max-w-2xl mx-auto">
             <span className="text-blue-700 font-bold text-xs uppercase tracking-widest">
               Core Principles
@@ -214,15 +230,25 @@ export default function SchoolsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {sharedValues.map((val) => (
-              <div
-                key={val.title}
-                className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 text-center space-y-2.5 hover:shadow-md transition-shadow"
-              >
-                <span className="text-3xl block">{val.icon}</span>
-                <h3 className="font-bold text-[#002f54] text-base font-serif">{val.title}</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">{val.desc}</p>
+              <div key={val.title} className="flex flex-col items-center group">
+                {/* Photo at the top with top border accent matching Screenshot 4 */}
+                <div className="w-full h-44 sm:h-48 overflow-hidden rounded-sm shadow-sm border-t-4 border-[#002f54] bg-slate-200">
+                  <img
+                    src={val.image}
+                    alt={val.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                {/* Bold Uppercase Heading */}
+                <h3 className="font-bold text-[#002f54] text-base uppercase tracking-wider text-center mt-5 mb-2 font-serif">
+                  {val.title}
+                </h3>
+                {/* Descriptive text */}
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed text-center">
+                  {val.desc}
+                </p>
               </div>
             ))}
           </div>

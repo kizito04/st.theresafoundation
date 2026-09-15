@@ -63,7 +63,7 @@ export default function HomePage() {
       alt: "St. Theresa Campus",
     },
     {
-      src: "/House1.png",
+      src: "/images/House1.png",
       alt: "St. Theresa Campus",
     },
   ];
@@ -384,11 +384,11 @@ export default function HomePage() {
                 </p>
                 <div className="pt-6">
                   <Link
-                    to="/education-fund"
+                    to="/contact"
                     className="inline-flex items-center gap-1.5 text-blue-700 hover:text-blue-900 font-semibold text-sm border-b border-blue-300 hover:border-blue-600 pb-0.5 transition-all"
                   >
                     <Heart className="w-3.5 h-3.5" />
-                    <span>Support the Education Fund</span>
+                    <span>Support Our Education Mission</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
