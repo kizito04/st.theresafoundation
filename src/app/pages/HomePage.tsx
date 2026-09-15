@@ -391,7 +391,7 @@ export default function HomePage() {
               {/* Right Column: Image murubya with director 2 */}
               <div className="lg:col-span-6 flex justify-center">
                 <img
-                  src="/images/Murubya with director 2.jpg"
+                  src="/images/Fr with pupils 1.png"
                   alt="Murubya Pupils with Director Rev. Fr. Paul Bigirwa"
                   className="w-full h-[360px] sm:h-[420px] object-cover rounded-1.5xl shadow-md"
                 />
@@ -405,9 +405,9 @@ export default function HomePage() {
       <section className="py-14 sm:py-20 bg-slate-50 border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <RevealSection>
-            <div className="relative bg-white shadow-md overflow-hidden p-8 sm:p-12 flex gap-8 items-center">
+            <div className="relative bg-white shadow-md rounded-2xl p-8 sm:p-12 flex gap-8 items-center max-w-[95%]">
               {/* Left: Content */}
-              <div className="flex-1 min-w-0">
+              <div className="flex-1 min-w-0 lg:pr-32">
                 <div className="text-4xl sm:text-5xl font-serif text-slate-400 leading-none">
                   "
                 </div>
@@ -432,9 +432,9 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Right: Circular image centred in white space */}
-              <div className="hidden sm:flex flex-shrink-0 w-48 lg:w-56 items-center justify-center">
-                <div className="w-40 h-40 lg:w-48 lg:h-48 rounded-full overflow-hidden shadow-md ring-4 ring-slate-100">
+              {/* Right: Floating elevated image outside the main card */}
+              <div className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/3 w-56 lg:w-72 h-64 lg:h-80 z-10">
+                <div className="w-full h-full rounded-2xl overflow-hidden shadow-2xl ring-8 ring-white transform hover:-translate-y-2 transition-transform duration-500">
                   <img
                     src="/images/Annex collection.jpg"
                     alt="St. Theresa Annex Pupils"
@@ -444,6 +444,46 @@ export default function HomePage() {
               </div>
             </div>
           </RevealSection>
+        </div>
+      </section>
+
+      {/* ── Spotlight Banner (News Page Upper Section Design) ── */}
+      <section
+        className="relative text-white min-h-[460px] sm:min-h-[520px] flex items-center py-28 sm:py-36 overflow-hidden mt-8"
+        style={{
+          backgroundImage: "url('/images/Annex1.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="absolute inset-0 bg-slate-950/75" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          {/* Left-aligned heading with vertical accent bar */}
+          <div className="flex items-center gap-4 sm:gap-5 mb-4">
+            <div className="w-2.5 sm:w-3 h-12 sm:h-20 bg-[#1e3a8a] flex-shrink-0" />
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight max-w-3xl">
+              Transforming communities through accessible education
+            </h2>
+          </div>
+          <p className="text-base sm:text-lg text-slate-200 max-w-3xl leading-relaxed pl-6 sm:pl-8">
+            Real-time tracking of pupil progress, unified curriculum standards, and transparent community involvement — built to close the gap in rural educational opportunities.
+          </p>
+          <div className="pl-6 sm:pl-8 mt-8 flex flex-wrap gap-4">
+            <Link
+              to="/about"
+              className="inline-flex items-center justify-center bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold text-sm sm:text-base px-8 py-3.5 rounded-full transition-all shadow-lg"
+            >
+              Discover Our Impact
+            </Link>
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center border-2 border-white/40 hover:border-white/80 text-white font-bold text-sm sm:text-base px-8 py-3.5 rounded-full transition-all"
+            >
+              Partner With Us
+            </Link>
+          </div>
         </div>
       </section>
 

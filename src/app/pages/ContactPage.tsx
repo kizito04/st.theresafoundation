@@ -48,8 +48,7 @@ export default function ContactPage() {
     setIsSubmitting(true);
 
     try {
-      // Send directly to kizitoahaisibwe04@gmail.com using FormSubmit AJAX API
-      const res = await fetch("https://formsubmit.co/ajax/kizitoahaisibwe04@gmail.com", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -59,9 +58,6 @@ export default function ContactPage() {
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          _subject: `New Message from ${formData.name} - St. Theresa Foundation Website`,
-          _captcha: "false",
-          _template: "table",
         }),
       });
 
@@ -95,7 +91,7 @@ export default function ContactPage() {
           </div>
           <div className="flex-1 min-w-0">
             <p className="font-bold text-sm leading-snug">message delivered successfully</p>
-            <p className="text-xs text-emerald-100 mt-0.5">Your message has been sent to kizitoahaisibwe04@gmail.com</p>
+            <p className="text-xs text-emerald-100 mt-0.5">Your message has been sent!</p>
           </div>
           <button
             onClick={() => setShowToast(false)}
@@ -257,7 +253,7 @@ export default function ContactPage() {
                   <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
                   <div>
                     <p className="font-bold">message delivered successfully</p>
-                    <p className="text-xs text-emerald-700">Thank you! Your message was delivered to kizitoahaisibwe04@gmail.com</p>
+                    <p className="text-xs text-emerald-700">Thank you! Your message was delivered successfully.</p>
                   </div>
                 </div>
               )}
