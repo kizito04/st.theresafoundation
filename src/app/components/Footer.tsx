@@ -58,9 +58,9 @@ export default function Footer() {
               <h4 className="font-bold text-[#002f54] text-lg sm:text-xl mb-4 tracking-tight">
                 About us
               </h4>
-              <ul className="space-y-3.5 text-base sm:text-[17px]">
+              <ul className="space-y-3 text-sm sm:text-[15px]">
                 <li>
-                  <Link to="/about" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
+                  <Link to="/about" className="text-slate-700 font-normal hover:text-amber-500 transition-colors">
                     About the Founder
                   </Link>
                 </li>
@@ -74,34 +74,34 @@ export default function Footer() {
               <h4 className="font-bold text-[#002f54] text-lg sm:text-xl mb-4 tracking-tight">
                 Quick links
               </h4>
-              <ul className="space-y-3.5 text-base sm:text-[17px]">
+              <ul className="space-y-3 text-sm sm:text-[15px]">
                 <li>
-                  <Link to="/" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
+                  <Link to="/" className="text-slate-700 font-normal hover:text-amber-500 transition-colors">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link to="/about" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
+                  <Link to="/about" className="text-slate-700 font-normal hover:text-amber-500 transition-colors">
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link to="/schools" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
+                  <Link to="/schools" className="text-slate-700 font-normal hover:text-amber-500 transition-colors">
                     Schools
                   </Link>
                 </li>
                 <li>
-                  <Link to="/gallery" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
+                  <Link to="/gallery" className="text-slate-700 font-normal hover:text-amber-500 transition-colors">
                     Photo Gallery
                   </Link>
                 </li>
                 <li>
-                  <Link to="/news" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
+                  <Link to="/news" className="text-slate-700 font-normal hover:text-amber-500 transition-colors">
                     News and Updates
                   </Link>
                 </li>
                 <li>
-                  <Link to="/contact" className="text-[#002f54] hover:text-[#a8203e] transition-colors font-medium">
+                  <Link to="/contact" className="text-slate-700 font-normal hover:text-amber-500 transition-colors">
                     Contact Us
                   </Link>
                 </li>
@@ -109,34 +109,38 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 3: Contact us (with bold heading & increased text size) */}
+          {/* Column 3: Contact us */}
           <div className="lg:col-span-4 sm:col-span-4">
-            <div className="border-t-2 border-[#002f54] pt-4 space-y-4 text-base sm:text-[17px]">
+            <div className="border-t-2 border-[#002f54] pt-4 space-y-4 text-sm sm:text-[15px]">
               <h4 className="font-bold text-[#002f54] text-lg sm:text-xl mb-4 tracking-tight">
                 Contact us
               </h4>
 
               <div className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-[#002f54] mt-1 flex-shrink-0" />
+                <Phone className="w-4 h-4 text-slate-700 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-[#002f54] font-semibold text-base sm:text-lg">+256 772 543 737</p>
-                  <p className="text-slate-600 text-xs sm:text-sm">+44 74040...</p>
+                  <a href="tel:+256772543737" className="text-slate-700 font-normal hover:text-amber-500 transition-colors block">
+                    +256 772 543 737
+                  </a>
+                  <p className="text-slate-500 text-xs font-normal">+44 74040...</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-[#002f54] mt-1 flex-shrink-0" />
+                <Mail className="w-4 h-4 text-slate-700 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-[#002f54] font-semibold text-base sm:text-lg">sttfoundation2@gmail.com</p>
-                  <p className="text-slate-600 text-xs sm:text-sm">sttheresafoundation.org</p>
+                  <a href="mailto:sttfoundation2@gmail.com" className="text-slate-700 font-normal hover:text-amber-500 transition-colors block">
+                    sttfoundation2@gmail.com
+                  </a>
+                  <p className="text-slate-500 text-xs font-normal">sttheresafoundation.org</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-[#002f54] mt-1 flex-shrink-0" />
+                <MapPin className="w-4 h-4 text-slate-700 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-[#002f54] font-semibold text-base sm:text-lg">Igayaza, Western Uganda</p>
-                  <p className="text-slate-600 text-xs sm:text-sm">Hoima Catholic Diocese • Kakumiro District</p>
+                  <p className="text-slate-700 font-normal">Igayaza, Western Uganda</p>
+                  <p className="text-slate-500 text-xs font-normal">Hoima Catholic Diocese • Kakumiro District</p>
                 </div>
               </div>
             </div>
@@ -149,23 +153,23 @@ export default function Footer() {
       <div className="bg-[#002f54] text-white py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
 
-          {/* Copyright & Founder Info (Increased text size) */}
-          <div className="text-sm sm:text-base text-white/90 space-y-1 text-center sm:text-left">
+          {/* Copyright & Founder Info */}
+          <div className="text-xs sm:text-sm text-white/80 space-y-1 text-center sm:text-left font-normal">
             <p className="font-normal">
               &copy; {new Date().getFullYear()} St. Theresa Foundation. All rights reserved.
             </p>
-            <p className="text-white/70 text-xs sm:text-sm">
+            <p className="text-white/60 text-xs font-normal">
               Founded by Rev. Fr. Paul Bigirwa (Silver Jubilee — 05 July 2025). Building futures, one child at a time.
             </p>
           </div>
 
-          {/* Circular White Social Buttons with Dark Navy Icons */}
+          {/* Circular White Social Buttons with Dark Navy Icons & Amber Hover */}
           <div className="flex items-center gap-2.5">
             <a
               href="https://twitter.com"
               target="_blank"
               rel="noreferrer"
-              className="w-8 h-8 rounded-full bg-white text-[#002f54] hover:bg-slate-200 transition-colors flex items-center justify-center shadow-sm"
+              className="w-8 h-8 rounded-full bg-white text-[#002f54] hover:bg-amber-400 hover:text-[#002f54] transition-colors flex items-center justify-center shadow-sm"
               aria-label="X (Twitter)"
             >
               <XIcon className="w-3.5 h-3.5" />
@@ -174,7 +178,7 @@ export default function Footer() {
               href="https://facebook.com"
               target="_blank"
               rel="noreferrer"
-              className="w-8 h-8 rounded-full bg-white text-[#002f54] hover:bg-slate-200 transition-colors flex items-center justify-center shadow-sm"
+              className="w-8 h-8 rounded-full bg-white text-[#002f54] hover:bg-amber-400 hover:text-[#002f54] transition-colors flex items-center justify-center shadow-sm"
               aria-label="Facebook"
             >
               <Facebook className="w-4 h-4" />
@@ -183,7 +187,7 @@ export default function Footer() {
               href="https://instagram.com"
               target="_blank"
               rel="noreferrer"
-              className="w-8 h-8 rounded-full bg-white text-[#002f54] hover:bg-slate-200 transition-colors flex items-center justify-center shadow-sm"
+              className="w-8 h-8 rounded-full bg-white text-[#002f54] hover:bg-amber-400 hover:text-[#002f54] transition-colors flex items-center justify-center shadow-sm"
               aria-label="Instagram"
             >
               <Instagram className="w-4 h-4" />
@@ -192,7 +196,7 @@ export default function Footer() {
               href="https://youtube.com"
               target="_blank"
               rel="noreferrer"
-              className="w-8 h-8 rounded-full bg-white text-[#002f54] hover:bg-slate-200 transition-colors flex items-center justify-center shadow-sm"
+              className="w-8 h-8 rounded-full bg-white text-[#002f54] hover:bg-amber-400 hover:text-[#002f54] transition-colors flex items-center justify-center shadow-sm"
               aria-label="YouTube"
             >
               <Youtube className="w-4 h-4" />
@@ -201,7 +205,7 @@ export default function Footer() {
               href="https://wa.me/256772543737"
               target="_blank"
               rel="noreferrer"
-              className="w-8 h-8 rounded-full bg-white text-[#002f54] hover:bg-slate-200 transition-colors flex items-center justify-center shadow-sm"
+              className="w-8 h-8 rounded-full bg-white text-[#002f54] hover:bg-amber-400 hover:text-[#002f54] transition-colors flex items-center justify-center shadow-sm"
               aria-label="WhatsApp"
             >
               <WhatsAppIcon className="w-4 h-4" />

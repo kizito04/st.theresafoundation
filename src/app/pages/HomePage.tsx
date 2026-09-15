@@ -51,16 +51,16 @@ function RevealSection({
 export default function HomePage() {
   const heroSlides = [
     {
-      src: "/images/Annex 4.png",
-      alt: "St. Theresa Annex Campus Pupils",
-    },
-    {
       src: "/images/Fr with pupils 1.png",
       alt: "Murubya Pupils with Director Rev. Fr. Paul Bigirwa",
     },
     {
       src: "/images/Annex 1.png",
       alt: "St. Theresa Campus",
+    },
+    {
+      src: "/images/Annex 4.png",
+      alt: "St. Theresa Annex Campus Pupils",
     },
     {
       src: "/images/House1.png",
@@ -245,7 +245,7 @@ export default function HomePage() {
                 <div className="flex flex-col items-center text-center">
                   <div className="w-16 h-1 bg-blue-600 mb-6 rounded-full" />
                   <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-5">
-                    Shared Values Across All Campuses
+                    Shared Values Across All our Communities
                   </h3>
                   <ul className="space-y-3 text-slate-600 text-sm sm:text-base leading-relaxed inline-block text-left">
                     <li className="flex items-center gap-3">

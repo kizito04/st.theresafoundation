@@ -58,20 +58,6 @@ export default function NewsPage() {
       image: "/images/annex 3.png",
     },
     {
-      id: 5,
-      title: "St. Theresa Transporters Adds Daily Minibus Routes for Remote Village Sub-Counties",
-      date: "02 September 2025",
-      author: "Logistics Team",
-      summary:
-        "New subsidized minivan routes now connect remote villages directly to campus, safeguarding young pupils from exhausting, hazardous daily walks along rural highways.",
-      content: [
-        "To address the long distances that rural children face each morning, St. Theresa Transporters has introduced new dedicated commuter minibus routes spanning Igayaza, Murubya, and neighboring parishes.",
-        "Each bus is operated by a vetted professional driver accompanied by a trained student care assistant, ensuring children travel in comfort, security, and strict punctuality.",
-        "Subsidized fare schemes remain available for families with multiple enrolled children or those enrolled under the Foundation's Education Fund.",
-      ],
-      image: "/images/transporters.png",
-    },
-    {
       id: 6,
       title: "Pastoral Visits & Community Character Formation Outreach at Murubya Campus",
       date: "10 September 2025",
