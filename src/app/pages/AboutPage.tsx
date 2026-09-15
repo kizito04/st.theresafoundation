@@ -109,7 +109,7 @@ export default function AboutPage() {
                 </div>
 
                 <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight leading-snug">
-                  Hello. Welcome to<br className="hidden sm:inline" /> St. Theresa Foundation.
+                  Message from Director<br className="hidden sm:inline" /> St. Theresa Foundation.
                 </h2>
 
                 <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-3xl">

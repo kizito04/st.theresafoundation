@@ -209,52 +209,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Inspirations Behind the Foundation — Screenshot 2 design (single 3-column card) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-16 lg:pb-20">
-        <RevealSection>
-          <div className="text-center mb-10">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-              Inspirations Behind the Foundation
-            </h2>
-          </div>
-
-          {/* Single card with 3 columns, no round borders, and elevated shadow */}
-          <div className="bg-white rounded-none border border-slate-200/80 shadow-2xl p-8 sm:p-12 hover:shadow-[0_20px_45px_rgba(0,0,0,0.12)] transition-shadow duration-300">
-            <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200">
-              {/* Column 1: St. Theresa of Lisieux */}
-              <div className="py-6 md:py-2 md:px-8 first:md:pl-2 space-y-3">
-                <h3 className="text-xl font-bold text-slate-900">
-                  St. Theresa of Lisieux
-                </h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  Patroness of our foundation, teaching the little way of love, humility, and ordinary acts done with extraordinary grace.
-                </p>
-              </div>
-
-              {/* Column 2: Queen of Katwe */}
-              <div className="py-6 md:py-2 md:px-8 space-y-3">
-                <h3 className="text-xl font-bold text-slate-900">
-                  Queen of Katwe — Phiona Mutesi
-                </h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  A reminder that brilliance can emerge from the most unexpected places when a child is given a chance.
-                </p>
-              </div>
-
-              {/* Column 3: Pelé */}
-              <div className="py-6 md:py-2 md:px-8 last:md:pr-2 space-y-3">
-                <h3 className="text-xl font-bold text-slate-900">
-                  Pelé: Birth of a Legend
-                </h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  A testimony that talent, when nurtured, can transform a life and inspire a nation.
-                </p>
-              </div>
-            </div>
-          </div>
-        </RevealSection>
-      </section>
-
       <section className="py-8 pb-16 lg:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* ── Community Impact & Shared Values (Matching Reference Style) ── */}
@@ -373,24 +327,17 @@ export default function HomePage() {
                 <div className="text-4xl sm:text-5xl font-serif text-slate-400 leading-none">
                   "
                 </div>
-                <h3 className="text-xs sm:text-sm font-bold uppercase tracking-widest text-blue-700 mt-2">
+                <h2 className="text-xs sm:text-sm font-bold uppercase tracking-widest text-blue-700 mt-2">
                   ST. THERESA EDUCATION FUND
-                </h3>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug mt-3">
-                  The Education Fund is the Foundation's core charity arm, dedicated to supporting children who face financial hardship.
                 </h2>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug mt-3">
+                  The Education Fund is the Foundation's core charity arm, dedicated to supporting children who face financial hardship.
+                </h3>
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed pt-3">
                   Through annual sponsorships, tuition subsidies, scholastic materials, and nutritious feeding, we stand with over 200 vulnerable learners across Kakumiro, Kibaale, and Kagadi districts ensuring that poverty never interrupts a child's right to learn, grow, and flourish.
                 </p>
                 <div className="pt-6">
-                  <Link
-                    to="/contact"
-                    className="inline-flex items-center gap-1.5 text-blue-700 hover:text-blue-900 font-semibold text-sm border-b border-blue-300 hover:border-blue-600 pb-0.5 transition-all"
-                  >
-                    <Heart className="w-3.5 h-3.5" />
-                    <span>Support Our Education Mission</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
+
                 </div>
               </div>
 
