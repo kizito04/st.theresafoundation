@@ -118,7 +118,7 @@ export default function SchoolsPage() {
           {/* Left Column: Image */}
           <div className="lg:col-span-6 relative overflow-hidden min-h-[280px] sm:min-h-[360px] lg:min-h-full">
             <img
-              src="/images/Annex 4.png"
+              src="/images/house 2.png"
               alt="St. Theresa Annex Campus Pupils"
               className="w-full h-full object-cover object-center"
             />
@@ -206,7 +206,7 @@ export default function SchoolsPage() {
           {/* Right Column: Image */}
           <div className="lg:col-span-6 relative overflow-hidden min-h-[280px] sm:min-h-[360px] lg:min-h-full order-1 lg:order-2">
             <img
-              src="/images/Murubya with director 1.jpg"
+              src="/images/Murubya 2.png"
               alt="Pupils with Director at Murubya Campus"
               className="w-full h-full object-cover object-center"
             />
