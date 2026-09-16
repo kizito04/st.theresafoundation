@@ -27,7 +27,7 @@ export default function NewsPage() {
         "Over the past two and a half decades, Fr. Paul has championed rural education, uplifted vulnerable families, and founded schools that now provide high-quality learning and moral grounding to hundreds of children across Western Uganda.",
         "The Thanksgiving celebration will feature a solemn Mass, the blessing of newly constructed campus facilities, and the official kickoff of new sponsorships under the St. Theresa Education Fund.",
       ],
-      image: "/images/Director.jpg",
+      image: "/images/Director 2.jpg",
     },
     {
       id: 2,
