@@ -1,8 +1,10 @@
+import AnimatedSection from "../components/AnimatedSection";
+
 export default function AboutPage() {
 
   return (
-    <div className="space-y-16 pb-16">
-      {/* Header Banner — Screenshot 3 design with dark blue line & Annex 2 background */}
+    <div className="space-y-16 pb-16 overflow-hidden">
+      {/* Header Banner */}
       <section
         className="relative text-white min-h-[460px] sm:min-h-[520px] flex items-center py-28 sm:py-36 overflow-hidden"
         style={{
@@ -12,28 +14,28 @@ export default function AboutPage() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        {/* Dark overlay without red gradient */}
         <div className="absolute inset-0 bg-slate-950/75" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          {/* Left-aligned heading with dark blue vertical accent bar */}
-          <div className="flex items-center gap-4 sm:gap-5 mb-4">
-            <div className="w-2.5 sm:w-3 h-12 sm:h-16 bg-[#1e3a8a] flex-shrink-0" />
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
-              Our Story &amp; Founder's Vision
-            </h1>
-          </div>
-          <p className="text-base sm:text-lg text-slate-200 max-w-3xl leading-relaxed pl-6 sm:pl-8">
-            Born out of 25 years of priestly gratitude, dedicated to transforming young lives through faith, education, and love.
-          </p>
+          <AnimatedSection variant="fly-left" duration={850}>
+            <div className="flex items-center gap-4 sm:gap-5 mb-4">
+              <div className="w-2.5 sm:w-3 h-12 sm:h-16 bg-[#1e3a8a] flex-shrink-0" />
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
+                Our Story &amp; Founder's Vision
+              </h1>
+            </div>
+            <p className="text-base sm:text-lg text-slate-200 max-w-3xl leading-relaxed pl-6 sm:pl-8">
+              Born out of 25 years of priestly gratitude, dedicated to transforming young lives through faith, education, and love.
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* About St. Theresa Foundation — Screenshot 1 design (Second top of About page, before Director) */}
+      {/* About St. Theresa Foundation */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white">
           {/* Top section: Wide image with overlapping dark navy badge */}
-          <div className="relative">
+          <AnimatedSection variant="grow" duration={850} className="relative">
             {/* Murubya pupils 1 banner image */}
             <div className="w-full h-[320px] sm:h-[420px] lg:h-[480px] overflow-hidden">
               <img
@@ -52,46 +54,42 @@ export default function AboutPage() {
                 About St. Theresa Foundation
               </h2>
             </div>
-          </div>
+          </AnimatedSection>
 
           {/* Lower section: Decorative grid on left, descriptive text on right */}
           <div className="pt-12 sm:pt-20 pb-8 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-            {/* Left: Decorative cross/grid element matching screenshot */}
-            <div className="hidden lg:flex lg:col-span-4 items-center justify-start pl-12 pt-6">
+            {/* Left: Decorative cross/grid element */}
+            <AnimatedSection variant="fly-left" duration={800} className="hidden lg:flex lg:col-span-4 items-center justify-start pl-12 pt-6">
               <div className="relative w-28 h-28">
-                {/* Thin structural grid lines */}
                 <div className="absolute top-0 bottom-0 left-10 w-[1.5px] bg-slate-800" />
                 <div className="absolute left-0 right-0 top-10 h-[1.5px] bg-slate-800" />
                 <div className="absolute left-0 top-0 w-10 h-10 border-t border-l border-slate-300" />
                 <div className="absolute right-0 bottom-0 w-10 h-10 border-b border-r border-slate-300" />
               </div>
-            </div>
+            </AnimatedSection>
 
             {/* Right: Narrative paragraphs */}
-            <div className="lg:col-span-8 space-y-6 text-slate-600 leading-relaxed text-base sm:text-lg">
+            <AnimatedSection variant="fly-right" duration={850} delay={100} className="lg:col-span-8 space-y-6 text-slate-600 leading-relaxed text-base sm:text-lg">
               <p>
                 St. Theresa Foundation was established as a thanksgiving initiative following the Silver Jubilee of priesthood of Rev. Fr. Paul Bigirwa.
               </p>
               <p>
                 The Foundation seeks to transform gratitude into meaningful service by supporting children, families and communities through education, talent development, sports and other community initiatives.
               </p>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
 
-      {/* Founder Section — Screenshot 2 design */}
+      {/* Founder Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         <div className="relative">
           {/* Light slate-blue backdrop container */}
-          <div className="bg-[#edf2f7] rounded-none sm:rounded-lg pt-12 pb-12 px-6 sm:px-12 lg:px-16 lg:ml-28">
+          <AnimatedSection variant="fly-right" duration={900} className="bg-[#edf2f7] rounded-none sm:rounded-lg pt-12 pb-12 px-6 sm:px-12 lg:px-16 lg:ml-28">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              {/* Spacer for overlapping image on desktop */}
               <div className="hidden lg:block lg:col-span-3" />
 
-              {/* Founder quote and bio text */}
               <div className="lg:col-span-9 space-y-5 lg:pl-6">
-                {/* Quotation icon outline */}
                 <div className="text-slate-400">
                   <svg
                     className="w-10 h-10 text-slate-400"
@@ -121,17 +119,16 @@ export default function AboutPage() {
                     <h3 className="text-base font-bold text-slate-900">Rev. Fr. Paul Bigirwa</h3>
                     <p className="text-sm text-slate-500">Founder &amp; Director, St. Theresa Foundation</p>
                   </div>
-                  {/* Subtle decorative right bracket */}
                   <div className="hidden sm:block text-slate-300 select-none">
                     <div className="w-8 h-8 border-b-2 border-r-2 border-slate-300" />
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
 
           {/* Director photo overlapping on the left */}
-          <div className="lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 w-full lg:w-[320px] xl:w-[360px] mx-auto mb-6 lg:mb-0">
+          <AnimatedSection variant="fly-left" duration={900} delay={150} className="lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 w-full lg:w-[320px] xl:w-[360px] mx-auto mb-6 lg:mb-0">
             <div className="relative shadow-2xl overflow-hidden bg-white">
               <img
                 src="/images/Director 2.jpg"
@@ -139,15 +136,14 @@ export default function AboutPage() {
                 className="w-full h-[380px] sm:h-[440px] object-cover object-top"
               />
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
-
 
       {/* ── Inspiration ───────────────────────────────────────── */}
       <section className="py-8 pb-16 lg:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12">
+          <AnimatedSection variant="grow" duration={800} className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-blue-600 font-bold text-xs uppercase tracking-widest">
               Living Examples of Faith &amp; Grit
             </span>
@@ -157,197 +153,204 @@ export default function AboutPage() {
             <p className="text-slate-600 mt-2 text-sm sm:text-base">
               Real lives that teach our young pupils in Kakumiro that humble beginnings do not limit God's purpose.
             </p>
-          </div>
+          </AnimatedSection>
 
           <div className="space-y-8">
-            {/* St. Theresa of Lisieux Card — Placed on top of Queen of Katwe */}
-            <div className="relative bg-white rounded-2xl p-8 sm:p-12 shadow-md hover:shadow-xl border border-rose-100 transition-all duration-500 overflow-hidden group min-h-[340px] flex flex-col justify-center">
-              {/* Highly Visible St. Theresa Image on the right side */}
-              <div className="absolute right-0 top-0 bottom-0 w-full sm:w-1/2 md:w-5/12 pointer-events-none overflow-hidden rounded-r-2xl z-0">
-                <img
-                  src="/images/Theresa.jpg"
-                  alt="St. Theresa of Lisieux - The Little Flower"
-                  className="w-full h-full object-cover object-center opacity-40 sm:opacity-75 group-hover:scale-105 group-hover:opacity-90 transition-all duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-white/20 sm:via-white/60" />
-              </div>
+            {/* St. Theresa of Lisieux Card */}
+            <AnimatedSection variant="grow" duration={850}>
+              <div className="relative bg-white rounded-2xl p-8 sm:p-12 shadow-md hover:shadow-xl border border-rose-100 transition-all duration-500 overflow-hidden group min-h-[340px] flex flex-col justify-center">
+                <div className="absolute right-0 top-0 bottom-0 w-full sm:w-1/2 md:w-5/12 pointer-events-none overflow-hidden rounded-r-2xl z-0">
+                  <img
+                    src="/images/Theresa.jpg"
+                    alt="St. Theresa of Lisieux - The Little Flower"
+                    className="w-full h-full object-cover object-center opacity-40 sm:opacity-75 group-hover:scale-105 group-hover:opacity-90 transition-all duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-white/20 sm:via-white/60" />
+                </div>
 
-              <div className="relative z-10 max-w-2xl">
-                <span className="text-xs font-bold text-rose-700 uppercase tracking-wider block mb-2">
-                  Holy Patroness &amp; Spiritual Guide
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
-                  St. Theresa of Lisieux: The Little Flower
-                </h3>
-                <p className="text-slate-700 text-sm sm:text-base leading-relaxed mb-3">
-                  Saint Thérèse of the Child Jesus (1873–1897), known lovingly as "The Little Flower", is the holy patroness and spiritual cornerstone of our foundation. Declared a Doctor of the Church, she illuminated the world through "The Little Way" — demonstrating that true greatness lies in doing ordinary everyday things with extraordinary love, gentleness, and complete trust in God.
-                </p>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  Her life teaches every child at St. Theresa Foundation that regardless of humble beginnings, quiet devotion and small acts of kindness hold immense power to transform families, classrooms, and communities across Uganda and beyond.
-                </p>
+                <div className="relative z-10 max-w-2xl">
+                  <span className="text-xs font-bold text-rose-700 uppercase tracking-wider block mb-2">
+                    Holy Patroness &amp; Spiritual Guide
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
+                    St. Theresa of Lisieux: The Little Flower
+                  </h3>
+                  <p className="text-slate-700 text-sm sm:text-base leading-relaxed mb-3">
+                    Saint Thérèse of the Child Jesus (1873–1897), known lovingly as "The Little Flower", is the holy patroness and spiritual cornerstone of our foundation. Declared a Doctor of the Church, she illuminated the world through "The Little Way" — demonstrating that true greatness lies in doing ordinary everyday things with extraordinary love, gentleness, and complete trust in God.
+                  </p>
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    Her life teaches every child at St. Theresa Foundation that regardless of humble beginnings, quiet devotion and small acts of kindness hold immense power to transform families, classrooms, and communities across Uganda and beyond.
+                  </p>
+                </div>
               </div>
-            </div>
+            </AnimatedSection>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Queen of Katwe Card */}
-              <div className="relative bg-white rounded-1xl p-8 sm:p-10 shadow-md hover:shadow-xl border border-slate-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden group min-h-[320px]">
-                {/* Highly Visible Queen of Katwe Image on the right side */}
-                <div className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-5/12 pointer-events-none overflow-hidden rounded-r-1xl z-0">
-                  <img
-                    src="/images/queen 1.png"
-                    alt="Phiona Mutesi - Queen of Katwe"
-                    className="w-full h-full object-cover object-top opacity-70 group-hover:scale-105 group-hover:opacity-85 transition-all duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-white via-white/50 to-transparent" />
-                </div>
+              {/* Queen of Katwe Card (Flies in from Left) */}
+              <AnimatedSection variant="fly-left" duration={850} className="h-full">
+                <div className="relative bg-white rounded-1xl p-8 sm:p-10 shadow-md hover:shadow-xl border border-slate-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden group min-h-[320px]">
+                  <div className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-5/12 pointer-events-none overflow-hidden rounded-r-1xl z-0">
+                    <img
+                      src="/images/queen 1.png"
+                      alt="Phiona Mutesi - Queen of Katwe"
+                      className="w-full h-full object-cover object-top opacity-70 group-hover:scale-105 group-hover:opacity-85 transition-all duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-white via-white/50 to-transparent" />
+                  </div>
 
-                <div className="relative z-10 max-w-sm sm:max-w-md">
-                  <span className="text-xs font-bold text-amber-700 uppercase tracking-wider block mb-2">
-                    Quiet Tenacity &amp; Strategic Vision
-                  </span>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                    Queen of Katwe: Phiona Mutesi
-                  </h3>
-                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                    Growing up amidst severe hardship in Katwe, Kampala, Phiona Mutesi discovered chess at a community outreach center.
-                    Through patient study, resilience, and dedicated mentorship, she rose to international acclaim.
-                  </p>
+                  <div className="relative z-10 max-w-sm sm:max-w-md">
+                    <span className="text-xs font-bold text-amber-700 uppercase tracking-wider block mb-2">
+                      Quiet Tenacity &amp; Strategic Vision
+                    </span>
+                    <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                      Queen of Katwe: Phiona Mutesi
+                    </h3>
+                    <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                      Growing up amidst severe hardship in Katwe, Kampala, Phiona Mutesi discovered chess at a community outreach center.
+                      Through patient study, resilience, and dedicated mentorship, she rose to international acclaim.
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </AnimatedSection>
 
-              {/* Pelé Card */}
-              <div className="relative bg-white rounded-1xl p-8 sm:p-10 shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 h-full flex flex-col justify-center overflow-hidden group min-h-[320px]">
-                {/* Highly Visible pele 2.png in the background */}
-                <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl z-0">
-                  <img
-                    src="/images/pele 2.png"
-                    alt=""
-                    aria-hidden="true"
-                    className="w-full h-full object-cover object-center opacity-30 filter contrast-110 group-hover:scale-105 transition-all duration-900"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/80 to-white/50" />
-                </div>
+              {/* Pelé Card (Flies in from Right) */}
+              <AnimatedSection variant="fly-right" duration={850} delay={150} className="h-full">
+                <div className="relative bg-white rounded-1xl p-8 sm:p-10 shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 h-full flex flex-col justify-center overflow-hidden group min-h-[320px]">
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl z-0">
+                    <img
+                      src="/images/pele 2.png"
+                      alt=""
+                      aria-hidden="true"
+                      className="w-full h-full object-cover object-center opacity-30 filter contrast-110 group-hover:scale-105 transition-all duration-900"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/80 to-white/50" />
+                  </div>
 
-                {/* Highly Visible pele.png on the right side */}
-                <div className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-5/12 pointer-events-none overflow-hidden rounded-r-1xl z-0">
-                  <img
-                    src="/images/pele.png"
-                    alt="Pelé"
-                    className="w-full h-full object-cover object-top opacity-70 group-hover:scale-105 group-hover:opacity-85 transition-all duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-white via-white/50 to-transparent" />
-                </div>
+                  <div className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-5/12 pointer-events-none overflow-hidden rounded-r-1xl z-0">
+                    <img
+                      src="/images/pele.png"
+                      alt="Pelé"
+                      className="w-full h-full object-cover object-top opacity-70 group-hover:scale-105 group-hover:opacity-85 transition-all duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-white via-white/50 to-transparent" />
+                  </div>
 
-                <div className="relative z-10 max-w-sm sm:max-w-md">
-                  <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider block mb-2">
-                    Humble Roots &amp; Relentless Passion
-                  </span>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                    Pelé: Birth of a Legend
-                  </h3>
-                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                    Starting on dusty clearings playing barefoot with a sock stuffed with rags, Pelé's joy,
-                    tireless work ethic, and humility took him from poverty to world glory.
-                  </p>
+                  <div className="relative z-10 max-w-sm sm:max-w-md">
+                    <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider block mb-2">
+                      Humble Roots &amp; Relentless Passion
+                    </span>
+                    <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                      Pelé: Birth of a Legend
+                    </h3>
+                    <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                      Starting on dusty clearings playing barefoot with a sock stuffed with rags, Pelé's joy,
+                      tireless work ethic, and humility took him from poverty to world glory.
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </AnimatedSection>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Mission, Vision & Values — Screenshot 4 design */}
+      {/* Mission, Vision & Values */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section heading with red underline accent matching Screenshot 4 */}
-        <div className="text-center mb-12">
+        <AnimatedSection variant="grow" duration={750} className="text-center mb-12">
           <h2 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-wider text-slate-900">
             Our Commitment
           </h2>
           <div className="w-16 h-1 bg-red-600 mx-auto mt-3" />
-        </div>
+        </AnimatedSection>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Vision Card */}
-          <div className="bg-white rounded-none border border-slate-200 border-t-4 border-t-slate-900 p-8 sm:p-10 shadow-sm flex flex-col justify-between">
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-slate-900 tracking-tight">
-                Our Vision
-              </h3>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                To raise a generation of confident, educated, spiritually grounded, and socially responsible young people capable of leading transformation in Uganda and globally.
-              </p>
-              <ul className="space-y-3 pt-3">
-                {[
-                  "Raising confident & spiritually grounded youth",
-                  "Transformative leadership across Uganda & globally",
-                  "Holistic character development through faith and love",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm font-medium text-slate-700">
-                    <span className="text-red-600 font-bold text-base leading-none mt-0.5 select-none">✓</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+          <AnimatedSection variant="grow" duration={800} delay={0} className="h-full">
+            <div className="bg-white rounded-none border border-slate-200 border-t-4 border-t-slate-900 p-8 sm:p-10 shadow-sm flex flex-col justify-between h-full">
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-slate-900 tracking-tight">
+                  Our Vision
+                </h3>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  To raise a generation of confident, educated, spiritually grounded, and socially responsible young people capable of leading transformation in Uganda and globally.
+                </p>
+                <ul className="space-y-3 pt-3">
+                  {[
+                    "Raising confident & spiritually grounded youth",
+                    "Transformative leadership across Uganda & globally",
+                    "Holistic character development through faith and love",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm font-medium text-slate-700">
+                      <span className="text-red-600 font-bold text-base leading-none mt-0.5 select-none">✓</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
+          </AnimatedSection>
 
           {/* Mission Card */}
-          <div className="bg-white rounded-none border border-slate-200 border-t-4 border-t-slate-900 p-8 sm:p-10 shadow-sm flex flex-col justify-between">
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-slate-900 tracking-tight">
-                Our Mission
-              </h3>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                To support education, nurture talent, strengthen families, and create pathways for children to rise beyond limitations, poverty, and financial hardship.
-              </p>
-              <ul className="space-y-3 pt-3">
-                {[
-                  "Comprehensive education & school sponsorship",
-                  "Talent nurturing in sports, arts, and leadership",
-                  "Strengthening vulnerable families and communities",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm font-medium text-slate-700">
-                    <span className="text-red-600 font-bold text-base leading-none mt-0.5 select-none">✓</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+          <AnimatedSection variant="grow" duration={800} delay={150} className="h-full">
+            <div className="bg-white rounded-none border border-slate-200 border-t-4 border-t-slate-900 p-8 sm:p-10 shadow-sm flex flex-col justify-between h-full">
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-slate-900 tracking-tight">
+                  Our Mission
+                </h3>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  To support education, nurture talent, strengthen families, and create pathways for children to rise beyond limitations, poverty, and financial hardship.
+                </p>
+                <ul className="space-y-3 pt-3">
+                  {[
+                    "Comprehensive education & school sponsorship",
+                    "Talent nurturing in sports, arts, and leadership",
+                    "Strengthening vulnerable families and communities",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm font-medium text-slate-700">
+                      <span className="text-red-600 font-bold text-base leading-none mt-0.5 select-none">✓</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
+          </AnimatedSection>
 
           {/* Values Card */}
-          <div className="bg-white rounded-none border border-slate-200 border-t-4 border-t-slate-900 p-8 sm:p-10 shadow-sm flex flex-col justify-between">
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-slate-900 tracking-tight">
-                Our Values
-              </h3>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                The core convictions and moral compass that inspire our dedication to every child.
-              </p>
-              <ul className="space-y-3 pt-3">
-                {[
-                  "Faith",
-                  "Discipline",
-                  "Excellence",
-                  "Compassion",
-                  "Opportunity for every child",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm font-medium text-slate-700">
-                    <span className="text-red-600 font-bold text-base leading-none mt-0.5 select-none">✓</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+          <AnimatedSection variant="grow" duration={800} delay={300} className="h-full">
+            <div className="bg-white rounded-none border border-slate-200 border-t-4 border-t-slate-900 p-8 sm:p-10 shadow-sm flex flex-col justify-between h-full">
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-slate-900 tracking-tight">
+                  Our Values
+                </h3>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  The core convictions and moral compass that inspire our dedication to every child.
+                </p>
+                <ul className="space-y-3 pt-3">
+                  {[
+                    "Faith",
+                    "Discipline",
+                    "Excellence",
+                    "Compassion",
+                    "Opportunity for every child",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm font-medium text-slate-700">
+                      <span className="text-red-600 font-bold text-base leading-none mt-0.5 select-none">✓</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* Jubilee Gift to the Community (Before Footer — Matching Screenshot) */}
+      {/* Jubilee Gift to the Community */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          {/* Left: Message with blue horizontal accent bar */}
-          <div className="lg:col-span-5 space-y-6">
+          {/* Left: Message (Flies in from Left) */}
+          <AnimatedSection variant="fly-left" duration={850} className="lg:col-span-5 space-y-6">
             <div className="w-16 h-1 bg-blue-600 rounded-full" />
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
@@ -370,10 +373,10 @@ export default function AboutPage() {
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
               As a living prayer of thanksgiving, the Foundation translates this gratitude into tangible impact — providing life-changing education, nurturing innate gifts, and fostering dignity and hope for generations of children.
             </p>
-          </div>
+          </AnimatedSection>
 
-          {/* Right: Video player */}
-          <div className="lg:col-span-7">
+          {/* Right: Video player (Flies in from Right) */}
+          <AnimatedSection variant="fly-right" duration={850} delay={150} className="lg:col-span-7">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-slate-900 aspect-video border border-slate-200">
               <video
                 src="/images/Video.mp4"
@@ -383,9 +386,10 @@ export default function AboutPage() {
                 className="w-full h-full object-cover"
               />
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
     </div>
   );
 }
+

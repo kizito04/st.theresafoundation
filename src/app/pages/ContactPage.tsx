@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Phone, Mail, Navigation, Facebook, Instagram, Youtube, CheckCircle2, ExternalLink, Loader2, X } from "lucide-react";
+import AnimatedSection from "../components/AnimatedSection";
 
 // Real WhatsApp SVG icon
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -65,12 +66,10 @@ export default function ContactPage() {
         setFormData({ name: "", email: "", message: "" });
         setShowToast(true);
       } else {
-        // Fallback: still reset and notify user
         setFormData({ name: "", email: "", message: "" });
         setShowToast(true);
       }
     } catch {
-      // Offline or network fallback
       setFormData({ name: "", email: "", message: "" });
       setShowToast(true);
     } finally {
@@ -79,8 +78,8 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="space-y-16 pb-0">
-      {/* ── Floating Popup Notification: "message delivered successfully" ── */}
+    <div className="space-y-16 pb-0 overflow-hidden">
+      {/* ── Floating Popup Notification ── */}
       {showToast && (
         <div
           role="alert"
@@ -102,7 +101,7 @@ export default function ContactPage() {
         </div>
       )}
 
-      {/* ── Header Banner — Matching About Us Page style with Gate background ── */}
+      {/* ── Header Banner ── */}
       <section
         className="relative text-white min-h-[460px] sm:min-h-[520px] flex items-center py-28 sm:py-36 overflow-hidden"
         style={{
@@ -112,29 +111,29 @@ export default function ContactPage() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        {/* Dark overlay matching About Us page */}
         <div className="absolute inset-0 bg-slate-950/75" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          {/* Left-aligned heading with dark blue vertical accent bar */}
-          <div className="flex items-center gap-4 sm:gap-5 mb-4">
-            <div className="w-2.5 sm:w-3 h-12 sm:h-16 bg-[#1e3a8a] flex-shrink-0" />
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
-              Contact Us
-            </h1>
-          </div>
-          <p className="text-base sm:text-lg text-slate-200 max-w-3xl leading-relaxed pl-6 sm:pl-8">
-            We are here to answer your questions regarding child sponsorship, school admissions, sports academy, and transport services.
-          </p>
+          <AnimatedSection variant="fly-left" duration={850}>
+            <div className="flex items-center gap-4 sm:gap-5 mb-4">
+              <div className="w-2.5 sm:w-3 h-12 sm:h-16 bg-[#1e3a8a] flex-shrink-0" />
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
+                Contact Us
+              </h1>
+            </div>
+            <p className="text-base sm:text-lg text-slate-200 max-w-3xl leading-relaxed pl-6 sm:pl-8">
+              We are here to answer your questions regarding child sponsorship, school admissions, sports academy, and transport services.
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* ── Main Contact & Form Section (Matching Screenshot 3 design) ── */}
+      {/* ── Main Contact & Form Section ── */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
 
-          {/* ── Left Column: Get InTouch with Us ── */}
-          <div className="lg:col-span-5 space-y-4">
+          {/* ── Left Column: Get InTouch with Us (Flies in from Left) ── */}
+          <AnimatedSection variant="fly-left" duration={850} className="lg:col-span-5 space-y-4">
             <h2 className="text-2xl sm:text-3xl font-bold font-serif text-[#821e3a] tracking-tight">
               Get InTouch with Us
             </h2>
@@ -237,10 +236,10 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
 
-          {/* ── Right Column: Leave a message (White Card with Elevation) ── */}
-          <div className="lg:col-span-7 space-y-4">
+          {/* ── Right Column: Leave a message (Flies in from Right) ── */}
+          <AnimatedSection variant="fly-right" duration={850} delay={150} className="lg:col-span-7 space-y-4">
             <h2 className="text-2xl sm:text-3xl font-bold font-serif text-[#821e3a] tracking-tight">
               Leave a message
             </h2>
@@ -257,7 +256,6 @@ export default function ContactPage() {
               )}
 
               <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Name Input */}
                 <div>
                   <input
                     required
@@ -270,7 +268,6 @@ export default function ContactPage() {
                   />
                 </div>
 
-                {/* Email Input */}
                 <div>
                   <input
                     required
@@ -283,7 +280,6 @@ export default function ContactPage() {
                   />
                 </div>
 
-                {/* Message Textarea */}
                 <div>
                   <textarea
                     required
@@ -296,7 +292,6 @@ export default function ContactPage() {
                   ></textarea>
                 </div>
 
-                {/* Submit Button */}
                 <div className="pt-2 text-center">
                   <button
                     type="submit"
@@ -315,72 +310,71 @@ export default function ContactPage() {
                 </div>
               </form>
             </div>
-          </div>
+          </AnimatedSection>
 
         </div>
       </section>
 
-      {/* ── Interactive Map Banner (Matching Screenshot 4 design before footer) ── */}
-      <section
-        className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8 overflow-hidden bg-slate-900"
-        style={{
-          backgroundImage: "url('/images/house2.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        {/* Soft overlay to let the tree landscape shine through */}
-        <div className="absolute inset-0 bg-slate-950/40 backdrop-blur-[1px]" />
+      {/* ── Interactive Map Banner (Grows in) ── */}
+      <AnimatedSection variant="grow" duration={900}>
+        <section
+          className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8 overflow-hidden bg-slate-900"
+          style={{
+            backgroundImage: "url('/images/house2.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <div className="absolute inset-0 bg-slate-950/40 backdrop-blur-[1px]" />
 
-        <div className="relative z-10 max-w-6xl mx-auto">
-          {/* Floating Rounded Map Card with Shadow */}
-          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 border-white/60 bg-white h-[350px] sm:h-[420px]">
-            {/* Top-Left Location Info Card (Matching Screenshot 4) */}
-            <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-20 bg-white/95 backdrop-blur-md rounded-xl shadow-lg border border-slate-200/80 p-3.5 sm:p-4 max-w-[280px] sm:max-w-xs space-y-1">
-              <div className="flex items-start justify-between gap-3">
-                <h4 className="font-bold text-slate-900 text-xs sm:text-sm leading-snug">
-                  St. Theresa Foundation — Campus Office
-                </h4>
-                <a
-                  href="https://maps.google.com/?q=St.+Theresa+Nursery+and+Primary+School+-+Uganda"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-7 h-7 rounded-full bg-blue-50 hover:bg-blue-100 flex items-center justify-center text-blue-600 transition-colors flex-shrink-0"
-                  aria-label="Open directions in Google Maps"
-                >
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
+          <div className="relative z-10 max-w-6xl mx-auto">
+            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 border-white/60 bg-white h-[350px] sm:h-[420px]">
+              <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-20 bg-white/95 backdrop-blur-md rounded-xl shadow-lg border border-slate-200/80 p-3.5 sm:p-4 max-w-[280px] sm:max-w-xs space-y-1">
+                <div className="flex items-start justify-between gap-3">
+                  <h4 className="font-bold text-slate-900 text-xs sm:text-sm leading-snug">
+                    St. Theresa Foundation — Campus Office
+                  </h4>
+                  <a
+                    href="https://maps.google.com/?q=St.+Theresa+Nursery+and+Primary+School+-+Uganda"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-7 h-7 rounded-full bg-blue-50 hover:bg-blue-100 flex items-center justify-center text-blue-600 transition-colors flex-shrink-0"
+                    aria-label="Open directions in Google Maps"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+                <p className="text-[11px] text-slate-500 leading-tight">
+                  Igayaza, Kakumiro District, Western Uganda
+                </p>
+                <div className="pt-1 flex items-center gap-2">
+                  <a
+                    href="https://maps.google.com/?q=St.+Theresa+Nursery+and+Primary+School+-+Uganda"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1 text-[11px] text-blue-600 hover:text-blue-800 font-semibold"
+                  >
+                    <Navigation className="w-3 h-3 rotate-45 fill-blue-600" />
+                    Get Directions
+                  </a>
+                  <span className="text-slate-300 text-xs">•</span>
+                  <span className="text-[10px] text-slate-400">Hoima Catholic Diocese</span>
+                </div>
               </div>
-              <p className="text-[11px] text-slate-500 leading-tight">
-                Igayaza, Kakumiro District, Western Uganda
-              </p>
-              <div className="pt-1 flex items-center gap-2">
-                <a
-                  href="https://maps.google.com/?q=St.+Theresa+Nursery+and+Primary+School+-+Uganda"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1 text-[11px] text-blue-600 hover:text-blue-800 font-semibold"
-                >
-                  <Navigation className="w-3 h-3 rotate-45 fill-blue-600" />
-                  Get Directions
-                </a>
-                <span className="text-slate-300 text-xs">•</span>
-                <span className="text-[10px] text-slate-400">Hoima Catholic Diocese</span>
-              </div>
+
+              <iframe
+                src="https://maps.google.com/maps?q=St.+Theresa+Nursery+and+Primary+School+-+Uganda&t=&z=9&ie=UTF8&iwloc=B&output=embed"
+                className="w-full h-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="St. Theresa Foundation Location Map"
+              />
             </div>
-
-            {/* Embedded Google Map centered on St. Theresa Nursery and Primary School in Kakumiro */}
-            <iframe
-              src="https://maps.google.com/maps?q=St.+Theresa+Nursery+and+Primary+School+-+Uganda&t=&z=9&ie=UTF8&iwloc=B&output=embed"
-              className="w-full h-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="St. Theresa Foundation Location Map"
-            />
           </div>
-        </div>
-      </section>
+        </section>
+      </AnimatedSection>
     </div>
   );
 }
+

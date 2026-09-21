@@ -103,7 +103,7 @@ export default function Header() {
               {/* Hamburger bars on the right — mobile/tablet */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2.5 rounded-xl text-white hover:bg-white/10 transition-colors cursor-pointer"
+                className="lg:hidden p-2.5 rounded-md text-white hover:bg-white/10 transition-colors cursor-pointer"
                 aria-label="Toggle menu"
               >
                 {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
@@ -114,7 +114,7 @@ export default function Header() {
 
         {/* Mobile Dropdown Menu */}
         <div
-          className={`absolute left-3 right-3 sm:left-6 sm:right-6 top-[calc(100%+8px)] bg-[#002f54] text-white rounded-2xl shadow-2xl border border-white/15 lg:hidden transform transition-all duration-300 origin-top overflow-hidden ${
+          className={`absolute left-3 right-3 sm:left-6 sm:right-6 top-[calc(100%+8px)] bg-[#002f54] text-white rounded-lg shadow-2xl border border-white/15 lg:hidden transform transition-all duration-300 origin-top overflow-hidden ${
             mobileMenuOpen ? "scale-y-100 opacity-100 pointer-events-auto" : "scale-y-0 opacity-0 pointer-events-none"
           }`}
         >

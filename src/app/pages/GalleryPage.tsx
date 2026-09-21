@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
+import AnimatedSection from "../components/AnimatedSection";
 
 // Add GalleryCard component at the top, just below imports
 function GalleryCard({ item, onClick }: { item: any; onClick: () => void }) {
@@ -202,8 +203,8 @@ export default function GalleryPage() {
   };
 
   return (
-    <div className="space-y-16 pb-20 bg-white">
-      {/* ── Header Banner — Matching Other Pages style with Fr with pupils 1 background ── */}
+    <div className="space-y-16 pb-20 bg-white overflow-hidden">
+      {/* ── Header Banner ── */}
       <section
         className="relative text-white min-h-[460px] sm:min-h-[520px] flex items-center py-28 sm:py-36 overflow-hidden"
         style={{
@@ -213,35 +214,42 @@ export default function GalleryPage() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        {/* Dark overlay matching About Us and Contact Us pages */}
         <div className="absolute inset-0 bg-slate-950/75" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          {/* Left-aligned heading with dark blue vertical accent bar */}
-          <div className="flex items-center gap-4 sm:gap-5 mb-4">
-            <div className="w-2.5 sm:w-3 h-12 sm:h-16 bg-[#1e3a8a] flex-shrink-0" />
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
-              Photo Gallery
-            </h1>
-          </div>
-          <p className="text-base sm:text-lg text-slate-200 max-w-3xl leading-relaxed pl-6 sm:pl-8">
-            Explore authentic moments from our classrooms, sports training, pastoral visits with Fr. Paul Bigirwa, and community celebrations in Kakumiro.
-          </p>
+          <AnimatedSection variant="fly-left" duration={850}>
+            <div className="flex items-center gap-4 sm:gap-5 mb-4">
+              <div className="w-2.5 sm:w-3 h-12 sm:h-16 bg-[#1e3a8a] flex-shrink-0" />
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
+                Photo Gallery
+              </h1>
+            </div>
+            <p className="text-base sm:text-lg text-slate-200 max-w-3xl leading-relaxed pl-6 sm:pl-8">
+              Explore authentic moments from our classrooms, sports training, pastoral visits with Fr. Paul Bigirwa, and community celebrations in Kakumiro.
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* ── Gallery Cards Grid (Cards have description that appears from bottom on hover) ── */}
+      {/* ── Gallery Cards Grid ── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {galleryItems.map((item) => (
-            <GalleryCard
+          {galleryItems.map((item, index) => (
+            <AnimatedSection
               key={item.id}
-              item={item}
-              onClick={() => setSelectedImage({ src: item.src, title: item.title, desc: item.desc })}
-            />
+              variant="grow"
+              duration={750}
+              delay={(index % 3) * 120}
+            >
+              <GalleryCard
+                item={item}
+                onClick={() => setSelectedImage({ src: item.src, title: item.title, desc: item.desc })}
+              />
+            </AnimatedSection>
           ))}
         </div>
       </section>
+
 
       {/* ── Fullscreen Lightbox Modal ── */}
       {selectedImage && (

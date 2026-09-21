@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { X, Calendar, User, ArrowRight } from "lucide-react";
+import AnimatedSection from "../components/AnimatedSection";
 
 interface Article {
   id: number;
@@ -74,8 +75,8 @@ export default function NewsPage() {
   ];
 
   return (
-    <div className="space-y-16 pb-20 bg-white">
-      {/* ── Top Section: Similar to About Us and Contact Us pages ── */}
+    <div className="space-y-16 pb-20 bg-white overflow-hidden">
+      {/* ── Top Section ── */}
       <section
         className="relative text-white min-h-[460px] sm:min-h-[520px] flex items-center py-28 sm:py-36 overflow-hidden"
         style={{
@@ -85,34 +86,37 @@ export default function NewsPage() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        {/* Dark overlay matching other pages */}
         <div className="absolute inset-0 bg-slate-950/75" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          {/* Left-aligned heading with dark blue vertical accent bar */}
-          <div className="flex items-center gap-4 sm:gap-5 mb-4">
-            <div className="w-2.5 sm:w-3 h-12 sm:h-16 bg-[#1e3a8a] flex-shrink-0" />
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
-              News &amp; Updates
-            </h1>
-          </div>
-          <p className="text-base sm:text-lg text-slate-200 max-w-3xl leading-relaxed pl-6 sm:pl-8">
-            Stay updated with school milestones, program launches, pastoral stories, and community developments across St. Theresa Foundation.
-          </p>
+          <AnimatedSection variant="fly-left" duration={850}>
+            <div className="flex items-center gap-4 sm:gap-5 mb-4">
+              <div className="w-2.5 sm:w-3 h-12 sm:h-16 bg-[#1e3a8a] flex-shrink-0" />
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
+                News &amp; Updates
+              </h1>
+            </div>
+            <p className="text-base sm:text-lg text-slate-200 max-w-3xl leading-relaxed pl-6 sm:pl-8">
+              Stay updated with school milestones, program launches, pastoral stories, and community developments across St. Theresa Foundation.
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* ── Articles List: Matching Screenshot 1 Design ── */}
+      {/* ── Articles List ── */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="divide-y divide-slate-200 border-t border-b border-slate-200">
-          {newsArticles.map((article) => (
+          {newsArticles.map((article, idx) => (
             <article
               key={article.id}
               className="py-10 sm:py-14 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
             >
               {/* Left Column: Text Content */}
-              <div className="lg:col-span-7 space-y-3.5">
-                {/* Headline matching Screenshot 1 */}
+              <AnimatedSection
+                variant={idx % 2 === 0 ? "fly-left" : "fly-right"}
+                duration={850}
+                className="lg:col-span-7 space-y-3.5"
+              >
                 <h2
                   onClick={() => setSelectedArticle(article)}
                   className="text-2xl sm:text-3xl lg:text-[28px] font-extrabold text-[#002f54] leading-snug tracking-tight hover:text-[#8e1b38] transition-colors cursor-pointer"
@@ -120,17 +124,14 @@ export default function NewsPage() {
                   {article.title}
                 </h2>
 
-                {/* Bold Date */}
                 <p className="text-xs sm:text-sm font-bold text-slate-800 tracking-tight pt-1">
                   {article.date}
                 </p>
 
-                {/* Summary Paragraph */}
                 <p className="text-sm sm:text-base text-slate-600 leading-relaxed pt-1">
                   {article.summary}
                 </p>
 
-                {/* Read Full Article with maroon bottom border line matching Screenshot 1 */}
                 <div className="pt-3">
                   <button
                     onClick={() => setSelectedArticle(article)}
@@ -139,10 +140,15 @@ export default function NewsPage() {
                     Read full article
                   </button>
                 </div>
-              </div>
+              </AnimatedSection>
 
-              {/* Right Column: Image matching Screenshot 1 */}
-              <div className="lg:col-span-5 flex justify-center lg:justify-end">
+              {/* Right Column: Image */}
+              <AnimatedSection
+                variant={idx % 2 === 0 ? "fly-right" : "fly-left"}
+                duration={850}
+                delay={120}
+                className="lg:col-span-5 flex justify-center lg:justify-end"
+              >
                 <div
                   onClick={() => setSelectedArticle(article)}
                   className="w-full sm:w-[380px] lg:w-[400px] h-[210px] sm:h-[230px] rounded-lg overflow-hidden shadow-sm border border-slate-200/80 cursor-pointer group flex-shrink-0"
@@ -153,7 +159,7 @@ export default function NewsPage() {
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-              </div>
+              </AnimatedSection>
             </article>
           ))}
         </div>

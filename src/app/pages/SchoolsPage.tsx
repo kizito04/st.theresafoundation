@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router";
 import { CheckCircle2, X, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
+import AnimatedSection from "../components/AnimatedSection";
 
 interface CampusDetail {
   id: string;
@@ -82,8 +83,8 @@ export default function SchoolsPage() {
   ];
 
   return (
-    <div className="space-y-16 pb-20 bg-white">
-      {/* ── Top Section: Similar to About Us and Contact Us pages ── */}
+    <div className="space-y-16 pb-20 bg-white overflow-hidden">
+      {/* ── Top Section ── */}
       <section
         className="relative text-white min-h-[460px] sm:min-h-[520px] flex items-center py-28 sm:py-36 overflow-hidden"
         style={{
@@ -93,131 +94,127 @@ export default function SchoolsPage() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        {/* Dark overlay matching other pages */}
         <div className="absolute inset-0 bg-slate-950/75" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          {/* Left-aligned heading with dark blue vertical accent bar */}
-          <div className="flex items-center gap-4 sm:gap-5 mb-4">
-            <div className="w-2.5 sm:w-3 h-12 sm:h-16 bg-[#1e3a8a] flex-shrink-0" />
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
-              St. Theresa Schools
-            </h1>
-          </div>
-          <p className="text-base sm:text-lg text-slate-200 max-w-3xl leading-relaxed pl-6 sm:pl-8">
-            Providing accessible, high-quality Catholic education and nurturing young minds across specialized campuses in Western Uganda.
-          </p>
+          <AnimatedSection variant="fly-left" duration={850}>
+            <div className="flex items-center gap-4 sm:gap-5 mb-4">
+              <div className="w-2.5 sm:w-3 h-12 sm:h-16 bg-[#1e3a8a] flex-shrink-0" />
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
+                St. Theresa Schools
+              </h1>
+            </div>
+            <p className="text-base sm:text-lg text-slate-200 max-w-3xl leading-relaxed pl-6 sm:pl-8">
+              Providing accessible, high-quality Catholic education and nurturing young minds across specialized campuses in Western Uganda.
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* ── Campus Cards Section (Following Screenshot 3 Banner Design) ── */}
+      {/* ── Campus Cards Section ── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
 
-        {/* ── Card 1: Image on Left, Description on Right (Matching Screenshot 3) ── */}
-        <div className="bg-[#002f54] text-white rounded-3xl overflow-hidden shadow-2xl relative grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-[380px] sm:min-h-[430px]">
-          {/* Left Column: Image */}
-          <div className="lg:col-span-6 relative overflow-hidden min-h-[280px] sm:min-h-[360px] lg:min-h-full">
-            <img
-              src="/images/house 2.png"
-              alt="St. Theresa Annex Campus Pupils"
-              className="w-full h-full object-cover object-center"
-            />
-          </div>
+        {/* ── Card 1: Annex Campus (Flies in from Left) ── */}
+        <AnimatedSection variant="fly-left" duration={900}>
+          <div className="bg-[#002f54] text-white rounded-3xl overflow-hidden shadow-2xl relative grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-[380px] sm:min-h-[430px]">
+            {/* Left Column: Image */}
+            <div className="lg:col-span-6 relative overflow-hidden min-h-[280px] sm:min-h-[360px] lg:min-h-full">
+              <img
+                src="/images/house 2.png"
+                alt="St. Theresa Annex Campus Pupils"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
 
-          {/* Right Column: Description on Dark Navy with Curved Divider */}
-          <div className="lg:col-span-6 bg-[#002f54] p-8 sm:p-12 lg:p-14 flex flex-col justify-center relative z-20">
-            {/* Elegant SVG Arc Curve on Left Edge (Desktop) */}
-            <svg
-              className="hidden lg:block absolute -left-12 top-0 bottom-0 h-full w-12 text-[#002f54] fill-current pointer-events-none z-20"
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-            >
-              <path d="M100 0 C 25 15, 0 35, 0 50 C 0 65, 25 85, 100 100 Z" />
-            </svg>
+            {/* Right Column: Description on Dark Navy with Curved Divider */}
+            <div className="lg:col-span-6 bg-[#002f54] p-8 sm:p-12 lg:p-14 flex flex-col justify-center relative z-20">
+              <svg
+                className="hidden lg:block absolute -left-12 top-0 bottom-0 h-full w-12 text-[#002f54] fill-current pointer-events-none z-20"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+              >
+                <path d="M100 0 C 25 15, 0 35, 0 50 C 0 65, 25 85, 100 100 Z" />
+              </svg>
 
-            <div className="space-y-4 max-w-xl">
-              <span className="text-xs font-bold uppercase tracking-widest text-blue-300">
-                St. Theresa Annex Campus
-              </span>
+              <div className="space-y-4 max-w-xl">
+                <span className="text-xs font-bold uppercase tracking-widest text-blue-300">
+                  St. Theresa Annex Campus
+                </span>
 
-              {/* Bold Headline matching Screenshot 3 */}
-              <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-white leading-tight tracking-tight">
-                Develop the knowledge, character, and skills needed to inspire positive change and lead with integrity.
-              </h2>
+                <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-white leading-tight tracking-tight">
+                  Develop the knowledge, character, and skills needed to inspire positive change and lead with integrity.
+                </h2>
 
-              {/* Italic/Script Accent Line matching Screenshot 3 */}
-              <p className="font-serif italic text-lg sm:text-xl text-amber-300 pt-1">
-                St. Theresa Annex admissions &amp; scholarships are open!
-              </p>
+                <p className="font-serif italic text-lg sm:text-xl text-amber-300 pt-1">
+                  St. Theresa Annex admissions &amp; scholarships are open!
+                </p>
 
-              {/* Action Link with Gold Underline matching Screenshot 3 */}
-              <div className="pt-3">
-                <button
-                  onClick={() => setSelectedCampus(campusDetails.annex)}
-                  className="inline-block text-sm sm:text-base font-bold text-white border-b-2 border-amber-400 pb-1 hover:text-amber-300 hover:border-amber-300 transition-colors cursor-pointer"
-                >
-                  Find out more about Annex Campus
-                </button>
+                <div className="pt-3">
+                  <button
+                    onClick={() => setSelectedCampus(campusDetails.annex)}
+                    className="inline-block text-sm sm:text-base font-bold text-white border-b-2 border-amber-400 pb-1 hover:text-amber-300 hover:border-amber-300 transition-colors cursor-pointer"
+                  >
+                    Find out more about Annex Campus
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </AnimatedSection>
 
-        {/* ── Card 2: Image on Right, Description on Left (Alternated as requested) ── */}
-        <div className="bg-[#002f54] text-white rounded-3xl overflow-hidden shadow-2xl relative grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-[380px] sm:min-h-[430px]">
-          {/* Left Column: Description on Dark Navy */}
-          <div className="lg:col-span-6 bg-[#002f54] p-8 sm:p-12 lg:p-14 flex flex-col justify-center relative z-20 order-2 lg:order-1">
-            {/* Elegant SVG Arc Curve on Right Edge (Desktop) */}
-            <svg
-              className="hidden lg:block absolute -right-12 top-0 bottom-0 h-full w-12 text-[#002f54] fill-current pointer-events-none z-20"
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-            >
-              <path d="M0 0 C 75 15, 100 35, 100 50 C 100 65, 75 85, 0 100 Z" />
-            </svg>
+        {/* ── Card 2: Murubya Campus (Flies in from Right) ── */}
+        <AnimatedSection variant="fly-right" duration={900}>
+          <div className="bg-[#002f54] text-white rounded-3xl overflow-hidden shadow-2xl relative grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-[380px] sm:min-h-[430px]">
+            {/* Left Column: Description on Dark Navy */}
+            <div className="lg:col-span-6 bg-[#002f54] p-8 sm:p-12 lg:p-14 flex flex-col justify-center relative z-20 order-2 lg:order-1">
+              <svg
+                className="hidden lg:block absolute -right-12 top-0 bottom-0 h-full w-12 text-[#002f54] fill-current pointer-events-none z-20"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+              >
+                <path d="M0 0 C 75 15, 100 35, 100 50 C 100 65, 75 85, 0 100 Z" />
+              </svg>
 
-            <div className="space-y-4 max-w-xl">
-              <span className="text-xs font-bold uppercase tracking-widest text-rose-300">
-                Murubya Rural Outreach Campus
-              </span>
+              <div className="space-y-4 max-w-xl">
+                <span className="text-xs font-bold uppercase tracking-widest text-rose-300">
+                  Murubya Rural Outreach Campus
+                </span>
 
-              {/* Bold Headline matching Screenshot 3 */}
-              <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-white leading-tight tracking-tight">
-                Empowering rural communities with accessible quality education, moral grounding, and compassionate care.
-              </h2>
+                <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-white leading-tight tracking-tight">
+                  Empowering rural communities with accessible quality education, moral grounding, and compassionate care.
+                </h2>
 
-              {/* Italic/Script Accent Line matching Screenshot 3 */}
-              <p className="font-serif italic text-lg sm:text-xl text-amber-300 pt-1">
-                Walking alongside vulnerable families in Western Uganda!
-              </p>
+                <p className="font-serif italic text-lg sm:text-xl text-amber-300 pt-1">
+                  Walking alongside vulnerable families in Western Uganda!
+                </p>
 
-              {/* Action Link with Gold Underline matching Screenshot 3 */}
-              <div className="pt-3">
-                <button
-                  onClick={() => setSelectedCampus(campusDetails.murubya)}
-                  className="inline-block text-sm sm:text-base font-bold text-white border-b-2 border-amber-400 pb-1 hover:text-amber-300 hover:border-amber-300 transition-colors cursor-pointer"
-                >
-                  Find out more about Murubya Campus
-                </button>
+                <div className="pt-3">
+                  <button
+                    onClick={() => setSelectedCampus(campusDetails.murubya)}
+                    className="inline-block text-sm sm:text-base font-bold text-white border-b-2 border-amber-400 pb-1 hover:text-amber-300 hover:border-amber-300 transition-colors cursor-pointer"
+                  >
+                    Find out more about Murubya Campus
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Right Column: Image */}
-          <div className="lg:col-span-6 relative overflow-hidden min-h-[280px] sm:min-h-[360px] lg:min-h-full order-1 lg:order-2">
-            <img
-              src="/images/Murubya 2.png"
-              alt="Pupils with Director at Murubya Campus"
-              className="w-full h-full object-cover object-center"
-            />
+            {/* Right Column: Image */}
+            <div className="lg:col-span-6 relative overflow-hidden min-h-[280px] sm:min-h-[360px] lg:min-h-full order-1 lg:order-2">
+              <img
+                src="/images/Murubya 2.png"
+                alt="Pupils with Director at Murubya Campus"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
           </div>
-        </div>
+        </AnimatedSection>
 
       </section>
 
-      {/* ── Shared Values Across Campuses (Screenshot 4 design) ── */}
+      {/* ── Shared Values Across Campuses ── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-        <div className="bg-[#f0f4f9] rounded-3xl p-8 sm:p-12 border border-slate-200 space-y-10">
+        <AnimatedSection variant="grow" duration={850} className="bg-[#f0f4f9] rounded-3xl p-8 sm:p-12 border border-slate-200 space-y-10">
           <div className="text-center max-w-2xl mx-auto">
             <span className="text-blue-700 font-bold text-xs uppercase tracking-widest">
               Core Principles
@@ -231,9 +228,8 @@ export default function SchoolsPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {sharedValues.map((val) => (
-              <div key={val.title} className="flex flex-col items-center group">
-                {/* Photo at the top with top border accent matching Screenshot 4 */}
+            {sharedValues.map((val, idx) => (
+              <AnimatedSection key={val.title} variant="grow" duration={800} delay={idx * 120} className="flex flex-col items-center group">
                 <div className="w-full h-44 sm:h-48 overflow-hidden rounded-sm shadow-sm border-t-4 border-[#002f54] bg-slate-200">
                   <img
                     src={val.image}
@@ -241,19 +237,18 @@ export default function SchoolsPage() {
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                {/* Bold Uppercase Heading */}
                 <h3 className="font-bold text-[#002f54] text-base uppercase tracking-wider text-center mt-5 mb-2 font-serif">
                   {val.title}
                 </h3>
-                {/* Descriptive text */}
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed text-center">
                   {val.desc}
                 </p>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
-        </div>
+        </AnimatedSection>
       </section>
+
 
       {/* ── Campus Details Lightbox / Modal ── */}
       {selectedCampus && (
