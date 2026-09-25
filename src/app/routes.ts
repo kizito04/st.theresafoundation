@@ -5,6 +5,7 @@ import AboutPage from "./pages/AboutPage";
 import SchoolsPage from "./pages/SchoolsPage";
 import GalleryPage from "./pages/GalleryPage";
 import NewsPage from "./pages/NewsPage";
+import NewsDetailPage from "./pages/NewsDetailPage";
 import ContactPage from "./pages/ContactPage";
 
 export const router = createBrowserRouter([
@@ -17,7 +18,9 @@ export const router = createBrowserRouter([
       { path: "schools", Component: SchoolsPage },
       { path: "gallery", Component: GalleryPage },
       { path: "news", Component: NewsPage },
+      { path: "news/:idOrSlug", Component: NewsDetailPage },
       { path: "contact", Component: ContactPage },
     ],
   },
 ]);
+

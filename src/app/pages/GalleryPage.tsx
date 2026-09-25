@@ -208,7 +208,7 @@ export default function GalleryPage() {
       <section
         className="relative text-white min-h-[460px] sm:min-h-[520px] flex items-center py-28 sm:py-36 overflow-hidden"
         style={{
-          backgroundImage: "url('/images/Fr with pupils 1.png')",
+          backgroundImage: "url('/images/gate.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

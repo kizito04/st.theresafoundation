@@ -8,7 +8,7 @@ export default function AboutPage() {
       <section
         className="relative text-white min-h-[460px] sm:min-h-[520px] flex items-center py-28 sm:py-36 overflow-hidden"
         style={{
-          backgroundImage: "url('/images/annex 2.png')",
+          backgroundImage: "url('/images/Theresa.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
