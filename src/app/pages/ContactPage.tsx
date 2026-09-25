@@ -105,7 +105,7 @@ export default function ContactPage() {
       <section
         className="relative text-white min-h-[460px] sm:min-h-[520px] flex items-center py-28 sm:py-36 overflow-hidden"
         style={{
-          backgroundImage: "url('/images/gate.png')",
+          backgroundImage: "url('/images/contact us.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -304,7 +304,7 @@ export default function ContactPage() {
                         <span>SENDING...</span>
                       </>
                     ) : (
-                      <span>SEND NOW</span>
+                      <span>SUBMIT</span>
                     )}
                   </button>
                 </div>
